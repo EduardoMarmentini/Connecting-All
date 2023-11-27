@@ -20,3 +20,71 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.boxInputs {
+    display: flex;
+    flex-direction: column; 
+    width: 90%;
+    margin-left:50px;
+}
+
+/* Estilo da parte de upload de foto de perfil ao cadastrar um contato*/
+#picture_upload {
+    display: none;
+}
+
+.picture {
+    background-color: #ddd;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    border: 3px dashed #aaa;
+    border-radius: 50%;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+}
+
+.picture_show {
+    background-color: #ddd;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    border: #aaa;
+    border-radius: 50%;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+}
+
+.picture:hover{
+    color: #888;
+    background: #ccc;
+}
+
+.picture:active {
+    color: dodgerblue;
+    border-color: dodgerblue;
+    background: #eee;
+}
+
+.picture:focus {
+    color: dodgerblue;
+    border-color: dodgerblue;
+    background: #eee;
+    box-shadow: 0 0 10px dodgerblue;
+}
+
+.exibe_foto{
+    max-width: 100%;
+    border-radius:50%;
+}
+
+
+/*----------------------------------------------------*/

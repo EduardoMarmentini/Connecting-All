@@ -1,4 +1,26 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿$(document).ready(function () {
 
-// Write your JavaScript code.
+    const inputFile = $("#picture_upload");
+    const pictureImage = $(".exibe_foto");
+
+    inputFile.change(function (e) {
+        const file = e.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                var img = $("<img/>", {
+                    "src": e.target.result,
+                    "class": "exibe_foto"
+                });
+
+                pictureImage.empty();
+                pictureImage.append(img);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+
+});

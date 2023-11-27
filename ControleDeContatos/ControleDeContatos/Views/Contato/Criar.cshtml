@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Salvar registros";
+}
+<h1 class="display-4">Adicionar contato:</h1>
+
+<div class="card shadow p-3 mb-5 bg-white rounded">
+    <form>
+        <div class="d-flex">
+            <div>
+                <div class="form-group">
+                    <br />
+                    <label class="picture" for="picture_upload" tabindex="0">
+                        <span class="exibe_foto">Foto de perfil:</span>
+                        <input type="file" accpet="image/*" class="custom-file-input" id="picture_upload" />    
+                    </label>
+                </div>
+            </div>
+
+            <div class="boxInputs">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nome:</label>
+                    <input type="text" class="form-control" id="txtNome" aria-describedby="emailHelp" placeholder="Seu nome">
+                </div>
+                </br>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">E-mail:</label>
+                    <input type="email" class="form-control" id="txtEmail" placeholder="Seu E-mail">
+                </div>
+                </br>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Celular:</label>
+                    <input type="text" class="form-control" id="txtTelefone" placeholder="()_____-____">
+                </div>
+            </div>
+        </div>
+
+        </br>
+
+        <button type="submit" class="btn btn-primary">Gravar</button>
+        <a class="btn btn-secondary" asp-controller="Contato" asp-action="Index">Voltar</a>
+
+    </form>
+</div>
