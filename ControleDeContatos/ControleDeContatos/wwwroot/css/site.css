@@ -56,7 +56,7 @@ body {
     align-items: center;
     justify-content: center;
     color: #aaa;
-    border: #aaa;
+    border: 0.5px black;
     border-radius: 50%;
     font-family: sans-serif;
     transition: color 300ms ease-in-out, background 300ms ease-in-out;
