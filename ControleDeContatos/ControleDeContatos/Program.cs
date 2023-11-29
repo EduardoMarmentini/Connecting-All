@@ -1,3 +1,8 @@
+using ControleDeContatos.Data;
+using ControleDeContatos.Repositorio;
+using Microsoft.EntityFrameworkCore;
+using System;
+
 namespace ControleDeContatos
 {
     public class Program
@@ -8,6 +13,14 @@ namespace ControleDeContatos
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Configura o contexto de banco SQL Server fazendo a inserção de suas dependencias
+            builder.Services.AddDbContext<BancoContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"));
+            });
+            // Sempre que a interface for utilizada a injeção de dependecia dela utilizara tudo desse repositorio
+            builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
 
             var app = builder.Build();
 

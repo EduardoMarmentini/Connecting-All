@@ -2,24 +2,31 @@
 
     const inputFile = $("#picture_upload");
     const pictureImage = $(".exibe_foto");
-
     inputFile.change(function (e) {
         const file = e.target.files[0];
 
         if (file) {
-            const reader = new FileReader();
+            // Obtém a extensão do arquivo
+            const fileExtension = file.name.split('.').pop().toLowerCase();
 
-            reader.onload = function (e) {
-                var img = $("<img/>", {
-                    "src": e.target.result,
-                    "class": "exibe_foto"
-                });
+            // Verifica se a extensão do arquivo é jpeg
+            if (fileExtension === "jpeg") {
+                const reader = new FileReader();
 
-                pictureImage.empty();
-                pictureImage.append(img);
-            };
+                reader.onload = function (e) {
+                    var img = $("<img/>", {
+                        "src": e.target.result,
+                        "class": "exibe_foto"
+                    });
 
-            reader.readAsDataURL(file);
+                    pictureImage.empty();
+                    pictureImage.append(img);
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                alert("Por favor, selecione uma imagem jpeg.");
+            }
         }
     });
 

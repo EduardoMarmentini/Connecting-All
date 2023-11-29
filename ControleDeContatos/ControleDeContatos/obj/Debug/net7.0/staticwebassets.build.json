@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JHoEN6yrD1uW+jLR2/YXlg1A5xDC4XXU5BtL9jqqhB4=",
+  "Hash": "LxZz6HGP2E7NOPv4yDQUjiwK1R/A0b+6ijVGeTq9YuA=",
   "Source": "ControleDeContatos",
   "BasePath": "_content/ControleDeContatos",
   "Mode": "Default",
@@ -93,12 +93,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\perfil.jpg",
+      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\1.jpeg",
       "SourceId": "ControleDeContatos",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\",
       "BasePath": "_content/ControleDeContatos",
-      "RelativePath": "img/perfil.jpg",
+      "RelativePath": "img/1.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,15 +109,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\perfil.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\1.jpeg"
     },
     {
-      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\sem-foto.jpg",
+      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\2.jpeg",
       "SourceId": "ControleDeContatos",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\",
       "BasePath": "_content/ControleDeContatos",
-      "RelativePath": "img/sem-foto.jpg",
+      "RelativePath": "img/2.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -128,7 +128,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\sem-foto.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\2.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\sem-foto.jpeg",
+      "SourceId": "ControleDeContatos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\",
+      "BasePath": "_content/ControleDeContatos",
+      "RelativePath": "img/sem-foto.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\sem-foto.jpeg"
     },
     {
       "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\js\\site.js",

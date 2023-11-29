@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<ContatoModel>
+@{
     ViewData["Title"] = "Registo de contatos";
 }
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -34,33 +35,24 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td> <img src="img/perfil.jpg" alt="contato" style="width:45px; height:45px" class="rounded-circle"></td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-                <td><a class="btn btn-info" asp-controller="Contato" asp-action="Editar">Editar</a></td>
-                <td><a class="btn btn-danger" asp-controller="Contato" asp-action="Apagar">Apagar</a></td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td> <img src="img/sem-foto.jpg" alt="contato" style="width:45px; height:45px" class="rounded-circle"></td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-                <td><a class="btn btn-info" asp-controller="Contato" asp-action="Editar">Editar</a></td>
-                <td><a class="btn btn-danger" asp-controller="Contato" asp-action="Apagar">Apagar</a></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td> <img src="img/sem-foto.jpg" alt="contato" style="width:45px; height:45px" class="rounded-circle"></td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>twitter</td>
-                <td><a class="btn btn-info" asp-controller="Contato" asp-action="Editar">Editar</a></td>
-                <td><a class="btn btn-danger" asp-controller="Contato" asp-action="Apagar">Apagar</a></td>
-            </tr>
+            @if (Model != null && Model.Any())
+            {
+                foreach (ContatoModel contato in Model)
+                {
+                    string foto = $"{contato.Id}.jpeg";
+
+                    string caminho = $"/img/{foto}";
+                    <tr>
+                        <th scope="row">@contato.Id</th>
+                        <td> <img src=@caminho onerror="this.onerror=null; this.src='/img/sem-foto.jpg'" alt="contato" style="width:45px; height:45px" class="rounded-circle"></td>
+                        <td class="text-left">@contato.Nome</td>
+                        <td>@contato.Email</td>
+                        <td>@contato.Celular</td>
+                        <td><a class="btn btn-info" asp-controller="Contato" asp-action="Editar">Editar</a></td>
+                        <td><a class="btn btn-danger" asp-controller="Contato" asp-action="Apagar">Apagar</a></td>
+                    </tr>
+                }    
+            }
         </tbody>
 
     </table>
