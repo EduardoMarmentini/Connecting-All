@@ -28,6 +28,11 @@
                 alert("Por favor, selecione uma imagem jpeg.");
             }
         }
+
+        $("#remove_foto").click(() => {
+            console.log("dentro")
+            pictureImage.empty();
+        })
     });
 
 });

@@ -32,8 +32,12 @@ namespace ControleDeContatos.Controllers
             return View(); 
         }
 
-        public IActionResult Editar() {
-            return View();
+        public IActionResult Editar(int id) {
+
+            //Chama o metodo que busca os dados por id e retorna para view
+            ContatoModel contato = _contatoRepositorio.ListarPorId(id);
+
+            return View(contato);
         }
 
         // Metodos POST de inserção e manipulação 
@@ -42,6 +46,15 @@ namespace ControleDeContatos.Controllers
         {
             // Utilizando a variavel que contem o objeto de repositorio do banco
             _contatoRepositorio.Adicionar(contato, picture_upload);
+            return RedirectToAction("Index");
+        }
+
+        // Metodos POST de inserção e manipulação 
+        [HttpPost] // Realizando a assinatura do tipo que esse metodo pertence
+        public IActionResult Alterar(ContatoModel contato, IFormFile picture_upload)
+        {
+            // Utilizando a variavel que contem o objeto de repositorio do banco
+            _contatoRepositorio.Alterar(contato, picture_upload);
             return RedirectToAction("Index");
         }
     }

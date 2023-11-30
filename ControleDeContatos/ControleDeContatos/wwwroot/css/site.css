@@ -86,5 +86,15 @@ body {
     border-radius:50%;
 }
 
+.exibe_foto img {
+    max-width: 100%;
+    border-radius: 50%;
+}
 
+
+#remove_foto {
+    position: absolute;
+    border: 1px #aaa;
+    border-radius: 50%;
+}
 /*----------------------------------------------------*/
