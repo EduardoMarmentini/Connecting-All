@@ -11,6 +11,6 @@ namespace ControleDeContatos.Repositorio
         // Metodo de adicionar registros as tabela.
         ContatoModel Adicionar(ContatoModel contato, IFormFile picture_upload);
 
-        ContatoModel Alterar(ContatoModel contato, IFormFile picture_upload);
+        ContatoModel Alterar(ContatoModel contato, IFormFile picture_upload, IFormFile foto_perfil);
     }
 }

@@ -35,8 +35,8 @@ body {
 
 .picture {
     background-color: #ddd;
-    width: 200px;
-    height: 200px;
+    width: 210px;
+    height: 210px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,20 +81,28 @@ body {
     box-shadow: 0 0 10px dodgerblue;
 }
 
-.exibe_foto{
-    max-width: 100%;
-    border-radius:50%;
-}
-
-.exibe_foto img {
-    max-width: 100%;
+.picture_show, .exibe_foto {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.picture_show img, .exibe_foto img {
+    width: 105%;
+    object-fit: cover;
+}
 
 #remove_foto {
     position: absolute;
     border: 1px #aaa;
     border-radius: 50%;
 }
+#remove_foto:hover {
+    color: dodgerblue;
+}
+
 /*----------------------------------------------------*/

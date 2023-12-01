@@ -51,10 +51,10 @@ namespace ControleDeContatos.Controllers
 
         // Metodos POST de inserção e manipulação 
         [HttpPost] // Realizando a assinatura do tipo que esse metodo pertence
-        public IActionResult Alterar(ContatoModel contato, IFormFile picture_upload)
+        public IActionResult Alterar(ContatoModel contato, IFormFile picture_upload, IFormFile foto_perfil)
         {
             // Utilizando a variavel que contem o objeto de repositorio do banco
-            _contatoRepositorio.Alterar(contato, picture_upload);
+            _contatoRepositorio.Alterar(contato, picture_upload, foto_perfil);
             return RedirectToAction("Index");
         }
     }

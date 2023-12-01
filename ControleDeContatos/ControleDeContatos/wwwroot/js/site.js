@@ -28,11 +28,10 @@
                 alert("Por favor, selecione uma imagem jpeg.");
             }
         }
-
-        $("#remove_foto").click(() => {
-            console.log("dentro")
-            pictureImage.empty();
-        })
     });
 
+    $("#remove_foto").click(() => {
+        pictureImage.empty();
+        pictureImage.text("Foto de perfil:")
+    })
 });

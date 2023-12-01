@@ -21,6 +21,7 @@ namespace ControleDeContatos
             });
             // Sempre que a interface for utilizada a injeção de dependecia dela utilizara tudo desse repositorio
             builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
+            builder.Services.AddScoped<IPhotoRepositorio, PhotoRepositorio>();
 
             var app = builder.Build();
 

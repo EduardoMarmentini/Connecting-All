@@ -17,5 +17,6 @@
         /*
             OBS: O metodo de buscar a foto de perfil do contato está no arquivo da model pois todo arquivo que incorporar a model tera acesso a ela 
         */
+
     }
 }
