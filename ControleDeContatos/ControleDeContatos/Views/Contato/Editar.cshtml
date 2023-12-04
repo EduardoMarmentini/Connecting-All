@@ -13,13 +13,8 @@
             <div>
                 <div class="form-group">
                     <br />
-                    <button type="button" id="remove_foto">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                     <label class="picture" for="picture_upload" tabindex="0">
-                        <span class="exibe_foto"> 
-                            <img src="@Model.GetImagePath()" id="foto_perfil" onerror="this.onerror=null; this.src='/img/sem-foto.jpeg'">
-                        </span>
+                        <span class="exibe_foto">Nova foto de perfil:</span>
                         <input type="file" accept="image/jpeg" class="custom-file-input" id="picture_upload" name="picture_upload" />
                     </label>
                 </div>

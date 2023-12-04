@@ -10,7 +10,7 @@ namespace ControleDeContatos.Repositorio
         List<ContatoModel> BuscarTodos();
         // Metodo de adicionar registros as tabela.
         ContatoModel Adicionar(ContatoModel contato, IFormFile picture_upload);
-
-        ContatoModel Alterar(ContatoModel contato, IFormFile picture_upload, IFormFile foto_perfil);
+        // Metodo para alterar os dados do contato na tabela de contatos
+        ContatoModel Alterar(ContatoModel contato, IFormFile picture_upload);
     }
 }

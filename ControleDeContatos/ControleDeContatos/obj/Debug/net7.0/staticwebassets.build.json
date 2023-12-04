@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I5FI/EF8hIPx+koBWurX06L2vHX2kZX1UWVu/7XFqxc=",
+  "Hash": "kgvDKJvgl46hb4r84lLxKwxiktD0oEd7MQHtCZgVRLc=",
   "Source": "ControleDeContatos",
   "BasePath": "_content/ControleDeContatos",
   "Mode": "Default",
@@ -112,6 +112,25 @@
       "OriginalItemSpec": "wwwroot\\img\\1.jpeg"
     },
     {
+      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\1001.jpeg",
+      "SourceId": "ControleDeContatos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\",
+      "BasePath": "_content/ControleDeContatos",
+      "RelativePath": "img/1001.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\1001.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\2.jpeg",
       "SourceId": "ControleDeContatos",
       "SourceType": "Discovered",
@@ -186,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\5.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\6.jpeg",
+      "SourceId": "ControleDeContatos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\",
+      "BasePath": "_content/ControleDeContatos",
+      "RelativePath": "img/6.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\6.jpeg"
     },
     {
       "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\sem-foto.jpeg",

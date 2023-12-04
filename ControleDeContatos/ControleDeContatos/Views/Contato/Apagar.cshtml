@@ -1,35 +1,37 @@
-﻿@{
+﻿@model ContatoModel
+@{
     ViewData["Title"] = "Apagar Registro";
 }
 <div class="card shadow p-3 mb-5 bg-white rounded">
     <form>
         <div class="d-flex">
+            <input type="hidden" asp-for="Id" />
             <div>
                 <div class="form-group">
                     <label class="picture_show" for="picture_upload" tabindex="0">
-                        <img src="/img/sem-foto.jpg" alt="contato" class="exibe_foto">
+                        <img src="@Model.GetImagePath()" id="foto_perfil" onerror="this.onerror=null; this.src='/img/sem-foto.jpeg'">
                     </label>
                 </div>
             </div>
 
             <div class="boxInputs">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Nome:</label>
+                    <label asp-for="Nome">Nome:</label>
                 </div>
-                </br>
+                <br />
                 <div class="form-group">
-                    <label for="exampleInputPassword1">E-mail:</label>
+                    <label asp-for="Email">E-mail:</label>
                 </div>
-                </br>
+                <br />
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Celular:</label>
+                    <label asp-for="Celular">Celular:</label>
                 </div>
             </div>
         </div>
 
-        </br>
+        <br />
 
-        <button type="submit" class="btn btn-danger" asp-controller="Contato" asp-action="ExcluirContato">Apagar</button>
+        <button type="submit" class="btn btn-danger" asp-controller="Contato" asp-action="Excluir">Apagar</button>
         <a class="btn btn-secondary" asp-controller="Contato" asp-action="Index">Cancelar</a>
 
     </form>

@@ -1,8 +1,20 @@
-﻿@{
+﻿@model ContatoModel
+@{
     ViewData["Title"] = "Pagina Inicial";
 }
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <div class="text-center">
     <h1 class="display-4">Bem vindo a sua agenda de contatos!</h1>
-    <p>Sistema de controle de contatos</p>
+</div>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <span class="material-symbols-outlined">
+            group
+        </span>
+        <h5 class="card-title">Lista de contatos</h5>
+        <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+        <a class="btn btn-primary" asp-controller="Contato" asp-action="Index">Acessar</a>
+    </div>
 </div>

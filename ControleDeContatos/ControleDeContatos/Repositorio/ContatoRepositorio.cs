@@ -46,7 +46,7 @@ namespace ControleDeContatos.Repositorio
             return contato;
         }
 
-        public ContatoModel Alterar(ContatoModel contato, IFormFile picture_upload, IFormFile foto_perfil)
+        public ContatoModel Alterar(ContatoModel contato, IFormFile picture_upload)
         {
             ContatoModel contatoDB = ListarPorId(contato.Id);
 
@@ -59,6 +59,8 @@ namespace ControleDeContatos.Repositorio
             // Chama o metodo de atualizar os dados do banco do entityFrameworkCore 
             _bancoContext.Contatos.Update(contatoDB);
 
+            // Chama o metodo de atualizar a foto de perfil
+            _photo.AlterarPhoto(contato.Id, picture_upload);
             // Realiza o commit no banco de dados
             _bancoContext.SaveChanges();
 
