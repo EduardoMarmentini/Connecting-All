@@ -12,5 +12,7 @@ namespace ControleDeContatos.Repositorio
         ContatoModel Adicionar(ContatoModel contato, IFormFile picture_upload);
         // Metodo para alterar os dados do contato na tabela de contatos
         ContatoModel Alterar(ContatoModel contato, IFormFile picture_upload);
+        // Metodo para Apagar o contato na tabela de contatos
+        ContatoModel Excluir(ContatoModel contato);
     }
 }

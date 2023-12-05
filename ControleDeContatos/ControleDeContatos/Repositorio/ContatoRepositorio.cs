@@ -6,10 +6,8 @@ namespace ControleDeContatos.Repositorio
     public class ContatoRepositorio : IContatoRepositorio
     {
         // Criando a varivel que ira receber as propriedades do contexto de banco
-
         private readonly BancoContext _bancoContext;
         private readonly IPhotoRepositorio _photo;
-
 
         // Criando o construtor e injetando o contexto no mesmo
         public ContatoRepositorio(BancoContext bancoContext, IPhotoRepositorio photo)
@@ -18,11 +16,13 @@ namespace ControleDeContatos.Repositorio
             _bancoContext = bancoContext;
             _photo = photo;
         }
+
         // Busca todos os dados referentes ao id passado.
         public ContatoModel ListarPorId(int id)
         {
             return _bancoContext.Contatos.FirstOrDefault(x => x.Id == id);
         }
+
         // Metodo que lista todos os registros 
         public List<ContatoModel> BuscarTodos()
         {
@@ -66,6 +66,17 @@ namespace ControleDeContatos.Repositorio
 
             return contatoDB;
 
+        }
+
+        public ContatoModel Excluir(ContatoModel contato)
+        {
+            ContatoModel contatoDB = ListarPorId(contato.Id);
+
+            if (contatoDB == null) throw new Exception("Houve um erro na exclusão do contato");
+
+            // Chama o metodo que exclui a foto de perfil
+            _photo.ExcluirPhoto(contato.Id);
+            throw new NotImplementedException();
         }
     }
 }

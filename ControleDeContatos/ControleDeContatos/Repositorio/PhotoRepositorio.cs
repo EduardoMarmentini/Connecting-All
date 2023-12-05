@@ -53,5 +53,19 @@ namespace ControleDeContatos.Repositorio
             return Task.CompletedTask;
         }
 
+        public Task ExcluirPhoto(int id)
+        {
+            string caminhoDaimagem = Path.Combine(caminhoServidor, "img");
+
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), caminhoDaimagem, id + ".jpeg");
+
+            // Verifica se o arquivo já existe
+            if (File.Exists(imagePath))
+            {
+                // Se o arquivo existir, exclua-o
+                File.Delete(imagePath);
+            }
+            return Task.CompletedTask;
+        }
     }
 }

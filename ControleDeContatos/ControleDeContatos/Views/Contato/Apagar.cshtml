@@ -2,10 +2,14 @@
 @{
     ViewData["Title"] = "Apagar Registro";
 }
-<div class="card shadow p-3 mb-5 bg-white rounded">
+<div class="text-center">
+    <h1 class="display-4">Apagar contato:</h1>
+</div>
+<br />
+<div class="card shadow p-3 mb-5 bg-white rounded" style="width:50%; margin: auto;">
     <form>
         <div class="d-flex">
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Id"/>
             <div>
                 <div class="form-group">
                     <label class="picture_show" for="picture_upload" tabindex="0">
@@ -14,25 +18,47 @@
                 </div>
             </div>
 
-            <div class="boxInputs">
+            <div class="boxInputs" style="margin-top:40px;">
                 <div class="form-group">
-                    <label asp-for="Nome">Nome:</label>
+                    <label asp-for="Nome">Nome: @Model.Nome</label>
                 </div>
                 <br />
                 <div class="form-group">
-                    <label asp-for="Email">E-mail:</label>
+                    <label asp-for="Email">E-mail: @Model.Email</label>
+                    
                 </div>
                 <br />
                 <div class="form-group">
-                    <label asp-for="Celular">Celular:</label>
+                    <label asp-for="Celular">Celular: @Model.Celular</label>
                 </div>
             </div>
         </div>
 
         <br />
-
-        <button type="submit" class="btn btn-danger" asp-controller="Contato" asp-action="Excluir">Apagar</button>
-        <a class="btn btn-secondary" asp-controller="Contato" asp-action="Index">Cancelar</a>
-
     </form>
+    <div>
+        <p>
+            Realmente deseja apagar esse contato: 
+            <div class="radio-buttons-container">
+                <div class="radio-button">
+                    <input name="radio-group" id="rdSim" class="radio-button__input" type="radio">
+                    <label for="rdSim" class="radio-button__label">
+                        <span class="radio-button__custom"></span>
+                        Sim
+                    </label>
+                </div>
+                <div class="radio-button">
+                    <input name="radio-group" id="rdNao" class="radio-button__input" type="radio" checked>
+                    <label for="rdNao" class="radio-button__label">
+                        <span class="radio-button__custom"></span>
+                        Não
+                    </label>
+                </div>
+                
+            </div>
+        </p>
+        <button type="submit" class="btn btn-danger">Apagar</button>
+        <a class="btn btn-secondary" asp-controller="Contato" asp-action="Index">Cancelar</a>
+    </div>
 </div>
+
