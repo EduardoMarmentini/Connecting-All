@@ -74,9 +74,16 @@ namespace ControleDeContatos.Repositorio
 
             if (contatoDB == null) throw new Exception("Houve um erro na exclusão do contato");
 
+            // Chama a função que remove os dados do banco de dados
+            _bancoContext.Contatos.Remove(contatoDB);
+
             // Chama o metodo que exclui a foto de perfil
             _photo.ExcluirPhoto(contato.Id);
-            throw new NotImplementedException();
+
+            // Realiza o commit no banco de dados
+            _bancoContext.SaveChanges();
+
+            return contatoDB;
         }
     }
 }

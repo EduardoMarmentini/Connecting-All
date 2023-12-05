@@ -11,7 +11,7 @@
         public string GetImagePath()
         {
             string foto = $"{Id}.jpeg";
-            string caminho = $"/img/{foto}";
+            string caminho = $"/img/ContatosPhotos/{foto}";
             return caminho;
         }
         /*

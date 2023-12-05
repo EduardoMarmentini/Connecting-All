@@ -15,7 +15,7 @@ namespace ControleDeContatos.Repositorio
         {
             if (picture_upload != null)
             {
-                string caminhoDaimagem = Path.Combine(caminhoServidor, "img");
+                string caminhoDaimagem = Path.Combine(caminhoServidor, "img/ContatosPhotos");
 
                 // Salva a imagem na pasta 'img' com o nome do arquivo sendo o id_do_contato.extensão_do_arquivo
                 var imagePath = Path.Combine(Directory.GetCurrentDirectory(), caminhoDaimagem, id + Path.GetExtension(picture_upload.FileName));
@@ -33,7 +33,7 @@ namespace ControleDeContatos.Repositorio
             // Caso o usuario tenha feito o upload de uma nova foto ele substitui a antiga por ela
             if(picture_upload != null)
             {
-                string caminhoDaimagem = Path.Combine(caminhoServidor, "img");
+                string caminhoDaimagem = Path.Combine(caminhoServidor, "img/ContatosPhotos");
 
                 var imagePath = Path.Combine(Directory.GetCurrentDirectory(), caminhoDaimagem, id + Path.GetExtension(picture_upload.FileName));
 
