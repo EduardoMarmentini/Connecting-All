@@ -18,21 +18,24 @@
                 </div>
             </div>
 
-            <div class="boxInputs">
-                <div class="form-group">
-                    <label>Nome:</label>
-                    <input type="text" asp-for="Nome" class="form-control" id="txtNome" aria-describedby="emailHelp" placeholder="Seu nome">
-                </div>
+            <div class="boxInputs" style="margin-top:40px;">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" id="typeText" class="form-control" asp-for="Nome" />
+                        <label class="form-label" for="typeText">Nome</label>
+                    </div>
+                        @Html.ValidationMessageFor(x => x.Nome)
                 <br />
-                <div class="form-group">
-                    <label>E-mail:</label>
-                    <input type="email" asp-for="Email" class="form-control" id="txtEmail" placeholder="Seu E-mail">
+                <div class="form-outline" data-mdb-input-init>
+                    <input type="text" id="typeText" class="form-control" asp-for="Email" />
+                    <label class="form-label" for="typeText">E-mail</label>
                 </div>
+                    @Html.ValidationMessageFor(x => x.Email)
                 <br />
-                <div class="form-group">
-                    <label>Celular:</label>
-                    <input type="text" asp-for="Celular" class="form-control" id="txtTelefone" placeholder="()_____-____">
+                <div class="form-outline" data-mdb-input-init>
+                    <input type="text" id="typeText" class="form-control" asp-for="Celular" />
+                    <label class="form-label" for="typeText">Celular</label>
                 </div>
+                    @Html.ValidationMessageFor(x => x.Celular)
             </div>
         </div>
 

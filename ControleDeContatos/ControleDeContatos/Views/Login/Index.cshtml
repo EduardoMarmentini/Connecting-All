@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+<link rel="stylesheet" href="~/css/login.css" />
+
+<body>
+
+    <div class="container-login">
+        <div class="img-box">
+            <img src="~/img/logo_login.jpg" alt="Logo"/>
+        </div>
+        <div class="content-box">
+            <div class="form-box">
+                <h2>Login</h2>
+                <form asp-controller="Login" asp-action="Entrar" method="post">
+
+                    <div class="input-box">
+                        <span>Login</span>
+                        <input type="text" class="form-control" placeholder="Login">
+                    </div>
+
+                    <div class="input-box">
+                        <span>Password</span>
+                        <input type="password" class="form-control" placeholder="Password">
+                    </div>
+
+                    <div class="remember">
+                        <label>
+                            <input type="checkbox" /> Remember me
+                        </label>
+                        <a asp-controller="Login" asp-action="RedefinirSenha">Forgot your password?</a>
+                    </div>
+
+                    <div class="input-box">
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <span class="material-symbols-outlined" style="color:white; height:20px;">login</span> Submit
+                        </button>
+
+                    </div>
+
+                    <div class="input-box">
+                        <p>Don't have an account? <a href="#">Sign up</a></p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

@@ -28,6 +28,19 @@ body {
     margin-left:50px;
 }
 
+.field-validation-error{
+    color: red;
+}
+
+#close_alert{
+    position:absolute;
+    right: -10px;
+    top: -15px;
+    background-color: darkgray;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
 /* Estilo da parte de upload de foto de perfil ao cadastrar um contato*/
 #picture_upload {
     display: none;

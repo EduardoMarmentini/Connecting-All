@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cs13MfliRjZOz+kohkdtD2Pjbn56fqk/iFTGiayrZBo=",
+  "Hash": "PvvZgDgWLv7/cYdG8HKL1uzQT/oNfWCzUNyVTXhpViA=",
   "Source": "ControleDeContatos",
   "BasePath": "_content/ControleDeContatos",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ControleDeContatos.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\css\\login.css",
+      "SourceId": "ControleDeContatos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\",
+      "BasePath": "_content/ControleDeContatos",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\css\\mdb.dark.min.css",
@@ -226,6 +245,25 @@
       "OriginalItemSpec": "wwwroot\\img\\ContatosPhotos\\1001.jpeg"
     },
     {
+      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\ContatosPhotos\\1002.jpeg",
+      "SourceId": "ControleDeContatos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\",
+      "BasePath": "_content/ControleDeContatos",
+      "RelativePath": "img/ContatosPhotos/1002.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\ContatosPhotos\\1002.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\ContatosPhotos\\2.jpeg",
       "SourceId": "ControleDeContatos",
       "SourceType": "Discovered",
@@ -321,6 +359,25 @@
       "OriginalItemSpec": "wwwroot\\img\\ContatosPhotos\\sem-foto.jpeg"
     },
     {
+      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\fundo_login.jpeg",
+      "SourceId": "ControleDeContatos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\",
+      "BasePath": "_content/ControleDeContatos",
+      "RelativePath": "img/fundo_login.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\fundo_login.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\logo.png",
       "SourceId": "ControleDeContatos",
       "SourceType": "Discovered",
@@ -338,6 +395,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\logo_login.jpg",
+      "SourceId": "ControleDeContatos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\",
+      "BasePath": "_content/ControleDeContatos",
+      "RelativePath": "img/logo_login.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo_login.jpg"
     },
     {
       "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\js\\mdb.es.min.js",

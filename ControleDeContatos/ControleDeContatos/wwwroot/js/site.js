@@ -50,4 +50,9 @@
             $('.btn.btn-danger').prop('disabled', false);
         }
     });
+
+    // Some com o a mensagem de alert
+    $("#close_alert").click(() => {
+        $(".alert").hide("hide");
+    })
 });
