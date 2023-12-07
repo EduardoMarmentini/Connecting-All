@@ -3,7 +3,6 @@
     ViewData["Title"] = "Registo de contatos";
 }
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<br />
 
 @if (TempData["MensagemSucesso"] != null)
 {
@@ -29,12 +28,15 @@
     
 }
 
-<br />
-
 <h1 class="display-4">Lista de contatos:</h1>
 
+<a class="btn btn-primary" asp-controller="Contato" asp-action="Criar">Adicionar contato</a>
+
+<br />
+<br />
+
 <div>
-    <table class="table">
+    <table class="table" id="table-contatos">
 
         <thead>
             <tr>
@@ -80,5 +82,5 @@
 
     </table>
 </div>
+
 <br />
-<a class="btn btn-primary" asp-controller="Contato" asp-action="Criar">Adicionar contato</a>
