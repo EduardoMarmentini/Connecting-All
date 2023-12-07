@@ -7,15 +7,13 @@ namespace ControleDeContatos.Models
         public int Id { get; set; }
         // Torna o campo como obrigatorio
         [Required(ErrorMessage = "Digite o nome do contato")]
-        public string Nome { get; set; }
+        public required string Nome { get; set; }
         // Torna o campo como obrigatorio
         [Required(ErrorMessage = "Digite o e-mail do contato")]
-        [EmailAddress(ErrorMessage = "E-mail invalido para registro")]
-        public string Email { get; set; }
+        public required string Email { get; set; }
         // Torna o campo como obrigatorio
         [Required(ErrorMessage = "Digite o celular do contato.")]
-        [Phone(ErrorMessage = "Celular invalido para registro")]
-        public string Celular { get; set; }
+        public required string Celular { get; set; }
 
         // Busca o caminho da imagem salva no projeto
         public string GetImagePath()

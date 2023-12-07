@@ -48,7 +48,7 @@ namespace ControleDeContatos.Controllers
 
         // Metodos POST de inserção e manipulação 
         [HttpPost] // Realizando a assinatura do tipo que esse metodo pertence
-        public IActionResult Criar(ContatoModel contato, IFormFile picture_upload)
+        public IActionResult Criar(ContatoModel contato, IFormFile? picture_upload)
         {
             // Tratativa de erro ao tentar cadastrar contato
             try
@@ -73,7 +73,7 @@ namespace ControleDeContatos.Controllers
         }
  
         [HttpPost] // Realizando a assinatura do tipo que esse metodo pertence
-        public IActionResult Alterar(ContatoModel contato, IFormFile picture_upload)
+        public IActionResult Alterar(ContatoModel contato, IFormFile? picture_upload)
         {
             // Tratativa de erro ao tentar alterar contato
             try {
@@ -97,8 +97,19 @@ namespace ControleDeContatos.Controllers
         [HttpPost]  
         public IActionResult Excluir(ContatoModel contato) {
 
-            _contatoRepositorio.Excluir(contato);
-            return RedirectToAction("Index");
+            // Tratativa de erro ao tentar apagar o contato
+            try { 
+            
+                _contatoRepositorio.Excluir(contato);
+                TempData["MensagemSucesso"] = "Contato apagado com sucesso!";
+                return RedirectToAction("Index");
+            } 
+            catch (Exception error)
+            {
+                TempData["MensgemErro"] = $"Erro ao tentar apagr o contato, detalhe do erro: {error.Message}";
+                return RedirectToAction("Index");
+            }
+
         }
     }
 }

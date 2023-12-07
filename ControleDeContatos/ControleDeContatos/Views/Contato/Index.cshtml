@@ -7,19 +7,20 @@
 
 @if (TempData["MensagemSucesso"] != null)
 {
-    <div class="alert alert-success d-flex" role="alert">
-        <button type="button" class="btn-close" aria-label="Close" id="close_alert"></button>
+
+    <div class="alert alert-success mb-0 alert-dismissible fade show d-flex" id="alertExample" role="alert" data-mdb-color="secondary">
         <span class="material-symbols-outlined" style="padding-right:5px;">
             check_circle
         </span>
         @TempData["MensagemSucesso"]
+        <button type="button" class="btn-close ms-2" data-mdb-dismiss="alert" aria-label="Close"></button>
     </div>
 }
 
 @if (TempData["MensgemErro"] != null)
 {
-    <div class="alert alert-danger d-flex" role="alert">
-        <button type="button" class="btn-close" aria-label="Close" id="close_alert"></button>
+    <div class="alert alert-danger mb-0 alert-dismissible fade show d-flex" id="alertExample" role="alert" data-mdb-color="secondary">
+        <button type="button" class="btn-close" id="close-alert" aria-label="Close"></button>
         <span class="material-symbols-outlined" style="padding-right:5px;">
             error
         </span>
@@ -66,7 +67,7 @@
                 {
                     <tr>
                         <th scope="row">@contato.Id</th>
-                        <td> <img src=@contato.GetImagePath() onerror="this.onerror=null; this.src='/img/sem-foto.jpeg'" alt="contato" style="width:45px; height:45px" class="rounded-circle"></td>
+                        <td> <img src=@contato.GetImagePath() onerror="this.onerror=null; this.src='/img/ContatosPhotos/sem-foto'" alt="contato" style="width:45px; height:45px" class="rounded-circle"></td>
                         <td>@contato.Nome</td>
                         <td>@contato.Email</td>
                         <td>@contato.Celular</td>

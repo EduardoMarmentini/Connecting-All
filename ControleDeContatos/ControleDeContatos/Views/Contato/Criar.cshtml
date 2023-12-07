@@ -23,16 +23,16 @@
                         <input type="text" id="typeText" class="form-control" asp-for="Nome" />
                         <label class="form-label" for="typeText">Nome</label>
                     </div>
-                        @Html.ValidationMessageFor(x => x.Nome)
+                    @Html.ValidationMessageFor(x => x.Nome)
                 <br />
                 <div class="form-outline" data-mdb-input-init>
-                    <input type="text" id="typeText" class="form-control" asp-for="Email" />
+                    <input type="email" id="typeText" class="form-control" asp-for="Email" />
                     <label class="form-label" for="typeText">E-mail</label>
                 </div>
                     @Html.ValidationMessageFor(x => x.Email)
                 <br />
                 <div class="form-outline" data-mdb-input-init>
-                    <input type="text" id="typeText" class="form-control" asp-for="Celular" />
+                    <input type="tel" id="typeText" class="form-control" asp-for="Celular" />
                     <label class="form-label" for="typeText">Celular</label>
                 </div>
                     @Html.ValidationMessageFor(x => x.Celular)

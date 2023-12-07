@@ -1,5 +1,10 @@
 ﻿$(document).ready(function () {
 
+    // Some com o a mensagem de alert
+    $(".btn-close").click(function()  {
+        $(".alert").hide("hide");
+    })
+
     const inputFile = $("#picture_upload");
     const pictureImage = $(".exibe_foto");
     inputFile.change(function (e) {
@@ -50,9 +55,4 @@
             $('.btn.btn-danger').prop('disabled', false);
         }
     });
-
-    // Some com o a mensagem de alert
-    $("#close_alert").click(() => {
-        $(".alert").hide("hide");
-    })
 });
