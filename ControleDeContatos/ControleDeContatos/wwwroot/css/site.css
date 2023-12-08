@@ -32,6 +32,12 @@ body {
     color: red;
 }
 
+.show-password:hover {
+    cursor: pointer;
+    color: #386CC1;
+    user-select: none;
+}
+
 /* Estilo da parte de upload de foto de perfil ao cadastrar um contato*/
 #picture_upload {
     display: none;

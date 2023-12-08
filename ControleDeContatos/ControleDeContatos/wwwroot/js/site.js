@@ -1,34 +1,40 @@
 ﻿$(document).ready(function () {
-    // Cria o objeto que ira receber os metodos da datatable de paginação e busca nas tabelas das view
-    $('#table-contatos').DataTable({
-        "ordering": true,
-        "paging": true,
-        "searching": true,
-        "oLanguage": {
-            "sEmptyTable": "Nenhum registro encontrado na tabela",
-            "sInfo": "Mostrar _START_ até _END_ de _TOTAL_ registros",
-            "sInfoEmpty": "Mostrar 0 até 0 de 0 Registros",
-            "sInfoFiltered": "(Filtrar de _MAX_ total registros)",
-            "sInfoPostFix": "",
-            "sInfoThousands": ".",
-            "sLengthMenu": "Mostrar _MENU_ registros por pagina",
-            "sLoadingRecords": "Carregando...",
-            "sProcessing": "Processando...",
-            "sZeroRecords": "Nenhum registro encontrado",
-            "sSearch": "Pesquisar",
-            "oPaginate": {
-                "sNext": "Proximo",
-                "sPrevious": "Anterior",
-                "sFirst": "Primeiro",
-                "sLast": "Ultimo"
-            },
-            "oAria": {
-                "sSortAscending": ": Ordenar colunas de forma ascendente",
-                "sSortDescending": ": Ordenar colunas de forma descendente"
+    // Cria função que vincula a tabela que ira receber os metodos da datatable de paginação e busca nas tabelas das view
+    function getDataTable(id_table) {
+        $(id_table).DataTable({
+            "ordering": true,
+            "paging": true,
+            "searching": true,
+            "oLanguage": {
+                "sEmptyTable": "Nenhum registro encontrado na tabela",
+                "sInfo": "Mostrar _START_ até _END_ de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrar 0 até 0 de 0 Registros",
+                "sInfoFiltered": "(Filtrar de _MAX_ total registros)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ".",
+                "sLengthMenu": "Mostrar _MENU_ registros por pagina",
+                "sLoadingRecords": "Carregando...",
+                "sProcessing": "Processando...",
+                "sZeroRecords": "Nenhum registro encontrado",
+                "sSearch": "Pesquisar",
+                "oPaginate": {
+                    "sNext": "Proximo",
+                    "sPrevious": "Anterior",
+                    "sFirst": "Primeiro",
+                    "sLast": "Ultimo"
+                },
+                "oAria": {
+                    "sSortAscending": ": Ordenar colunas de forma ascendente",
+                    "sSortDescending": ": Ordenar colunas de forma descendente"
+                }
             }
-        }
-    });
+        });
+    }
 
+    // Seta as tabelas que iram receber os metodos de paginação
+    getDataTable($("#table-usuarios"))
+    getDataTable($("#table-contatos"))
+    
     const inputFile = $("#picture_upload");
     const pictureImage = $(".exibe_foto");
     inputFile.change(function (e) {
@@ -64,7 +70,18 @@
     //    pictureImage.text("Foto de perfil:")
     //})
 
-
+    // Exibe e esconde o a senha no input
+    $(".show-password").click(() => {
+        if ($('.txtPassword').attr('type') == "password") {
+            $(".show-password").text("visibility_off")
+            $(".txtPassword").prop("type", "text")
+            
+        }
+        else {
+            $(".txtPassword").prop("type", "password")
+            $(".show-password").text("visibility")
+        }
+    })
     // Desabilita o botão "Apagar" por padrão
     $('.btn.btn-danger').prop('disabled', true);
 

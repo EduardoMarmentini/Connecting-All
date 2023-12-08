@@ -11,11 +11,11 @@ namespace ControleDeContatos.Repositorio
             caminhoServidor = sistema.WebRootPath;
         }
 
-        Task IPhotoRepositorio.UploadPhoto(int id, IFormFile picture_upload)
+        Task IPhotoRepositorio.UploadPhoto(int id, IFormFile picture_upload, string TypeController)
         {
             if (picture_upload != null)
             {
-                string caminhoDaimagem = Path.Combine(caminhoServidor, "img/ContatosPhotos");
+                string caminhoDaimagem = Path.Combine(caminhoServidor, $"img/{TypeController}Photos");
 
                 // Salva a imagem na pasta 'img' com o nome do arquivo sendo o id_do_contato.extensão_do_arquivo
                 var imagePath = Path.Combine(Directory.GetCurrentDirectory(), caminhoDaimagem, id + Path.GetExtension(picture_upload.FileName));
@@ -28,12 +28,12 @@ namespace ControleDeContatos.Repositorio
             return Task.CompletedTask;
         }
 
-        Task IPhotoRepositorio.AlterarPhoto(int id, IFormFile picture_upload)
+        Task IPhotoRepositorio.AlterarPhoto(int id, IFormFile picture_upload, string TypeController)
         {
             // Caso o usuario tenha feito o upload de uma nova foto ele substitui a antiga por ela
             if(picture_upload != null)
             {
-                string caminhoDaimagem = Path.Combine(caminhoServidor, "img/ContatosPhotos");
+                string caminhoDaimagem = Path.Combine(caminhoServidor, $"img/{TypeController}Photos");
 
                 var imagePath = Path.Combine(Directory.GetCurrentDirectory(), caminhoDaimagem, id + Path.GetExtension(picture_upload.FileName));
 
@@ -53,9 +53,9 @@ namespace ControleDeContatos.Repositorio
             return Task.CompletedTask;
         }
 
-        public Task ExcluirPhoto(int id)
+        public Task ExcluirPhoto(int id, string TypeController)
         {
-            string caminhoDaimagem = Path.Combine(caminhoServidor, "img");
+            string caminhoDaimagem = Path.Combine(caminhoServidor, $"img/{TypeController}Photos");
 
             var imagePath = Path.Combine(Directory.GetCurrentDirectory(), caminhoDaimagem, id + ".jpeg");
 

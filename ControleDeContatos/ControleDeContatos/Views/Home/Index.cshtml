@@ -12,17 +12,33 @@
 </div>
 
 <br />
+<div class="d-flex">
 
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="~/img/agenda.jpg" alt="Imagem de capa do card">
-    <div class="card-body">
-        <h5 class="card-title">
-            <span class="material-symbols-outlined">
-                group
-            </span>
-            Lista de contatos
-        </h5>
-        <p class="card-text">Consultar e controlar minha lista de contatos.</p>
-        <a class="btn btn-primary" asp-controller="Contato" asp-action="Index">Acessar</a>
+    <div class="card me-3" style="width: 18rem;">
+        <img class="card-img-top" src="~/img/contatos.svg" alt="Imagem de capa do card">
+        <div class="card-body">
+            <h5 class="card-title d-flex">
+                <span class="material-symbols-outlined" style="padding-right:5px;">
+                    contact_phone
+                </span>
+                Lista de contatos
+            </h5>
+            <p class="card-text">Consultar e controlar minha lista de contatos.</p>
+            <a class="btn btn-primary" asp-controller="Contato" asp-action="Index">Acessar</a>
+        </div>
+    </div>
+
+    <div class="card me-3" style="width: 18rem;">
+        <img class="card-img-top" src="~/img/usuarios.svg" alt="Imagem de capa do card">
+        <div class="card-body">
+            <h5 class="card-title d-flex" style="padding-right:5px;">
+                <span class="material-symbols-outlined" style="padding-right:5px;">
+                    group
+                </span>
+                Controle de usuários
+            </h5>
+            <p class="card-text">Gerenciamento de contas para acessar a plataforma.</p>
+            <a class="btn btn-primary" asp-controller="Usuario" asp-action="Index">Acessar</a>
+        </div>
     </div>
 </div>

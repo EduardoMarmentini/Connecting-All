@@ -1,13 +1,13 @@
-﻿@model ContatoModel
+﻿@model UsuarioModel
 @{
     ViewData["Title"] = "Apagar registro";
 }
 <div class="text-center">
-    <h1 class="display-4">Apagar contato:</h1>
+    <h1 class="display-4">Apagar usuário:</h1>
 </div>
 <br />
 <div class="card shadow p-3 mb-5 bg-white rounded" style="width:50%; margin: auto;">
-    <form method="post" asp-controller="Contato" asp-action="Excluir">
+    <form method="post" asp-controller="Usuario" asp-action="Excluir">
         <div class="d-flex">
             <input type="hidden" asp-for="Id"/>
             <div>
@@ -24,20 +24,32 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    <label asp-for="Email">E-mail: @Model.Email</label>
-                    
+                    <label asp-for="Email">E-mail: @Model.Email</label> 
                 </div>
                 <br />
                 <div class="form-group">
-                    <label asp-for="Celular">Celular: @Model.Celular</label>
+                    <label asp-for="Tipo_Usuario">Tipo usuário: @Model.Tipo_Usuario</label>
                 </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="Login">Login: @Model.Login</label>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="DataCadastro">Data de cadastro: @Model.DataCadastro</label>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="DataAlteração">Ultima alteração: @Model.DataAlteração</label>
+                </div>
+                <br />
             </div>
         </div>
 
         <br />
         <div>
             <p>
-                Realmente deseja apagar esse contato:
+                Realmente deseja apagar esse usuário:
                 <div class="radio-buttons-container">
                     <div class="radio-button">
                         <input name="radio-group" id="rdSim" class="radio-button__input" type="radio">
@@ -57,7 +69,7 @@
                 </div>
             </p>
             <button type="submit" class="btn btn-danger">Apagar</button>
-            <a class="btn btn-secondary" asp-controller="Contato" asp-action="Index">Cancelar</a>
+            <a class="btn btn-secondary" asp-controller="Usuario" asp-action="Index">Cancelar</a>
         </div>
     </form>
 </div>

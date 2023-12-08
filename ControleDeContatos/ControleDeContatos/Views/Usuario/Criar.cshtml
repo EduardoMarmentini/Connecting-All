@@ -1,4 +1,5 @@
-﻿@model UsuarioModel
+﻿@using ControleDeContatos.Enums
+@model UsuarioModel
 @{
     ViewData["Title"] = "Criar Usuario";
 }
@@ -31,14 +32,31 @@
                 </div>
                     @Html.ValidationMessageFor(x => x.Email)
                 <br />
+
+                <select asp-for="Tipo_Usuario" class="form-control">
+                    <option value="0">Tipo usuário</option>
+                    <option value="@PerfilEnum.Padrao">Padrão</option>
+                    <option value="@PerfilEnum.Admin">Administrador</option>
+                </select>
+                @Html.ValidationMessageFor(x => x.Tipo_Usuario)
+                <br />
                 <div class="form-outline" data-mdb-input-init>
                     <input type="tel" id="typeText" class="form-control" asp-for="Login" />
                     <label class="form-label" for="typeText">Login</label>
                 </div>
                     @Html.ValidationMessageFor(x => x.Login)
-                <div class="form-outline" data-mdb-input-init>
-                    <input type="tel" id="typeText" class="form-control" asp-for="Password" />
-                    <label class="form-label" for="typeText">Password</label>
+                <br />
+
+                <div class="input-group mb-3">
+                    <div class="input-group-text">
+                        <span class="material-symbols-outlined show-password">
+                            visibility
+                        </span>
+                    </div>
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="password" id="typeText" class="form-control txtPassword" asp-for="Password" />
+                        <label class="form-label" for="typeText">Password</label>
+                    </div>
                 </div>
                 @Html.ValidationMessageFor(x => x.Password)
             </div>

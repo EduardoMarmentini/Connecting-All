@@ -8,7 +8,8 @@ namespace ControleDeContatos.Repositorio
         // Criando a varivel que ira receber as propriedades do contexto de banco
         private readonly BancoContext _bancoContext;
         private readonly IPhotoRepositorio _photo;
-
+        // Variavel que contem o tipo da controller para especificar a pagina que as fotos seram salvas
+        private string TypeController = "Contatos";
         // Criando o construtor e injetando o contexto no mesmo
         public ContatoRepositorio(BancoContext bancoContext, IPhotoRepositorio photo)
         {
@@ -41,7 +42,7 @@ namespace ControleDeContatos.Repositorio
             _bancoContext.SaveChanges();
 
             // Salva a foto de perfil do usuario
-            _photo.UploadPhoto(contato.Id, picture_upload);
+            _photo.UploadPhoto(contato.Id, picture_upload, TypeController);
 
             return contato;
         }
@@ -60,7 +61,7 @@ namespace ControleDeContatos.Repositorio
             _bancoContext.Contatos.Update(contatoDB);
 
             // Chama o metodo de atualizar a foto de perfil
-            _photo.AlterarPhoto(contato.Id, picture_upload);
+            _photo.AlterarPhoto(contato.Id, picture_upload, TypeController);
             // Realiza o commit no banco de dados
             _bancoContext.SaveChanges();
 
@@ -78,7 +79,7 @@ namespace ControleDeContatos.Repositorio
             _bancoContext.Contatos.Remove(contatoDB);
 
             // Chama o metodo que exclui a foto de perfil
-            _photo.ExcluirPhoto(contato.Id);
+            _photo.ExcluirPhoto(contato.Id, TypeController);
 
             // Realiza o commit no banco de dados
             _bancoContext.SaveChanges();

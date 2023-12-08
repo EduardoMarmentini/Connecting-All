@@ -61,6 +61,14 @@
       "PackagePath": "staticwebassets\\img\\ContatosPhotos\\1007.jpeg"
     },
     {
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\ContatosPhotos\\1008.jpeg",
+      "PackagePath": "staticwebassets\\img\\ContatosPhotos\\1008.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\ContatosPhotos\\1009.jpeg",
+      "PackagePath": "staticwebassets\\img\\ContatosPhotos\\1009.jpeg"
+    },
+    {
       "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\ContatosPhotos\\2.jpeg",
       "PackagePath": "staticwebassets\\img\\ContatosPhotos\\2.jpeg"
     },
@@ -77,16 +85,16 @@
       "PackagePath": "staticwebassets\\img\\ContatosPhotos\\6.jpeg"
     },
     {
-      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\ContatosPhotos\\sem-foto.jpeg",
-      "PackagePath": "staticwebassets\\img\\ContatosPhotos\\sem-foto.jpeg"
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\UsuariosPhotos\\2.jpeg",
+      "PackagePath": "staticwebassets\\img\\UsuariosPhotos\\2.jpeg"
     },
     {
-      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\agenda.jpg",
-      "PackagePath": "staticwebassets\\img\\agenda.jpg"
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\UsuariosPhotos\\3.jpeg",
+      "PackagePath": "staticwebassets\\img\\UsuariosPhotos\\3.jpeg"
     },
     {
-      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\fundo_login.jpeg",
-      "PackagePath": "staticwebassets\\img\\fundo_login.jpeg"
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\contatos.svg",
+      "PackagePath": "staticwebassets\\img\\contatos.svg"
     },
     {
       "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\log.svg",
@@ -103,6 +111,14 @@
     {
       "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\register.svg",
       "PackagePath": "staticwebassets\\img\\register.svg"
+    },
+    {
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\sem-foto.jpeg",
+      "PackagePath": "staticwebassets\\img\\sem-foto.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\usuarios.svg",
+      "PackagePath": "staticwebassets\\img\\usuarios.svg"
     },
     {
       "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\js\\log.js",
