@@ -89,12 +89,24 @@
       "PackagePath": "staticwebassets\\img\\fundo_login.jpeg"
     },
     {
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\log.svg",
+      "PackagePath": "staticwebassets\\img\\log.svg"
+    },
+    {
       "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
       "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\logo_login.jpg",
       "PackagePath": "staticwebassets\\img\\logo_login.jpg"
+    },
+    {
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\register.svg",
+      "PackagePath": "staticwebassets\\img\\register.svg"
+    },
+    {
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\js\\log.js",
+      "PackagePath": "staticwebassets\\js\\log.js"
     },
     {
       "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\wwwroot\\js\\mdb.min.js",

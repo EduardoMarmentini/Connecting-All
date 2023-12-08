@@ -1,0 +1,53 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Criar Usuario";
+}
+<h1 class="display-4">Adicionar Usuario:</h1>
+
+<div class="card shadow p-3 mb-5 bg-white rounded">
+
+    <form method="post" enctype="multipart/form-data" asp-controller="Usuario" asp-action="Criar">
+        <div class="d-flex">
+            <div>
+                <div class="form-group">
+                    <br />
+                    <label class="picture" for="picture_upload" tabindex="0">
+                        <span class="exibe_foto">Foto de perfil:</span>
+                        <input type="file" accept="image/jpeg" class="custom-file-input" id="picture_upload" name="picture_upload" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="boxInputs" style="margin-top:40px;">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="text" id="typeText" class="form-control" asp-for="Nome" />
+                        <label class="form-label" for="typeText">Nome</label>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.Nome)
+                <br />
+                <div class="form-outline" data-mdb-input-init>
+                    <input type="email" id="typeText" class="form-control" asp-for="Email" />
+                    <label class="form-label" for="typeText">E-mail</label>
+                </div>
+                    @Html.ValidationMessageFor(x => x.Email)
+                <br />
+                <div class="form-outline" data-mdb-input-init>
+                    <input type="tel" id="typeText" class="form-control" asp-for="Login" />
+                    <label class="form-label" for="typeText">Login</label>
+                </div>
+                    @Html.ValidationMessageFor(x => x.Login)
+                <div class="form-outline" data-mdb-input-init>
+                    <input type="tel" id="typeText" class="form-control" asp-for="Password" />
+                    <label class="form-label" for="typeText">Password</label>
+                </div>
+                @Html.ValidationMessageFor(x => x.Password)
+            </div>
+        </div>
+
+        <br />
+
+        <button type="submit" class="btn btn-primary">Gravar</button>
+        <a class="btn btn-secondary" asp-controller="Usuario" asp-action="Index">Voltar</a>
+
+    </form>
+</div>

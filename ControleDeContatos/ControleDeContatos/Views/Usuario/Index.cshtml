@@ -1,6 +1,6 @@
-﻿@model List<ContatoModel>
+﻿@model List<UsuarioModel>
 @{
-    ViewData["Title"] = "Registo de contatos";
+    ViewData["Title"] = "Usuarios do sistema";
 }
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
@@ -28,9 +28,9 @@
     
 }
 
-<h1 class="display-4">Lista de contatos:</h1>
+<h1 class="display-4">Lista de Usuarios:</h1>
 
-<a class="btn btn-primary" asp-controller="Contato" asp-action="Criar">Adicionar contato</a>
+<a class="btn btn-primary" asp-controller="Contato" asp-action="Criar">Adicionar usuario</a>
 
 <br />
 <br />
@@ -48,7 +48,8 @@
                 </th>
                 <th class="text-center" scope="col">Nome</th>
                 <th class="text-center" scope="col">Email</th>
-                <th class="text-center" scope="col">Celular</th>
+                <th class="text-center" scope="col">Permissões</th>
+                <th class="text-center" scope="col">Login</th>
                 <th class="text-center" scope="col">
                     <span class="material-symbols-outlined">
                         edit
@@ -65,16 +66,16 @@
         <tbody>
             @if (Model != null && Model.Any())
             {
-                foreach (ContatoModel contato in Model)
+                foreach (UsuarioModel usuario in Model)
                 {
                     <tr>
-                        <th scope="row">@contato.Id</th>
-                        <td> <img src=@contato.GetImagePath() onerror="this.onerror=null; this.src='/img/sem-foto'" alt="contato" style="width:45px; height:45px" class="rounded-circle"></td>
-                        <td>@contato.Nome</td>
-                        <td>@contato.Email</td>
-                        <td>@contato.Celular</td>
-                        <td class="text-center"><a class="btn btn-primary" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Editar">Editar</a></td>
-                        <td class="text-center"><a class="btn btn-danger" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Apagar">Apagar</a></td>
+                        <th scope="row">@usuario.Id</th>
+                        <td> <img src=@usuario.GetImagePath() onerror="this.onerror=null; this.src='/img/sem-foto'" alt="contato" style="width:45px; height:45px" class="rounded-circle"></td>
+                        <td>@usuario.Nome</td>
+                        <td>@usuario.Email</td>
+                        <td>@usuario.Tipo_Usuario</td>
+                        <td class="text-center"><a class="btn btn-primary" asp-route-id="@usuario.Id" asp-controller="Contato" asp-action="Editar">Editar</a></td>
+                        <td class="text-center"><a class="btn btn-danger" asp-route-id="@usuario.Id" asp-controller="Contato" asp-action="Apagar">Apagar</a></td>
                     </tr>
                 }    
             }
