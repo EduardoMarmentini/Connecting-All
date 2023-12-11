@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "C0wcGtW42vZ43jO6yBi/sLPonY4FOM7fZXiu1jhshib/nL8IENzPYNM72sT1+G+LioL2HbkkCWxQ6LqnTzvYVg==",
+  "dgSpecHash": "xROyRQyAeAFsD7V4MPwZ+dHwdcIe1cTLrH0rTKw0G8Ga7zOrOirsWOuACffrQ9Q+xYHx8CRIj/O6V9/5jFAinQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\ControleDeContatos.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\eduar\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\eduar\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\eduar\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\eduar\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\eduar\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\eduar\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\eduar\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",

@@ -86,7 +86,7 @@ namespace ControleDeContatos.Controllers
 
                     // Utilizando a variavel que contem o objeto de repositorio do banco
                     _usuarioRepositorio.Alterar(usuario, picture_upload);
-                    TempData["MensagemSucesso"] = "Contato editado com sucesso!";
+                    TempData["MensagemSucesso"] = "Usuário editado com sucesso!";
                     return RedirectToAction("Index");
                 }
                 // Por conta do metodo não possuir o mesmo nome da view forçamos ele a redirecionar para a que desejamos
@@ -94,7 +94,7 @@ namespace ControleDeContatos.Controllers
             }
             catch (Exception error)
             {
-                TempData["MensgemErro"] = $"Erro ao editar  contato, detalhe do erro: {error.Message}";
+                TempData["MensgemErro"] = $"Erro ao editar  usuário, detalhe do erro: {error.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -108,12 +108,12 @@ namespace ControleDeContatos.Controllers
             {
 
                 _usuarioRepositorio.Excluir(usuario);
-                TempData["MensagemSucesso"] = "Contato apagado com sucesso!";
+                TempData["MensagemSucesso"] = "Usuário apagado com sucesso!";
                 return RedirectToAction("Index");
             }
             catch (Exception error)
             {
-                TempData["MensgemErro"] = $"Erro ao tentar apagr o contato, detalhe do erro: {error.Message}";
+                TempData["MensgemErro"] = $"Erro ao tentar apagar o usuário, detalhe do erro: {error.Message}";
                 return RedirectToAction("Index");
             }
 

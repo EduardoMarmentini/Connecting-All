@@ -151,3 +151,4 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\Cont
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\ControleDeContatos.genruntimeconfig.cache
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\ref\ControleDeContatos.dll
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\scopedcss\Views\Shared\_LayoutDeslogado.cshtml.rz.scp.css
+C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\bin\Debug\net7.0\Newtonsoft.Json.dll
