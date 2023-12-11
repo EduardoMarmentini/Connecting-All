@@ -17,6 +17,13 @@ namespace ControleDeContatos.Repositorio
             _bancoContext = bancoContext;
             _photo = photo;
         }
+
+        // 
+        public UsuarioModel BuscarPorLogin(string login)
+        {
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+        }
+
         // Busca todos os dados referentes ao id passado.
         public UsuarioModel ListarPorId(int id)
         {
@@ -31,6 +38,10 @@ namespace ControleDeContatos.Repositorio
 
         public UsuarioModel Adicionar(UsuarioModel usuario, IFormFile picture_upload)
         {
+            if (usuario.Password == null)
+            {
+                usuario.Password = $"Con@{DateTime.Now.Year}";
+            }
             //Seta a data do cadastro como a data de hoje
             usuario.DataCadastro = DateTime.Now;
             // Chama o metodo de gravar e seleciona a tabela desejada como .Contatos
@@ -76,7 +87,20 @@ namespace ControleDeContatos.Repositorio
 
         public UsuarioModel Excluir(UsuarioModel usuario)
         {
-            throw new NotImplementedException();
+            UsuarioModel usuarioDB = ListarPorId(usuario.Id);
+
+            if (usuarioDB == null) throw new Exception("Houve um erro na exclusão do contato");
+
+            // Chama a função que remove os dados do banco de dados
+            _bancoContext.Usuarios.Remove(usuarioDB);
+
+            // Chama o metodo que exclui a foto de perfil
+            _photo.ExcluirPhoto(usuarioDB.Id, TypeController);
+
+            // Realiza o commit no banco de dados
+            _bancoContext.SaveChanges();
+
+            return usuarioDB;
         }
 
     }

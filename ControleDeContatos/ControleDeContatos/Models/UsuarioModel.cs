@@ -14,10 +14,17 @@ namespace ControleDeContatos.Models
         public required PerfilEnum Tipo_Usuario { get; set; }
         [Required(ErrorMessage = "Digite o login do usuário")]
         public required string Login { get; set; }
-        [Required(ErrorMessage = "Digite a senha do usuário")]
-        public required string Password { get; set; }
+        // Para melhor tratamento do sistema, informar uma senha especifica do cliente se torna opcional, caso não informado seta um modelo de senha padrão
+        public string? Password { get; set; }
         public DateTime DataCadastro { get; set; }
         public DateTime? DataAlteração { get; set; }
+
+
+        public bool ValidaSenha(string password)
+        {
+            return password == Password;
+        }
+
         // Busca o caminho da imagem salva no projeto
         public string GetImagePath()
         {

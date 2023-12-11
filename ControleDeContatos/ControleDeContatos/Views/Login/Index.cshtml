@@ -1,26 +1,40 @@
 ﻿
+@model LoginModel
 @{
+    Layout = "_LayoutDeslogado";
     ViewData["Title"] = "Login";
 }
-<link rel="stylesheet" href="~/css/login.css" />
+@if (TempData["MensgemErro"] != null)
+{
+    <div class="alert alert-danger mb-0 alert-dismissible fade show d-flex" id="alertExample" role="alert" data-mdb-color="secondary">
+        <button type="button" class="btn-close" id="close-alert" aria-label="Close"></button>
+        <span class="material-symbols-outlined" style="padding-right:5px;">
+            error
+        </span>
+        @TempData["MensgemErro"]
+    </div>
+}
 
 <body>
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
+                <form class="sign-in-form" asp-asp-controller="Login" asp-action="Entrar" method="post">
                     <img src="~/img/logo.png" alt="logo">
-                    <h2 class="title">Sign in</h2>
+                    <br />
+                    <h2 class="title">Login</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username" />
+                        <input type="text" placeholder="Login" asp-for="Login"/>
                     </div>
+                    @Html.ValidationMessageFor(x => x.Login)
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Password" asp-for="Password"/>
                     </div>
-                    <input type="submit" value="Login" class="btn solid" />
-                    <p class="social-text">Or Sign in with social platforms</p>
+                    @Html.ValidationMessageFor(x => x.Password)
+                    <input type="submit" value="Entrar" class="btn solid" />
+                    <p class="social-text">Ou faça login em plataformas sociais</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
@@ -38,7 +52,8 @@
                 </form>
                 <form action="#" class="sign-up-form">
                     <img src="~/img/logo.png" alt="logo">
-                    <h2 class="title">Sign up</h2>
+                    <br />
+                    <h2 class="title">Cadastro</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Username" />
@@ -51,8 +66,8 @@
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Password" />
                     </div>
-                    <input type="submit" class="btn" value="Sign up" />
-                    <p class="social-text">Or Sign up with social platforms</p>
+                    <input type="submit" class="btn" value="Registrar" />
+                    <p class="social-text">Ou faça seu cadastro em plataformas sociais</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
                             <i class="fab fa-facebook-f"></i>
@@ -74,32 +89,28 @@
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>New here ?</h3>
+                    <h3>Novo Aqui?</h3>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                        ex ratione. Aliquid!
+                        Faça seu cadastro para ter seus contatos na palma da mão
                     </p>
                     <button class="btn transparent" id="sign-up-btn">
-                        Sign up
+                        Cadastrar
                     </button>
                 </div>
-                <img src="~/img/log.svg" class="image" alt="" />
+                <img src="~/img/log.svg" class="image imagem-log" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
-                    <h3>One of us ?</h3>
+                    <h3>Já é um membro?</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                        laboriosam ad deleniti.
+                        Faça o login em sua conta e veja o que a de novo para você
                     </p>
                     <button class="btn transparent" id="sign-in-btn">
-                        Sign in
+                        Entrar
                     </button>
                 </div>
-                <img src="~/img/register.svg" class="image" alt="" />
+                <img src="~/img/register.svg" class="image imagem-register" alt="" />
             </div>
         </div>
     </div>
-
-    <script src="~/js/log.js"></script>
 </body>

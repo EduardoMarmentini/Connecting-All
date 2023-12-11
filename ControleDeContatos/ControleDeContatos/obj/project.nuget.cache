@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oCJ180uD76GrDX703rYFIPtDw9bSXcQknzdt5lIr3RnrKWtr7zGQ+/GKz/QRRi37QPwh2lclgkTk5S1O/ujKwg==",
+  "dgSpecHash": "C0wcGtW42vZ43jO6yBi/sLPonY4FOM7fZXiu1jhshib/nL8IENzPYNM72sT1+G+LioL2HbkkCWxQ6LqnTzvYVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Controle-de-Contatos-\\ControleDeContatos\\ControleDeContatos\\ControleDeContatos.csproj",
+  "projectFilePath": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\ControleDeContatos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eduar\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\eduar\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
