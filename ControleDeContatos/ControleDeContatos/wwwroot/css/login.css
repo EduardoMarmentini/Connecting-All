@@ -181,15 +181,6 @@ form {
     transition-delay: 0.4s;
 }
 
-
-.imagem-log{
-    margin-right:60px;
-}
-
-.imagem-register{
-    padding-left: 60px;
-}
-
 .panel {
     display: flex;
     flex-direction: column;

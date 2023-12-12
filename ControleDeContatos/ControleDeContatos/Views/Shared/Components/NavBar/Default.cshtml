@@ -1,0 +1,92 @@
+﻿@model UsuarioModel
+
+<!-- Toggle button -->
+<button data-mdb-collapse-init
+        class="navbar-toggler"
+        type="button"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+    <i class="fas fa-bars"></i>
+</button>
+
+<!-- Collapsible wrapper -->
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!-- Navbar brand -->
+    <a class="navbar-brand mt-2 mt-lg-0" asp-controller="Home" asp-action="Index">
+        <img src="~/img/logo.png" alt="Logo" class="rounded-circle" style="width:45px; height:45px;">
+        Connecting All
+    </a>
+    <!-- Left links -->
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    </ul>
+    <!-- Left links -->
+</div>
+<!-- Collapsible wrapper -->
+<!-- Right elements -->
+<div class="d-flex align-items-center">
+    <!-- Icon -->
+    <a class="text-reset me-3" href="#">
+        <i class="fas fa-shopping-cart"></i>
+    </a>
+
+    <!-- Notifications -->
+    <div class="dropdown">
+        <a data-mdb-dropdown-init
+           class="text-reset me-3 dropdown-toggle hidden-arrow"
+           href="#"
+           id="navbarDropdownMenuLink"
+           role="button"
+           aria-expanded="false">
+            <i class="fas fa-bell">
+                <span class="material-symbols-outlined">
+                    notifications
+                </span>
+            </i>
+            <!-- Notifications Number-->
+            <span class="badge rounded-pill badge-notification bg-danger">0</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuLink">
+            <li>
+                <a class="dropdown-item" href="#">Some news</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Another news</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Avatar -->
+    <div class="dropdown d-flex me-2">
+        <strong class="d-none d-sm-block m-md-3">Olá, @Model.Nome</strong>
+        <a data-mdb-dropdown-init
+           class="dropdown-toggle d-flex align-items-center hidden-arrow"
+           href="#"
+           id="navbarDropdownMenuAvatar"
+           role="button"
+           aria-expanded="false">
+            <img src=@Model.GetImagePath() onerror="this.onerror=null; this.src='/img/sem-foto.jpeg'"
+                 class="rounded-circle"
+                 height="40"
+                 alt="Foto Usuario"
+                 loading="lazy" />
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuAvatar">
+            <li>
+                <a class="dropdown-item">My profile</a>
+            </li>
+            <li>
+                <a class="dropdown-item">Settings</a>
+            </li>
+            <li>
+                <a class="dropdown-item" asp-controller="Login" asp-action="Sair">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Right elements -->

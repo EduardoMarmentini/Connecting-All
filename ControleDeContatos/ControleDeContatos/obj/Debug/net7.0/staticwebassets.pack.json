@@ -105,6 +105,10 @@
       "PackagePath": "staticwebassets\\img\\contatos.svg"
     },
     {
+      "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\forget.svg",
+      "PackagePath": "staticwebassets\\img\\forget.svg"
+    },
+    {
       "Id": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\log.svg",
       "PackagePath": "staticwebassets\\img\\log.svg"
     },

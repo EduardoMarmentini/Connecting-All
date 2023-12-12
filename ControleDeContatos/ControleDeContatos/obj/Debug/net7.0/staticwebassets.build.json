@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cHsTAN83ZTzwnFI+1U0lylFO1GjMuGIKPpsv9hEirpg=",
+  "Hash": "zRo4hxYDI5Yd4odv23Yp2fd1P1zxlUJM0GsYBAV8sa4=",
   "Source": "ControleDeContatos",
   "BasePath": "_content/ControleDeContatos",
   "Mode": "Default",
@@ -490,6 +490,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\ContatosPhotos\\6.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\forget.svg",
+      "SourceId": "ControleDeContatos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\wwwroot\\",
+      "BasePath": "_content/ControleDeContatos",
+      "RelativePath": "img/forget.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\forget.svg"
     },
     {
       "Identity": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\wwwroot\\img\\log.svg",
