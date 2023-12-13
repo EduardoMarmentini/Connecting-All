@@ -1,4 +1,5 @@
 ﻿using ControleDeContatos.Enums;
+using ControleDeContatos.Helper;
 using System.ComponentModel.DataAnnotations;
 
 namespace ControleDeContatos.Models
@@ -25,6 +26,17 @@ namespace ControleDeContatos.Models
             return password == Password;
         }
 
+
+        public void SetSenhaHash() 
+        {
+            // Caso o usuario não informe a senha na hora do cadastro a senha por padrão a ser enviada será o modelo Con@Ano_do_Cadastro
+            if (Password == null)
+            {
+                Password = $"Con@{DateTime.Now.Year}";
+            }
+
+            Password = Password.GerarHash();
+        }
         // Busca o caminho da imagem salva no projeto
         public string GetImagePath()
         {

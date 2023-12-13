@@ -38,12 +38,10 @@ namespace ControleDeContatos.Repositorio
 
         public UsuarioModel Adicionar(UsuarioModel usuario, IFormFile picture_upload)
         {
-            if (usuario.Password == null)
-            {
-                usuario.Password = $"Con@{DateTime.Now.Year}";
-            }
-            //Seta a data do cadastro como a data de hoje
+            // Seta a data do cadastro como a data de hoje
             usuario.DataCadastro = DateTime.Now;
+            // Seta o hash de cripitografia para a senha
+            usuario.SetSenhaHash();
             // Chama o metodo de gravar e seleciona a tabela desejada como .Contatos
             _bancoContext.Usuarios.Add(usuario);
 
