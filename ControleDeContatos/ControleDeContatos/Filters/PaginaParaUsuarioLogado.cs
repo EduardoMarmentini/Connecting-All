@@ -12,20 +12,21 @@ namespace ControleDeContatos.Filters
         {
             // Busca os cookies de sessão do usuario
             string sessaoUsuario = context.HttpContext.Session.GetString("sessaoUsuarioLogado");
+
             // Verifica se a sessão existe
-            if(string.IsNullOrEmpty("sessaoUsuarioLogado"))
+            if(string.IsNullOrEmpty(sessaoUsuario))
             {
                 // Caso não exista joga para a tela de login 
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary { {"controller", "login"}, {"action", "index"} });
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary { {"controller", "Login"}, {"action", "Index"} });
             }
             else 
             {
                 // Caso a sessão exista ele converte os dados da sessão do usuario e verifica se o mesmo existe
                 UsuarioModel usuario = JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
 
-                if (usuario != null) 
+                if (usuario == null) 
                 {
-                    context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "login" }, { "action", "index" } });
+                    context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "action", "Index" } });
                 }
             }
 

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ControleDeContatos.Controllers
 {
-    [PaginaParaUsuarioLogado]
+    [PaginaSomenteAdmin]
     public class UsuarioController : Controller
     {
 
