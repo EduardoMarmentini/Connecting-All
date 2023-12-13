@@ -73,6 +73,13 @@ body {
     outline: none;
 }
 
+.picture_show img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .picture:hover{
     color: #888;
     background: #ccc;

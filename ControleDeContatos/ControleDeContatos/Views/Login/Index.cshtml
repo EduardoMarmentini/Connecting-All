@@ -1,5 +1,5 @@
 ﻿
-@model LoginModel
+@model LoginAndRecoverViewModel
 @{
     Layout = "_LayoutDeslogado";
     ViewData["Title"] = "Login";
@@ -16,6 +16,15 @@
 }
 
 <body>
+    <div class="pageloader">
+        <div class="spinnerContainer" id="pageloader">
+            <div class="spinner"></div>
+            <div class="loader">
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
@@ -25,15 +34,15 @@
                     <h2 class="title">Login</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Login" asp-for="Login"/>
+                        <input type="text" placeholder="Login" asp-for="LoginModel.Login"/>
                     </div>
-                    @Html.ValidationMessageFor(x => x.Login)
+                    @Html.ValidationMessageFor(x => x.LoginModel.Login)
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" asp-for="Password"/>
+                        <input type="password" placeholder="Password" asp-for="LoginModel.Password"/>
                     </div>
-                    @Html.ValidationMessageFor(x => x.Password)
-                    <a id="forget-pass-btn">Esqueci minha senha.</a>
+                    @Html.ValidationMessageFor(x => x.LoginModel.Password)
+                    <a id="forget-password-btn">Esqueci minha senha.</a>
                     <input type="submit" value="Entrar" class="btn solid" />
                     <p class="social-text">Ou faça login em plataformas sociais</p>
                     <div class="social-media">
@@ -51,19 +60,51 @@
                         </a>
                     </div>
                 </form>
+                <div>
+
+                </div>
+            <!-- Fomrulario de recuperação de senha -->
+                <form class="sign-up-form" asp-controller="Login" asp-action="RecuperarSenha" method="post">
+                    <img src="~/img/logo.png" alt="logo">
+                    <br />
+                    <h2 class="title">Recuperar Senha</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Login" asp-for="RedefinirSenhaModel.Login"/>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.RedefinirSenhaModel.Login)
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" asp-for="RedefinirSenhaModel.Email"/>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.RedefinirSenhaModel.Email)
+                    <input type="submit" class="btn" value="Solicitar" />
+                </form>
             </div>
         </div>
 
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>Bem vindo de volta</h3>
+                    <h3>Bem vindo de volta!</h3>
                     <p>
-                        Realize seu login e veja o que a de novo para você.
-                    </p> 
+                        Acesse sua conta e veja o que a de novo para você!
+                    </p>
                 </div>
-                <img src="~/img/log.svg" class="image" alt="" />
-            </div>  
+                <img src="~/img/log.svg" class="image" alt="" style="padding-right:70px;" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Acessar minha conta</h3>
+                    <p>
+                        Hora de se atualizar das novidades que te esperam
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Voltar
+                    </button>
+                </div>
+                <img src="~/img/forget.svg" class="image" alt="" style="padding-left:70px;"/>
+            </div>
         </div>
     </div>
 </body>

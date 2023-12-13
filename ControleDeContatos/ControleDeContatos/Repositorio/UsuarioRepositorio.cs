@@ -68,6 +68,8 @@ namespace ControleDeContatos.Repositorio
             if (usuario.Password != null) 
             {
                 usuarioDB.Password = usuario.Password;
+                // Cripitografa a nova senha.
+                usuarioDB.SetSenhaHash();
             }
             usuarioDB.DataAlteração = DateTime.Now;
 

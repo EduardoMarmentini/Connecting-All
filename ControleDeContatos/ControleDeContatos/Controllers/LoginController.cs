@@ -28,6 +28,11 @@ namespace ControleDeContatos.Controllers
             return View();
         }
 
+        public IActionResult RecuperarSenha()
+        {
+            return View();
+        }
+
         public IActionResult Sair()
         { 
             // Remove a sessão do usuario e redireciona para a tela de login
@@ -35,7 +40,7 @@ namespace ControleDeContatos.Controllers
             return RedirectToAction("Index", "Login"); 
         }
 
-        // Metodos Post
+        // ---------------------------------------------------------- Metodos Post -----------------------------------------------------
         [HttpPost]
         // Metodo para realizar a validação do login do usuario
         public IActionResult Entrar(LoginModel loginModel) 
@@ -69,6 +74,13 @@ namespace ControleDeContatos.Controllers
                 TempData["MensgemErro"] = $"Erro ao tentar realizar o logon, tente novamente, erro:{error.Message}";
                 return RedirectToAction("Index");
             } 
+        }
+
+        [HttpPost]
+        //Metodo que realiza o envio de email para a recuperação de senha, no caso ele gera uma senha nova para o usuario acessar e poder alterar sua senha novamente
+        public IActionResult RecuperarSenha()
+        {
+
         }
     }
 }

@@ -23,7 +23,7 @@ namespace ControleDeContatos.Models
 
         public bool ValidaSenha(string password)
         {
-            return password == Password;
+            return Password == password.GerarHash();
         }
 
 

@@ -1,19 +1,30 @@
 ﻿$(document).ready(function () {
    // Adicione o código existente
-   // const sign_in_btn = document.querySelector("#sign-in-btn");
-   // const sign_up_btn = document.querySelector("#sign-up-btn");
-   // const container = document.querySelector(".container");
+   const sign_in_btn = document.querySelector("#sign-in-btn");
+   const forget_password_btn = document.querySelector("#forget-password-btn");
+   const container = document.querySelector(".container");
 
-   // sign_up_btn.addEventListener("click", () => {
-   //     container.classList.add("sign-up-mode");
-   // });
+    forget_password_btn.addEventListener("click", () => {
+        container.classList.add("sign-up-mode");
+    });
 
-    //sign_in_btn.addEventListener("click", () => {
-    //    container.classList.remove("sign-up-mode");
-    //});
+    sign_in_btn.addEventListener("click", () => {
+        container.classList.remove("sign-up-mode");
+    });
+
+
+    $("form").on("submit", function () {
+        // Exibe o loader
+        $(".pageloader").show();
+        // Esconde o conteúdo
+        $(".container").hide();
+        // Volta para o topo da página
+        top.document.body.scrollTop = 0;
+        // Você pode adicionar aqui outras lógicas, se necessário
+    });
 
     // Adicione o código para fechar o erro
     $('.error__close').on('click', function () {
-        $('.error').hide("hide");
+        $('.error').fadeOut();
     });
 });
