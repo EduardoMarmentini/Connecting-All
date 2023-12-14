@@ -23,8 +23,9 @@
         // Você pode adicionar aqui outras lógicas, se necessário
     });
 
-    // Adicione o código para fechar o erro
-    $('.error__close').on('click', function () {
+    // Adicione o código para fechar os alerts
+    $('#btn-close').on('click', function () {
         $('.error').fadeOut();
+        $('.sucess').fadeOut();
     });
 });

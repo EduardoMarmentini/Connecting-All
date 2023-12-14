@@ -74,8 +74,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmlhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/eduar/OneDrive/Documentos/GitHub/Connecting-All/ControleDeContatos/ControleDeContatos/Views/Usuario/Editar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXIuY3NodG1s
+[C:/Users/eduar/OneDrive/Documentos/GitHub/Connecting-All/ControleDeContatos/ControleDeContatos/Views/Usuario/EditarConta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXJDb250YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eduar/OneDrive/Documentos/GitHub/Connecting-All/ControleDeContatos/ControleDeContatos/Views/Usuario/EditarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXJVc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/eduar/OneDrive/Documentos/GitHub/Connecting-All/ControleDeContatos/ControleDeContatos/Views/Usuario/Index.cshtml]

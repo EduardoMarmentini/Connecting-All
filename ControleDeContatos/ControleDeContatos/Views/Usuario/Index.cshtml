@@ -54,6 +54,11 @@
                 <th class="text-center" scope="col">Data Cadastro</th>
                 <th class="text-center" scope="col">
                     <span class="material-symbols-outlined">
+                        feed
+                    </span>
+                </th>
+                <th class="text-center" scope="col">
+                    <span class="material-symbols-outlined">
                         edit
                     </span>
                 </th>
@@ -62,7 +67,6 @@
                         delete
                     </span>
                 </th>
-
             </tr>
         </thead>
         <tbody>
@@ -94,7 +98,8 @@
                         }
                         <td>@usuario.Login</td>
                         <td>@usuario.DataCadastro</td>
-                        <td class="text-center"><a class="btn btn-primary" asp-route-id="@usuario.Id" asp-controller="Usuario" asp-action="Editar">Editar</a></td>
+                        <td class="text-center"><a class="btn btn-info" asp-route-id="@usuario.Id" asp-controller="Usuario" asp-action="ExibeUsuaario">Info</a></td>
+                        <td class="text-center"><a class="btn btn-primary" asp-route-id="@usuario.Id" asp-controller="Usuario" asp-action="EditarUsuario">Editar</a></td>
                         <td class="text-center"><a class="btn btn-danger" asp-route-id="@usuario.Id" asp-controller="Usuario" asp-action="Apagar">Apagar</a></td>
                     </tr>
                 }    

@@ -32,6 +32,10 @@ body {
     color: red;
 }
 
+.dropdown-item:hover {
+    color: #5995fd;
+}
+
 .show-password:hover {
     cursor: pointer;
     color: #386CC1;
@@ -182,7 +186,6 @@ body {
     border-color: #4c8bf5;
     box-shadow: 0 0 10px #4c8bf580;
 }
-
-
 /*----------------------------------------------------*/
+
     

@@ -25,8 +25,6 @@ namespace ControleDeContatos.Models
         {
             return Password == password.GerarHash();
         }
-
-
         public void SetSenhaHash() 
         {
             // Caso o usuario não informe a senha na hora do cadastro a senha por padrão a ser enviada será o modelo Con@Ano_do_Cadastro
@@ -37,6 +35,30 @@ namespace ControleDeContatos.Models
 
             Password = Password.GerarHash();
         }
+        // Gera a nova senha para ser acesssada ao esquecer a senha
+        public string GerarNovaSenha() 
+        {
+            string novasenha = Guid.NewGuid().ToString().Substring(0, 8);
+
+            Password = novasenha.GerarHash();
+
+            return novasenha;
+        }
+        
+        // Pega somente o primeiro nome do usuario para ser exibido na mensagem de login
+        public string GetNome() 
+        {
+            string inputString = Nome;
+
+            // Encontrar o índice do primeiro espaço em branco
+            int indiceEspaco = inputString.IndexOf(' ');
+
+            // Extrair o primeiro nome usando Substring
+            string primeiroNome = indiceEspaco != -1 ? inputString.Substring(0, indiceEspaco) : inputString;
+
+            return primeiroNome;
+        }
+
         // Busca o caminho da imagem salva no projeto
         public string GetImagePath()
         {

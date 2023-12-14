@@ -18,10 +18,14 @@ namespace ControleDeContatos.Repositorio
             _photo = photo;
         }
 
-        // 
+        // Metodo que busca o usuario pelo login 
         public UsuarioModel BuscarPorLogin(string login)
         {
             return _bancoContext.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+        }
+        public UsuarioModel BuscarPorEmailLogin(string email, string login)
+        {
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Email.ToUpper() == email.ToUpper());
         }
 
         // Busca todos os dados referentes ao id passado.
@@ -29,7 +33,7 @@ namespace ControleDeContatos.Repositorio
         {
             return _bancoContext.Usuarios.FirstOrDefault(x => x.Id == id);
         }
-
+                
         // Metodo que lista todos os dados da tabela
         public List<UsuarioModel> BuscarTodos()
         {
@@ -54,7 +58,7 @@ namespace ControleDeContatos.Repositorio
             return usuario;
         }
 
-        public UsuarioModel Alterar(UsuarioModel usuario, IFormFile picture_upload)
+        public UsuarioModel AtualizarConta(UsuarioModel usuario, IFormFile picture_upload)
         {
             UsuarioModel usuarioDB = ListarPorId(usuario.Id);
 

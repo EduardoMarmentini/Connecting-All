@@ -71,16 +71,41 @@ namespace ControleDeContatos.Controllers
             } 
             catch (Exception error) 
             {
-                TempData["MensgemErro"] = $"Erro ao tentar realizar o logon, tente novamente, erro:{error.Message}";
+                TempData["MensgemErro"] = $"Erro ao tentar realizar o login, tente novamente, erro:{error.Message}";
                 return RedirectToAction("Index");
             } 
         }
 
         [HttpPost]
         //Metodo que realiza o envio de email para a recuperação de senha, no caso ele gera uma senha nova para o usuario acessar e poder alterar sua senha novamente
-        public IActionResult RecuperarSenha()
+        public IActionResult RecuperarSenha(RedefinirSenhaModel redefinirSenhaModel)
         {
+            try
+            {
+                //Verufica se os valores enviados para model são validos
+                if (ModelState.IsValid)
+                {
+                    UsuarioModel usuario = _usuarioRepositorio.BuscarPorEmailLogin(redefinirSenhaModel.Email, redefinirSenhaModel.Login);
 
+                    if (usuario != null)
+                    {
+                        string novasenha = usuario.GerarNovaSenha();
+
+                        TempData["MensagemSucesso"] = $"Enviamos uma nova senha para o e-mail {redefinirSenhaModel.Email}, ao acessar você pode alterar sua senha para uma de seu gosto";
+                        return RedirectToAction("Index", "Login");
+                    }
+                    TempData["MensgemErro"] = "Não conseguimos recuperar sua senha. Por favor, verifique os dados e tente novamente!";
+
+                }
+
+                return View("Index");
+
+            }   
+            catch (Exception error)
+            {
+                TempData["MensgemErro"] = $"Erro ao tentar recuperar a senha , tente novamente, erro:{error.Message}";
+                return RedirectToAction("Index");
+            }
         }
     }
 }

@@ -30,7 +30,16 @@ namespace ControleDeContatos.Controllers
             return View();
         }
 
-        public IActionResult Editar(int id)
+        public IActionResult EditarUsuario(int id)
+        {
+
+            //Chama o metodo que busca os dados por id e retorna para view
+            UsuarioModel usuario = _usuarioRepositorio.ListarPorId(id);
+
+            return View(usuario);
+        }
+
+        public IActionResult EditarConta(int id)
         {
 
             //Chama o metodo que busca os dados por id e retorna para view
@@ -72,7 +81,7 @@ namespace ControleDeContatos.Controllers
         }
 
         [HttpPost] // Realizando a assinatura do tipo que esse metodo pertence
-        public IActionResult Alterar(UsuarioModel usuario, IFormFile? picture_upload)
+        public IActionResult AtualizarUsuario(UsuarioModel usuario, IFormFile? picture_upload)
         {
             // Tratativa de erro ao tentar alterar usuario
             try
@@ -87,12 +96,42 @@ namespace ControleDeContatos.Controllers
                     }
 
                     // Utilizando a variavel que contem o objeto de repositorio do banco
-                    _usuarioRepositorio.Alterar(usuario, picture_upload);
+                    _usuarioRepositorio.AtualizarConta(usuario, picture_upload);
                     TempData["MensagemSucesso"] = "Usuário editado com sucesso!";
                     return RedirectToAction("Index");
                 }
                 // Por conta do metodo não possuir o mesmo nome da view forçamos ele a redirecionar para a que desejamos
-                return View("Editar", usuario);
+                return View("EditarUsuario", usuario);
+            }
+            catch (Exception error)
+            {
+                TempData["MensgemErro"] = $"Erro ao editar  usuário, detalhe do erro: {error.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost] // Realizando a assinatura do tipo que esse metodo pertence
+        public IActionResult AtualizarConta(UsuarioModel usuario, IFormFile? picture_upload)
+        {
+            // Tratativa de erro ao tentar alterar usuario
+            try
+            {
+
+                if (ModelState.IsValid)
+                {
+                    // Se o campo de senha estiver vazio, defina a senha para o valor atual
+                    if (string.IsNullOrEmpty(usuario.Password))
+                    {
+                        usuario.Password = null;
+                    }
+
+                    // Utilizando a variavel que contem o objeto de repositorio do banco
+                    _usuarioRepositorio.AtualizarConta(usuario, picture_upload);
+                    TempData["MensagemSucesso"] = "Usuário editado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+                // Por conta do metodo não possuir o mesmo nome da view forçamos ele a redirecionar para a que desejamos
+                return View("EditarUsuario", usuario);
             }
             catch (Exception error)
             {
