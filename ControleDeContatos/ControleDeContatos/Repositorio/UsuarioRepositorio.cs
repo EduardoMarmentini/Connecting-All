@@ -62,7 +62,7 @@ namespace ControleDeContatos.Repositorio
         {
             UsuarioModel usuarioDB = ListarPorId(usuario.Id);
 
-            if (usuarioDB == null) throw new Exception("Houve um erro na alteração do contato");
+            if (usuarioDB == null) throw new Exception("Houve um erro na alteração do usuario");
 
             usuarioDB.Nome = usuario.Nome;
             usuarioDB.Email = usuario.Email;
@@ -87,6 +87,24 @@ namespace ControleDeContatos.Repositorio
 
             return usuarioDB;
 
+        }
+        public UsuarioModel AtualizarSenha(UsuarioModel usuario)
+        {
+            UsuarioModel usuarioDB = ListarPorId(usuario.Id);
+
+            if (usuarioDB == null) throw new Exception("Houve um erro ao recuperar a senha do usuario");
+
+            // Seta a nova senha do usuario para acessar sua conta 
+            usuarioDB.Password = usuario.Password;
+            usuarioDB.DataAlteração = DateTime.Now;
+
+            // Chama o metodo de atualizar os dados do banco do entityFrameworkCore 
+            _bancoContext.Usuarios.Update(usuarioDB);
+
+            // Realiza o commit no banco de dados
+            _bancoContext.SaveChanges();
+
+            return usuarioDB;
         }
 
         public UsuarioModel Excluir(UsuarioModel usuario)

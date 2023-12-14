@@ -10,11 +10,13 @@ namespace ControleDeContatos.Controllers
 
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly ISessao _sessao;
+        private readonly IEnviaEmail _email;
 
-        public LoginController(IUsuarioRepositorio usuarioRepositorio, ISessao sessao)
+        public LoginController(IUsuarioRepositorio usuarioRepositorio, ISessao sessao, IEnviaEmail email)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _sessao = sessao;
+            _email = email;
         }
 
         public IActionResult Index()
@@ -91,8 +93,22 @@ namespace ControleDeContatos.Controllers
                     {
                         string novasenha = usuario.GerarNovaSenha();
 
-                        TempData["MensagemSucesso"] = $"Enviamos uma nova senha para o e-mail {redefinirSenhaModel.Email}, ao acessar você pode alterar sua senha para uma de seu gosto";
-                        return RedirectToAction("Index", "Login");
+                        string msg = $"Prezado(a) {usuario.Nome}, sua nova senha para acesso ao sistema Connecting All é : {novasenha}, após o acesso é recomendado que o mesmo realize a aleração para uma senha particular";
+
+                        bool emailEnviado = _email.Enviar(usuario.Email, "Connecting All - Nova senha de acesso", msg);
+
+                        if (emailEnviado) 
+                        {   
+                            usuario.Password = novasenha;
+                            _usuarioRepositorio.AtualizarSenha(usuario);
+
+                            TempData["MensagemSucesso"] = $"Enviamos uma nova senha para o e-mail {redefinirSenhaModel.Email}, ao acessar você pode alterar sua senha para uma de seu gosto";
+                            return RedirectToAction("Index", "Login");
+                        }
+                        else
+                        {
+                            TempData["MensgemErro"] = "Não conseguimos enviar o e-mail para recuperar sua senha, Por favor tente novamente.";
+                        }
                     }
                     TempData["MensgemErro"] = "Não conseguimos recuperar sua senha. Por favor, verifique os dados e tente novamente!";
 
