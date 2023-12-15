@@ -12,15 +12,7 @@
 </head>
 <body style="background-color: #F5F5F5;">
     <header>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-            <!-- Container wrapper -->
-            <div class="container-fluid">
-               @await Component.InvokeAsync("NavBar")
-            </div>
-            <!-- Container wrapper -->
-        </nav>
-        <!-- Navbar -->
+        @await Component.InvokeAsync("Navigation")
     </header>
     <div class="container">
         <main role="main" class="pb-3">

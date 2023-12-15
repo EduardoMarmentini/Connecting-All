@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 
 namespace ControleDeContatos.Helper
 {
@@ -15,13 +16,13 @@ namespace ControleDeContatos.Helper
 
         public bool Enviar(string destinatario, string assunto, string mensagem)
         {
-            try 
+            try
             {
-                string host      = _config.GetValue<string>("SMTP:Host");
-                string nome      = _config.GetValue<string>("SMTP:Nome");
-                string username  = _config.GetValue<string>("SMTP:UserName");
-                string senha     = _config.GetValue<string>("SMTP:Senha");
-                int port         = _config.GetValue<int>("SMTP:Porta");
+                string host = _config.GetValue<string>("SMTP:Host");
+                string nome = _config.GetValue<string>("SMTP:Nome");
+                string username = _config.GetValue<string>("SMTP:UserName");
+                string senha = _config.GetValue<string>("SMTP:Senha");
+                int port = _config.GetValue<int>("SMTP:Porta");
 
                 MailMessage mail = new MailMessage()
                 {
@@ -31,20 +32,23 @@ namespace ControleDeContatos.Helper
                 mail.To.Add(destinatario);
                 mail.Subject = assunto;
                 mail.Body = mensagem;
+                mail.SubjectEncoding = Encoding.GetEncoding("UTF-8");
+                mail.BodyEncoding = Encoding.GetEncoding("UTF-8");
                 mail.IsBodyHtml = true;
                 mail.Priority = MailPriority.High;
 
+
                 using (SmtpClient smtp = new SmtpClient(host, port))
                 {
+                    smtp.UseDefaultCredentials = false;
                     smtp.Credentials = new NetworkCredential(username, senha);
-                    smtp.UseDefaultCredentials = true;
                     smtp.EnableSsl = true;
 
                     smtp.Send(mail);
                     return true;
                 }
-            } 
-            catch (Exception error )
+            }
+            catch (Exception error)
             {
                 Console.WriteLine($"Erro ao enviar e-mail: {error.Message}");
                 return false;

@@ -1,0 +1,153 @@
+﻿@model UsuarioModel
+
+<!--Main Navigation-->
+<header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <!-- Collapse 1 -->
+                <a class="list-group-item list-group-item-action py-2 ripple"
+                   aria-current="true"
+                   data-mdb-toggle="collapse"
+                   href="#collapseExample1"
+                   aria-expanded="true"
+                   aria-controls="collapseExample1">
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Expanded menu</span>
+                </a>
+                <!-- Collapsed content -->
+                <ul id="collapseExample1" class="collapse list-group list-group-flush">
+                    <li class="list-group-item py-1">
+                        <a href="" class="text-reset">Link</a>
+                    </li>
+                    <li class="list-group-item py-1">
+                        <a href="" class="text-reset">Link</a>
+                    </li>
+                    <li class="list-group-item py-1">
+                        <a href="" class="text-reset">Link</a>
+                    </li>
+                    <li class="list-group-item py-1">
+                        <a href="" class="text-reset">Link</a>
+                    </li>
+                </ul>
+                <!-- Collapse 1 -->
+                <!-- Collapse 2 -->
+                <a class="list-group-item list-group-item-action py-2 ripple"
+                   aria-current="true"
+                   data-mdb-toggle="collapse"
+                   href="#collapseExample2"
+                   aria-expanded="true"
+                   aria-controls="collapseExample2">
+                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Collapsed menu</span>
+                </a>
+                <!-- Collapsed content -->
+                <ul id="collapseExample2" class="collapse list-group list-group-flush">
+                    <li class="list-group-item py-1">
+                        <a href="" class="text-reset">Link</a>
+                    </li>
+                    <li class="list-group-item py-1">
+                        <a href="" class="text-reset">Link</a>
+                    </li>
+                    <li class="list-group-item py-1">
+                        <a href="" class="text-reset">Link</a>
+                    </li>
+                    <li class="list-group-item py-1">
+                        <a href="" class="text-reset">Link</a>
+                    </li>
+                </ul>
+                <!-- Collapse 2 -->
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand">
+                <img src="~/img/logo.png"
+                     height="45"
+                     width="35"
+                     alt="MDB Logo"
+                     loading="lazy" />
+                Connecting All
+            </a>
+                
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+                <a class="text-reset me-3" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+
+                <!-- Notifications -->
+                <div class="dropdown">
+                    <a data-mdb-dropdown-init
+                       class="text-reset me-3 dropdown-toggle hidden-arrow"
+                       href="#"
+                       id="navbarDropdownMenuLink"
+                       role="button"
+                       aria-expanded="false">
+                        <i class="fas fa-bell">
+                            <span class="material-symbols-outlined">
+                                notifications
+                            </span>
+                        </i>
+                        <!-- Notifications Number-->
+                        <span class="badge rounded-pill badge-notification bg-danger">0</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="#">Some news</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Another news</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Avatar -->
+                <div class="dropdown d-flex me-2">
+                    <strong class="d-none d-sm-block m-md-3">Olá, @Model.GetNome()</strong>
+                    <a data-mdb-dropdown-init
+                       class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                       href="#"
+                       id="navbarDropdownMenuAvatar"
+                       role="button"
+                       aria-expanded="false">
+                        <img src=@Model.GetImagePath() onerror="this.onerror=null; this.src='/img/sem-foto.jpeg'"
+                             class="rounded-circle"
+                             height="40"
+                             alt="Foto Usuario"
+                             loading="lazy" />
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdownMenuAvatar">
+                        <li>
+                            <a class="dropdown-item" asp-controller="Usuario" asp-action="Perfil" asp-route-id="@Model.Id">My profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-controller="Usuario" asp-action="Configurações" asp-route-id="@Model.Id">Settings</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-controller="Login" asp-action="Sair">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+<!--Main layout-->
+<main style="margin-top: 58px;">
+    <div class="container pt-4"></div>
+</main>
+<!--Main layout-->

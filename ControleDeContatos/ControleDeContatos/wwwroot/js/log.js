@@ -28,4 +28,16 @@
         $('.error').fadeOut();
         $('.sucess').fadeOut();
     });
+
+    $(".navbar-brand").click(function () {
+        console.log("teste")
+        // Verifica se a barra lateral está visível
+        if ($("#sidebar").is(":visible")) {
+            // Se estiver visível, esconde
+            $("#sidebar").toggle("slide", { direction: "left" }, 500);
+        } else {
+            // Se estiver oculta, mostra
+            $("#sidebar").toggle("slide", { direction: "left" }, 500);
+        }
+    });
 });

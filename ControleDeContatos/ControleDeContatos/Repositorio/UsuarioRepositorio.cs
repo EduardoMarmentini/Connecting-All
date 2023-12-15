@@ -92,10 +92,11 @@ namespace ControleDeContatos.Repositorio
         {
             UsuarioModel usuarioDB = ListarPorId(usuario.Id);
 
-            if (usuarioDB == null) throw new Exception("Houve um erro ao recuperar a senha do usuario");
+            if (usuarioDB == null) throw new Exception("Houve um erro ao tentar salvar a nova senha do usuário");
 
             // Seta a nova senha do usuario para acessar sua conta 
             usuarioDB.Password = usuario.Password;
+            usuarioDB.SetSenhaHash();
             usuarioDB.DataAlteração = DateTime.Now;
 
             // Chama o metodo de atualizar os dados do banco do entityFrameworkCore 
