@@ -13,7 +13,11 @@
                    href="#collapseExample1"
                    aria-expanded="true"
                    aria-controls="collapseExample1">
-                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Expanded menu</span>
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i>
+                    <span class="material-symbols-outlined" style="padding-right:5px;">
+                        contact_phone
+                    </span>
+                    Lista de clientes
                 </a>
                 <!-- Collapsed content -->
                 <ul id="collapseExample1" class="collapse list-group list-group-flush">
@@ -128,10 +132,10 @@
                     <ul class="dropdown-menu dropdown-menu-end"
                         aria-labelledby="navbarDropdownMenuAvatar">
                         <li>
-                            <a class="dropdown-item" asp-controller="Usuario" asp-action="Perfil" asp-route-id="@Model.Id">My profile</a>
+                            <a class="dropdown-item" asp-controller="Usuario" asp-action="PerfilUsuario" asp-route-id="@Model.Id">My profile</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" asp-controller="Usuario" asp-action="Configurações" asp-route-id="@Model.Id">Settings</a>
+                            <a class="dropdown-item" asp-controller="Peril" asp-action="Configurações" asp-route-id="@Model.Id">Settings</a>
                         </li>
                         <li>
                             <a class="dropdown-item" asp-controller="Login" asp-action="Sair">Logout</a>

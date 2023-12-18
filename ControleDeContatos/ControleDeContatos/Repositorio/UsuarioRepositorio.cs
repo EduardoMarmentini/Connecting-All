@@ -58,7 +58,7 @@ namespace ControleDeContatos.Repositorio
             return usuario;
         }
 
-        public UsuarioModel AtualizarConta(UsuarioModel usuario, IFormFile picture_upload)
+        public UsuarioModel AtualizarConta(EditarContaModel usuario, IFormFile picture_upload)
         {
             UsuarioModel usuarioDB = ListarPorId(usuario.Id);
 
@@ -66,10 +66,39 @@ namespace ControleDeContatos.Repositorio
 
             usuarioDB.Nome = usuario.Nome;
             usuarioDB.Email = usuario.Email;
-            usuarioDB.Tipo_Usuario = usuario.Tipo_Usuario;
             usuarioDB.Login = usuario.Login;
             // Caso o administrador não tenha informado uma senha ele não altera e mantem a ja presente
-            if (usuario.Password != null) 
+            if (usuario.New_Password != null) 
+            {
+                usuarioDB.Password = usuario.New_Password;
+                // Cripitografa a nova senha.
+                usuarioDB.SetSenhaHash();
+            }
+            usuarioDB.DataAlteração = DateTime.Now;
+
+            // Chama o metodo de atualizar os dados do banco do entityFrameworkCore 
+            _bancoContext.Usuarios.Update(usuarioDB);
+
+            // Chama o metodo de atualizar a foto de perfil
+            _photo.AlterarPhoto(usuario.Id, picture_upload, TypeController);
+            // Realiza o commit no banco de dados
+            _bancoContext.SaveChanges();
+
+            return usuarioDB;
+
+        }
+
+        public UsuarioModel AtualizarUsuario(UsuarioModel usuario, IFormFile picture_upload)
+        {
+            UsuarioModel usuarioDB = ListarPorId(usuario.Id);
+
+            if (usuarioDB == null) throw new Exception("Houve um erro na alteração do usuario");
+
+            usuarioDB.Nome = usuario.Nome;
+            usuarioDB.Email = usuario.Email;
+            usuarioDB.Login = usuario.Login;
+            // Caso o administrador não tenha informado uma senha ele não altera e mantem a ja presente
+            if (usuario.Password != null)
             {
                 usuarioDB.Password = usuario.Password;
                 // Cripitografa a nova senha.

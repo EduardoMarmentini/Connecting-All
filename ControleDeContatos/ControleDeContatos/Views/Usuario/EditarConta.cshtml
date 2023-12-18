@@ -1,15 +1,15 @@
-﻿@using ControleDeContatos.Enums
-@model UsuarioModel
+﻿﻿@using ControleDeContatos.Enums
+@model EditarContaModel
 @{
-    ViewData["Title"] = "Editar registros";
+    ViewData["Title"] = "Editar conta";
 }
-<h1 class="display-4">Editar contato:</h1>
+<h1 class="display-4">Editar conta:</h1>
 
 <div class="card shadow p-3 mb-5 bg-white rounded">
 
-    <form method="post" enctype="multipart/form-data" asp-controller="Usuario" asp-action="Alterar">
-        
-        <input type="hidden" asp-for="Id"/>
+    <form method="post" enctype="multipart/form-data" asp-controller="Usuario" asp-action="AtualizarConta">
+
+        <input type="hidden" asp-for="Id" />
         <div class="d-flex">
             <div>
                 <div class="form-group">
@@ -34,14 +34,6 @@
                 </div>
                 @Html.ValidationMessageFor(x => x.Email)
                 <br />
-
-                <select asp-for="Tipo_Usuario" class="form-control">
-                    <option value="0">Tipo usuário</option>
-                    <option value="@PerfilEnum.Padrao">Padrão</option>
-                    <option value="@PerfilEnum.Admin">Administrador</option>
-                </select>
-                @Html.ValidationMessageFor(x => x.Tipo_Usuario)
-                <br />
                 <div class="form-outline" data-mdb-input-init>
                     <input type="tel" id="typeText" class="form-control" asp-for="Login" />
                     <label class="form-label" for="typeText">Login</label>
@@ -50,22 +42,29 @@
                 <br />
 
                 <div class="input-group mb-3">
-                    <div class="input-group-text">
-                        <span class="material-symbols-outlined show-password">
-                            visibility
-                        </span>
-                    </div>
                     <div class="form-outline" data-mdb-input-init>
-                        <input type="password" id="typeText" class="form-control txtPassword" asp-for="Password" />
+                        <input type="password" id="typeText" class="form-control txtPassword" asp-for="New_Password" />
                         <label class="form-label" for="typeText">Password</label>
                     </div>
                 </div>
+                <br />
+
+                <div class="input-group mb-3">
+                    <div class="form-outline" data-mdb-input-init>
+                        <input type="password" id="typeText" class="form-control txtPassword" asp-for="Confirm_New_Password" />
+                        <label class="form-label" for="typeText">Confirm password</label>
+                    </div>
+                </div>
+
+                <span class="material-symbols-outlined show-password">
+                    visibility
+                </span>
             </div>
         </div>
         <br />
 
-        <button type="submit" class="btn btn-primary">Alterar</button>
-        <a class="btn btn-secondary" asp-controller="Usuario" asp-action="Index">Voltar</a>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Voltar</a>
 
     </form>
 </div>

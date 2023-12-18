@@ -16,7 +16,9 @@ namespace ControleDeContatos.Repositorio
         // Metodo de adicionar registros as tabela.
         UsuarioModel Adicionar(UsuarioModel usuario, IFormFile picture_upload);
         // Metodo para alterar os dados do usuario na tabela de usuarios
-        UsuarioModel AtualizarConta(UsuarioModel usuaruo, IFormFile picture_upload);
+        UsuarioModel AtualizarConta(EditarContaModel usuaruo, IFormFile picture_upload);
+
+        UsuarioModel AtualizarUsuario(UsuarioModel usuaruo, IFormFile picture_upload);
         // Metodo para atualizar a senha do usuario
         UsuarioModel AtualizarSenha(UsuarioModel usuario);
         // Metodo para Apagar o contato na tabela de usuarios

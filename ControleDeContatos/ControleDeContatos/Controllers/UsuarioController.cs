@@ -2,6 +2,7 @@
 using ControleDeContatos.Models;
 using ControleDeContatos.Repositorio;
 using Microsoft.AspNetCore.Mvc;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ControleDeContatos.Controllers
 {
@@ -40,6 +41,22 @@ namespace ControleDeContatos.Controllers
         }
 
         public IActionResult EditarConta(int id)
+        {
+
+            //Chama o metodo que busca os dados por id e retorna para view
+            UsuarioModel usuario = _usuarioRepositorio.ListarPorId(id);
+            EditarContaModel viewModel = new EditarContaModel
+            {
+                Id = usuario.Id,
+                Nome = usuario.Nome,
+                Email = usuario.Email,
+                Login = usuario.Login,
+                
+            };
+            return View(viewModel);
+        }
+
+        public IActionResult PerfilUsuario(int id)
         {
 
             //Chama o metodo que busca os dados por id e retorna para view
@@ -96,9 +113,8 @@ namespace ControleDeContatos.Controllers
                     }
 
                     // Utilizando a variavel que contem o objeto de repositorio do banco
-                    _usuarioRepositorio.AtualizarConta(usuario, picture_upload);
+                    _usuarioRepositorio.AtualizarUsuario(usuario, picture_upload);
                     TempData["MensagemSucesso"] = "Usuário editado com sucesso!";
-                    return RedirectToAction("Index");
                 }
                 // Por conta do metodo não possuir o mesmo nome da view forçamos ele a redirecionar para a que desejamos
                 return View("EditarUsuario", usuario);
@@ -111,18 +127,23 @@ namespace ControleDeContatos.Controllers
         }
 
         [HttpPost] // Realizando a assinatura do tipo que esse metodo pertence
-        public IActionResult AtualizarConta(UsuarioModel usuario, IFormFile? picture_upload)
+        public IActionResult AtualizarConta(EditarContaModel usuario, IFormFile? picture_upload)
         {
             // Tratativa de erro ao tentar alterar usuario
             try
             {
-
                 if (ModelState.IsValid)
                 {
                     // Se o campo de senha estiver vazio, defina a senha para o valor atual
-                    if (string.IsNullOrEmpty(usuario.Password))
+                    if (string.IsNullOrEmpty(usuario.New_Password))
                     {
-                        usuario.Password = null;
+                        usuario.New_Password = null;
+                    }
+
+                    if(!usuario.ValidaNovaSenha())
+                    {
+                        TempData["MensgemErro"] = $"As senhas não são identicas, corriga para prosseguir";
+                        return RedirectToAction("EditarConta", "Usuario");
                     }
 
                     // Utilizando a variavel que contem o objeto de repositorio do banco
