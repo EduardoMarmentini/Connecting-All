@@ -34,6 +34,59 @@
     // Seta as tabelas que iram receber os metodos de paginação
     getDataTable($("#table-usuarios"))
     getDataTable($("#table-contatos"))
+
+
+    $('#calendario').fullCalendar({
+        events: [
+            {
+                title: "teste",
+                start: "2023-12-23",
+                end: "2023-12-23",
+                color: "ligth blue",
+                textColor: "black"
+            }
+        ],
+        selectable: true,
+        selectHelper: true,
+        select: function ()
+        {
+            $("#CreateEvent").modal("toggle");
+        },
+        dayRender: function (date, cell)
+        {
+            let today = $.fullCalendar.moment();
+            if (date.get("date") == today.get("date")) {
+                cell.css("background", "ligth yellow");
+            }
+            else {
+                cell.css("background", "white");
+            }
+        },
+        header: {
+            left   : "month, agendaWeek, agendaDay",
+            center : "title",
+            right  : "prev, today, next"
+        },
+        buttonText: {
+            today : "Hoje",
+            month : "Mês",
+            week  : "Semana",
+            day   : "Dia"
+        },
+        ignoreTimezone: false,
+        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
+        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+        axisFormat: 'H:mm',
+    });
+
+    $('#datepicker-start').datepicker({
+        uiLibrary: 'bootstrap5'
+    });
+    $('#datepicker-end').datepicker({
+        uiLibrary: 'bootstrap5'
+    });
     
     const inputFile = $("#picture_upload");
     const pictureImage = $(".exibe_foto");
