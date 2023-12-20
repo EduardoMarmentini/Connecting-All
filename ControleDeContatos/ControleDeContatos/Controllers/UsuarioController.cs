@@ -56,6 +56,15 @@ namespace ControleDeContatos.Controllers
             return View(viewModel);
         }
 
+        public IActionResult ContaUsuario(int id)
+        {
+
+            //Chama o metodo que busca os dados por id e retorna para view
+            UsuarioModel usuario = _usuarioRepositorio.ListarPorId(id);
+
+            return View(usuario);
+        }
+
         public IActionResult PerfilUsuario(int id)
         {
 

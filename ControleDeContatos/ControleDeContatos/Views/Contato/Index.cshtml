@@ -1,6 +1,6 @@
-﻿@model List<ContatoModel>
+﻿@model List<ContatoViewModel>
 @{
-    ViewData["Title"] = "Registo de contatos";
+    ViewData["Title"] = "Registo de clientes";
 }
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
@@ -28,9 +28,9 @@
     
 }
 
-<h1 class="display-4">Lista de contatos:</h1>
+<h1 class="display-4">Clientes:</h1>
 
-<a class="btn btn-primary" asp-controller="Contato" asp-action="Criar">Adicionar contato</a>
+<a class="btn btn-primary" asp-controller="Contato" asp-action="Criar">Cadastrar cliente</a>
 <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Voltar</a>
 
 <br />
@@ -52,30 +52,42 @@
                 <th class="text-center" scope="col">Celular</th>
                 <th class="text-center" scope="col">
                     <span class="material-symbols-outlined">
-                        edit
+                        feed
                     </span>
                 </th>
-                <th class="text-center"  scope="col">
-                    <span class="material-symbols-outlined">
-                        delete
-                    </span>
-                </th>
-
+                @if (Model.First().UsuarioModel.Tipo_Usuario == ControleDeContatos.Enums.PerfilEnum.Admin)
+                {
+                    
+                    <th class="text-center" scope="col">
+                        <span class="material-symbols-outlined">
+                            edit
+                        </span>
+                    </th>
+                    <th class="text-center"  scope="col">
+                        <span class="material-symbols-outlined">
+                            delete
+                        </span>
+                    </th>
+                }
             </tr>
         </thead>
         <tbody>
             @if (Model != null && Model.Any())
             {
-                foreach (ContatoModel contato in Model)
+                foreach (var contatoViewModel in Model)
                 {
                     <tr>
-                        <th scope="row">@contato.Id</th>
-                        <td> <img src=@contato.GetImagePath() onerror="this.onerror=null; this.src='/img/sem-foto.jpeg'" alt="contato" style="width:45px; height:45px" class="rounded-circle"></td>
-                        <td>@contato.Nome</td>
-                        <td>@contato.Email</td>
-                        <td>@contato.Celular</td>
-                        <td class="text-center"><a class="btn btn-primary" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Editar">Editar</a></td>
-                        <td class="text-center"><a class="btn btn-danger" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Apagar">Apagar</a></td>
+                        <th scope="row">@contatoViewModel.ContatoModel.Id</th>
+                        <td> <img src=@contatoViewModel.ContatoModel.GetImagePath() onerror="this.onerror=null; this.src='/img/sem-foto.jpeg'" alt="contato" style="width:45px; height:45px" class="rounded-circle"></td>
+                        <td>@contatoViewModel.ContatoModel.Nome</td>
+                        <td>@contatoViewModel.ContatoModel.Email</td>
+                        <td>@contatoViewModel.ContatoModel.Celular</td>
+                        <td class="text-center"><a class="btn btn-info" asp-route-id="@contatoViewModel.ContatoModel.Id" asp-controller="Contato" asp-action="ExibeContato">Info</a></td>
+                        @if (contatoViewModel.UsuarioModel.Tipo_Usuario == ControleDeContatos.Enums.PerfilEnum.Admin)
+                        {   
+                            <td class="text-center"><a class="btn btn-primary" asp-route-id="@contatoViewModel.ContatoModel.Id" asp-controller="Contato" asp-action="Editar">Editar</a></td>
+                            <td class="text-center"><a class="btn btn-danger" asp-route-id="@contatoViewModel.ContatoModel.Id" asp-controller="Contato" asp-action="Apagar">Apagar</a></td>
+                        }
                     </tr>
                 }    
             }

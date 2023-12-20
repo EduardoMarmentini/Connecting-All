@@ -48,22 +48,34 @@
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <!-- Container wrapper -->
         <div class="container-fluid">
-            <!-- Brand -->
-            <a class="navbar-brand">
-                <img src="~/img/logo.png"
-                     height="45"
-                     width="35"
-                     alt="MDB Logo"
-                     loading="lazy" />
-                Connecting All
-            </a>
+            <!-- Left elements -->
+            <input id="toggleChecker" type="checkbox">
+            <label id="togglerLable" for="toggleChecker">
+                <div class="checkboxtoggler">
+                    <div class="line-1"></div>
+                    <div class="line-2"></div>
+                    <div class="line-3"></div>
+                </div>
+            </label>
+
+            <!-- Left elements -->
+
+            <!-- Center elements -->
+            <div class="collapse navbar-collapse justify-content-center"id="navbarCenteredExample">
+                <!-- Brand -->
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo.png"
+                         height="45"
+                         width="35"
+                         alt="MDB Logo"
+                         loading="lazy" />
+                    Connecting All
+                </a>
+            </div>
                 
             <!-- Right elements -->
             <div class="d-flex align-items-center">
                 <!-- Icon -->
-                <a class="text-reset me-3" href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
 
                 <!-- Notifications -->
                 <div class="dropdown">
@@ -73,24 +85,22 @@
                        id="navbarDropdownMenuLink"
                        role="button"
                        aria-expanded="false">
-                        <i class="fas fa-bell">
-                            <span class="material-symbols-outlined">
-                                notifications
-                            </span>
-                        </i>
+                        <span class="material-symbols-outlined">
+                            notifications
+                        </span>
                         <!-- Notifications Number-->
                         <span class="badge rounded-pill badge-notification bg-danger">0</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end"
                         aria-labelledby="navbarDropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="#">Some news</a>
+                            <a class="dropdown-item">Some news</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Another news</a>
+                            <a class="dropdown-item">Another news</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item">Something else here</a>
                         </li>
                     </ul>
                 </div>
@@ -112,7 +122,7 @@
                     <ul class="dropdown-menu dropdown-menu-end"
                         aria-labelledby="navbarDropdownMenuAvatar">
                         <li>
-                            <a class="dropdown-item" asp-controller="Usuario" asp-action="PerfilUsuario" asp-route-id="@Model.Id">My profile</a>
+                            <a class="dropdown-item" asp-controller="Usuario" asp-action="ContaUsuario" asp-route-id="@Model.Id">My profile</a>
                         </li>
                         <li>
                             <a class="dropdown-item" asp-controller="Peril" asp-action="Configurações" asp-route-id="@Model.Id">Settings</a>

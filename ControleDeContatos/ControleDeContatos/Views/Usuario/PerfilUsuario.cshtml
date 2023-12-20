@@ -1,58 +1,62 @@
 ﻿@model UsuarioModel
 @{
-    ViewData["Title"] = "Minha conta";
+    ViewData["Title"] = "Informações de usuário";
 }
- <h1 class="display-4">Conta:</h1>
+ <h1 class="display-4">Informações do usuário:</h1>
 <br />
 <div class="card shadow p-3 mb-5 bg-white rounded">
-<div class="d-flex">
-    <div>
-        <div class="form-group">
-            <label class="picture_show" for="picture_upload" tabindex="0">
-                <img src="@Model.GetImagePath()" id="foto_perfil" onerror="this.onerror=null; this.src='/img/sem-foto.jpeg'">
-            </label>
+    <div class="d-flex">
+        <div>
+            <div class="form-group">
+                <label class="picture_show" for="picture_upload" tabindex="0">
+                    <img src="@Model.GetImagePath()" id="foto_perfil" onerror="this.onerror=null; this.src='/img/sem-foto.jpeg'">
+                </label>
+            </div>
         </div>
-    </div>
-    <div class="card d-flex flex-column mx-auto" style="width:80%;">
-        <div class="card-header px-3">Informações:</div>
-        <div class="boxInputs">
-            <ul class="list-group list-group-light list-group-small">
-                <li class="list-group-item px-3">
-                    <div class="form-group">
-                        <label asp-for="Nome">Nome: @Model.Nome</label>
-                    </div>
-                </li>
-                <li class="list-group-item px-3">
-                    <div class="form-group">
-                        <label asp-for="Email">Email: @Model.Email</label>
-                    </div>
-                </li>
-                <li class="list-group-item px-3">
-                    <div class="form-group">
-                        <label asp-for="Login">Login: @Model.Login</label>
-                    </div>
-                </li>
-                <li class="list-group-item px-3">
-                    <div class="form-group">
-                        <label asp-for="DataCadastro">Data do cadastro: @Model.DataCadastro</label>
-                    </div>
-                </li>
-                <li class="list-group-item px-3">
-                    <div class="form-group">
-                        <label asp-for="DataAlteração">Última atualização: @Model.DataAlteração</label>
-                    </div>
-                </li>
-            </ul>
+        <div class="card d-flex flex-column mx-auto" style="width:80%;">
+            <div class="card-header px-3">Informações:</div>
+            <div class="boxInputs">
+                <ul class="list-group list-group-light list-group-small">
+                    <li class="list-group-item px-3">
+                        <div class="form-group">
+                            <label asp-for="Nome">Nome: @Model.Nome</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item px-3">
+                        <div class="form-group">
+                            <label asp-for="Email">Email: @Model.Email</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item px-3">
+                        <div class="form-group">
+                            <label asp-for="Login">Login: @Model.Login</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item px-3">
+                        <div class="form-group">
+                            <label asp-for="DataCadastro">Permissões: @Model.Tipo_Usuario</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item px-3">
+                        <div class="form-group">
+                            <label asp-for="DataCadastro">Data do cadastro: @Model.DataCadastro</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item px-3">
+                        <div class="form-group">
+                            <label asp-for="DataAlteração">Última atualização: @(Model.DataAlteração == null ? "Sem alterações recentes" : Model.DataAlteração) </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+        <br />
+    </div> 
+
     <br />
-</div> 
 
-<br />
-
-<div>
-        <a class="btn btn-primary" asp-controller="Usuario" asp-action="EditarConta" asp-route-id="@Model.Id">Editar</a>
-    <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Voltar</a>
-</div>
+    <div>
+        <a class="btn btn-secondary" asp-controller="Usuario" asp-action="Index">Voltar</a>
+    </div>
 </div>
 

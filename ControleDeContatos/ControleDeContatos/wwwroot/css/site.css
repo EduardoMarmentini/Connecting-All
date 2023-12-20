@@ -33,7 +33,19 @@ body {
 }
 
 .dropdown-item:hover {
-    color: #5995fd;
+    color: #3C97FF;
+}
+
+.list-group a:hover {
+    color: #3C97FF;
+}
+
+.material-symbols-outlined:hover {
+    color: #3C97FF;
+}
+
+.dropdown-menu a:hover {
+    color: #3C97FF;
 }
 
 .show-password:hover {
@@ -42,6 +54,9 @@ body {
     user-select: none;
 }
 
+.navbar-brand:hover {
+    cursor: pointer;
+}
 /* Estilo da parte de upload de foto de perfil ao cadastrar um contato*/
 #picture_upload {
     display: none;
@@ -229,3 +244,56 @@ body {
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
+
+
+.checkboxtoggler {
+    width: 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    cursor: pointer;
+}
+
+.line-1 {
+    background: Black;
+    height: 0.2em;
+    border-radius: 10em;
+    transition-duration: 500ms;
+}
+
+.line-2 {
+    background: Black;
+    height: 0.2em;
+    border-radius: 10em;
+    transition-duration: 500ms;
+}
+
+.line-3 {
+    background: Black;
+    height: 0.2em;
+    border-radius: 10em;
+    transition-duration: 500ms;
+}
+
+#toggleChecker {
+    height: 2.5em;
+    width: 100%;
+    display: none;
+}
+
+    #toggleChecker:checked + #togglerLable .checkboxtoggler .line-1 {
+        -webkit-transform: rotate(45deg) translateY(0.7em) translateX(0.7em);
+        -ms-transform: rotate(45deg) translateY(0.7em) translateX(0.7em);
+        transform: rotate(45deg) translateY(0.7em) translateX(0.7em);
+    }
+
+    #toggleChecker:checked + #togglerLable .checkboxtoggler .line-2 {
+        -webkit-transform: rotate(-45deg) translateY(0em) translateX(0.1em);
+        -ms-transform: rotate(-45deg) translateY(0em) translateX(0.1em);
+        transform: rotate(-45deg) translateY(0em) translateX(0.1em);
+    }
+
+    #toggleChecker:checked + #togglerLable .checkboxtoggler .line-3 {
+        transform: scaleX(0);
+        transform-origin: left;
+    }

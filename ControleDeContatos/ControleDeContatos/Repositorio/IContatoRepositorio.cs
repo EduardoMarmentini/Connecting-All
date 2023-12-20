@@ -7,7 +7,7 @@ namespace ControleDeContatos.Repositorio
         // Metodo de buscar informaçõespor id
         ContatoModel ListarPorId(int id);
         // Metodo de buscar todos os registros
-        List<ContatoModel> BuscarTodos();
+        List<ContatoViewModel> BuscarTodos();
         // Metodo de adicionar registros as tabela.
         ContatoModel Adicionar(ContatoModel contato, IFormFile picture_upload);
         // Metodo para alterar os dados do contato na tabela de contatos

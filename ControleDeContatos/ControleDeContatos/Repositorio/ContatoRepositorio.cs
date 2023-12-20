@@ -1,5 +1,7 @@
 ﻿using ControleDeContatos.Data;
+using ControleDeContatos.Helper;
 using ControleDeContatos.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ControleDeContatos.Repositorio
 {
@@ -8,14 +10,16 @@ namespace ControleDeContatos.Repositorio
         // Criando a varivel que ira receber as propriedades do contexto de banco
         private readonly BancoContext _bancoContext;
         private readonly IPhotoRepositorio _photo;
+        private readonly ISessao _sessao;
         // Variavel que contem o tipo da controller para especificar a pagina que as fotos seram salvas
         private string TypeController = "Contatos";
         // Criando o construtor e injetando o contexto no mesmo
-        public ContatoRepositorio(BancoContext bancoContext, IPhotoRepositorio photo)
+        public ContatoRepositorio(BancoContext bancoContext, IPhotoRepositorio photo, ISessao sessao)
         {
             // Instanciando as dependecias do banco no caso a String de conexão
             _bancoContext = bancoContext;
             _photo = photo;
+            _sessao = sessao;
         }
 
         // Busca todos os dados referentes ao id passado.
@@ -25,11 +29,22 @@ namespace ControleDeContatos.Repositorio
         }
 
         // Metodo que lista todos os registros 
-        public List<ContatoModel> BuscarTodos()
+        public List<ContatoViewModel> BuscarTodos()
         {
-            // Busca o metodo ToList do EntityFrameworkCore que lista todas a informações da tabela desejada
-            return _bancoContext.Contatos.ToList();
+            // Supondo que _bancoContext.Contatos seja um DbSet<ContatoModel>
+            List<ContatoModel> contatos = _bancoContext.Contatos.ToList();
+
+            UsuarioModel usuarioSessao = _sessao.GetSessaoDoUsuario();
+
+            List<ContatoViewModel> contatosView = contatos.Select(c => new ContatoViewModel
+            {
+                UsuarioModel = usuarioSessao,
+                ContatoModel = c
+            }).ToList();
+
+            return contatosView;
         }
+
         //Lista as informações pelo id do contato.
 
         // Gravar no banco de dados (Pelo contexto)

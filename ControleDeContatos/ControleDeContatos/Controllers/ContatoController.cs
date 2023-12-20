@@ -21,7 +21,7 @@ namespace ControleDeContatos.Controllers
         // Metodos que não possuem uma especificação de qual se tipo por padrão são metodos GET sendo assim apenas para busca de informações
         public IActionResult Index()
         {
-            List<ContatoModel> contatos = _contatoRepositorio.BuscarTodos();
+            List<ContatoViewModel> contatos = _contatoRepositorio.BuscarTodos();
 
             return View(contatos);
         }
@@ -34,6 +34,13 @@ namespace ControleDeContatos.Controllers
         public IActionResult Editar(int id) {
 
             //Chama o metodo que busca os dados por id e retorna para view
+            ContatoModel contato = _contatoRepositorio.ListarPorId(id);
+
+            return View(contato);
+        }
+
+        public IActionResult PerfilCliente(int id)
+        {
             ContatoModel contato = _contatoRepositorio.ListarPorId(id);
 
             return View(contato);
