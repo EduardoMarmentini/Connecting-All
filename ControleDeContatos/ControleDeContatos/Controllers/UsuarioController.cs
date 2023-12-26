@@ -1,12 +1,12 @@
 ﻿using ControleDeContatos.Filters;
 using ControleDeContatos.Models;
 using ControleDeContatos.Repositorio;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ControleDeContatos.Controllers
 {
-    [PaginaSomenteAdmin]
     public class UsuarioController : Controller
     {
 
@@ -20,17 +20,18 @@ namespace ControleDeContatos.Controllers
         }
 
         // Metodos que não possuem uma especificação de qual se tipo por padrão são metodos GET sendo assim apenas para busca de informações
+        [PaginaSomenteAdmin]
         public IActionResult Index()
         {
             List<UsuarioModel> usuarios = _usuarioRepositorio.BuscarTodos();
             return View(usuarios);
         }
-
+        [PaginaSomenteAdmin]
         public IActionResult Criar() 
         {
             return View();
         }
-
+        [PaginaSomenteAdmin]
         public IActionResult EditarUsuario(int id)
         {
 
@@ -39,7 +40,7 @@ namespace ControleDeContatos.Controllers
 
             return View(usuario);
         }
-
+        [AllowAnonymous]
         public IActionResult EditarConta(int id)
         {
 
@@ -55,7 +56,7 @@ namespace ControleDeContatos.Controllers
             };
             return View(viewModel);
         }
-
+        [AllowAnonymous]
         public IActionResult ContaUsuario(int id)
         {
 
@@ -64,7 +65,7 @@ namespace ControleDeContatos.Controllers
 
             return View(usuario);
         }
-
+        [PaginaSomenteAdmin]
         public IActionResult PerfilUsuario(int id)
         {
 
@@ -73,7 +74,7 @@ namespace ControleDeContatos.Controllers
 
             return View(usuario);
         }
-
+        [PaginaSomenteAdmin]
         public IActionResult Apagar(int id)
         {
             UsuarioModel usuario = _usuarioRepositorio.ListarPorId(id);
@@ -83,6 +84,7 @@ namespace ControleDeContatos.Controllers
 
         // Metodos POST de inserção e manipulação 
         [HttpPost] // Realizando a assinatura do tipo que esse metodo pertence
+        [PaginaSomenteAdmin]
         public IActionResult Criar(UsuarioModel usuario, IFormFile? picture_upload) 
         {
             try 
@@ -107,6 +109,7 @@ namespace ControleDeContatos.Controllers
         }
 
         [HttpPost] // Realizando a assinatura do tipo que esse metodo pertence
+        [PaginaSomenteAdmin]
         public IActionResult AtualizarUsuario(UsuarioModel usuario, IFormFile? picture_upload)
         {
             // Tratativa de erro ao tentar alterar usuario
@@ -136,6 +139,7 @@ namespace ControleDeContatos.Controllers
         }
 
         [HttpPost] // Realizando a assinatura do tipo que esse metodo pertence
+        [AllowAnonymous]
         public IActionResult AtualizarConta(EditarContaModel usuario, IFormFile? picture_upload)
         {
             // Tratativa de erro ao tentar alterar usuario
@@ -158,7 +162,7 @@ namespace ControleDeContatos.Controllers
                     // Utilizando a variavel que contem o objeto de repositorio do banco
                     _usuarioRepositorio.AtualizarConta(usuario, picture_upload);
                     TempData["MensagemSucesso"] = "Usuário editado com sucesso!";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
                 // Por conta do metodo não possuir o mesmo nome da view forçamos ele a redirecionar para a que desejamos
                 return View("EditarUsuario", usuario);
@@ -171,6 +175,7 @@ namespace ControleDeContatos.Controllers
         }
 
         [HttpPost]
+        [PaginaSomenteAdmin]
         public IActionResult Excluir(UsuarioModel usuario)
         {
 

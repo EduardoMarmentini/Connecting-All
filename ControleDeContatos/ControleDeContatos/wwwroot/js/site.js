@@ -37,6 +37,8 @@
 
 
     $('#calendario').fullCalendar({
+        aspectRatio: 1.5, // Ajuste a proporção conforme necessário para a largura desejada
+        height: 800, // Ajuste a altura conforme necessário
         events: [
             {
                 title: "teste",
@@ -138,7 +140,6 @@
     // Desabilita o botão "Apagar" por padrão
     $('.btn.btn-danger').prop('disabled', true);
 
-    // Adiciona um ouvinte de evento 'change' aos botões de opção
     $('input[type="radio"]').change(function () {
         // Verifica qual botão de opção está selecionado
         if ($('#rdNao').is(':checked')) {
@@ -149,4 +150,16 @@
             $('.btn.btn-danger').prop('disabled', false);
         }
     });
+
+
+
+
+    $('#burger').on('change', function () {
+        if ($(this).prop('checked')) {
+            $(".sidebar").animate({ left: "0px" }, 300);
+        } else {
+            $(".sidebar").animate({ left: "-250px" }, 300);
+        }
+    });
+
 });
