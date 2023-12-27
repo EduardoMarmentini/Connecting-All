@@ -93,11 +93,11 @@ namespace ControleDeContatos.Controllers
                     {
                         string novasenha = usuario.GerarNovaSenha();
 
-                        string msg = $"Prezado(a) {usuario.Nome}, sua nova senha para acesso ao sistema Connecting All é : {novasenha}, após o acesso é recomendado que o mesmo realize a aleração para uma senha particular";
+                        string msg = $"Prezado(a) {usuario.Nome}, sua nova senha para acesso ao sistema Connecting All é : {novasenha}, após o acesso é recomendado que o mesmo realize a alteração para uma senha particular";
 
                         bool emailEnviado = _email.Enviar(usuario.Email, "Connecting All - Nova senha de acesso", msg);
 
-                        if (emailEnviado) 
+                        if (emailEnviado)   
                         {   
                             usuario.Password = novasenha;
                             _usuarioRepositorio.AtualizarSenha(usuario);

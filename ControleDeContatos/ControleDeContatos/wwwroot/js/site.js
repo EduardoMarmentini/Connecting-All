@@ -46,6 +46,13 @@
                 end: "2023-12-23",
                 color: "ligth blue",
                 textColor: "black"
+            },
+            {
+                title: "aniversario da empresa",
+                start: "2023-12-27",
+                end: "2023-12-23",
+                color: "yellow",
+                textColor: "black"
             }
         ],
         selectable: true,

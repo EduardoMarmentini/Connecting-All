@@ -47,6 +47,45 @@ namespace ControleDeContatos.Migrations
                     b.ToTable("Contatos");
                 });
 
+            modelBuilder.Entity("ControleDeContatos.Models.RequisicaoModel", b =>
+                {
+                    b.Property<int>("id_requisicao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_requisicao"));
+
+                    b.Property<DateTime>("data_cadastro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("data_conclusao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("data_entrega")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("horas_trabalhadas")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("id_usuario")
+                        .HasColumnType("int");
+
+                    b.Property<string>("responsavel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("titulo_requisicao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id_requisicao");
+
+                    b.ToTable("requisicoes");
+                });
+
             modelBuilder.Entity("ControleDeContatos.Models.UsuarioModel", b =>
                 {
                     b.Property<int>("Id")
@@ -74,7 +113,6 @@ namespace ControleDeContatos.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Tipo_Usuario")

@@ -263,7 +263,7 @@ body {
 .burger span {
     display: block;
     position: absolute;
-    height: 4px;
+    height: 2px;
     width: 100%;
     background: black;
     border-radius: 9px;

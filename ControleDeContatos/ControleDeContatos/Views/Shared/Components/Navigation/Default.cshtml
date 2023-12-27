@@ -12,7 +12,23 @@
                         home
                     </span>
                    Home
-                </a>    
+                </a>
+                <a class="list-group-item list-group-item-action py-2 ripple d-flex"
+                   aria-current="true"
+                   asp-controller="Requisicao" asp-action="Index">
+                    <span class="material-symbols-outlined">
+                        list
+                    </span>
+                    Minhas demandas
+                </a>
+                <a class="list-group-item list-group-item-action py-2 ripple d-flex"
+                   aria-current="true"
+                   asp-controller="Chat" asp-action="Index">
+                    <span class="material-symbols-outlined" style="padding-right:5px;">
+                        chat
+                    </span>
+                    Chat de clientes
+                </a>
                 @if (Model.Tipo_Usuario == ControleDeContatos.Enums.PerfilEnum.Admin)
                 {
                     <a class="list-group-item list-group-item-action py-2 ripple d-flex"
@@ -31,14 +47,6 @@
                         contact_phone
                     </span>
                     Lista de clientes
-                </a>
-                <a class="list-group-item list-group-item-action py-2 ripple d-flex"
-                   aria-current="true"
-                   asp-controller="Contato" asp-action="Index">
-                    <span class="material-symbols-outlined" style="padding-right:5px;">
-                        chat
-                    </span>
-                    Chat de clientes
                 </a>
             </div>
         </div>
