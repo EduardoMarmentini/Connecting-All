@@ -34,6 +34,7 @@
     // Seta as tabelas que iram receber os metodos de paginação
     getDataTable($("#table-usuarios"))
     getDataTable($("#table-contatos"))
+    getDataTable($("#table-requisicoes"))
 
 
     $('#calendario').fullCalendar({

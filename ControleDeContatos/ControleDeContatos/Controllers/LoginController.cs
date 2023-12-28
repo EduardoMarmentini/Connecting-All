@@ -30,11 +30,6 @@ namespace ControleDeContatos.Controllers
             return View();
         }
 
-        public IActionResult RecuperarSenha()
-        {
-            return View();
-        }
-
         public IActionResult Sair()
         { 
             // Remove a sessão do usuario e redireciona para a tela de login

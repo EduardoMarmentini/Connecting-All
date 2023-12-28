@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<RequisicaoModel>
+@{
     ViewData["Title"] = "Requisições do usuário";
 }
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -51,38 +52,26 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="text-center">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                    </div>
-                </td>
-                <td class="text-center">
-                    <a href="#">0001</a>
-                </td>
-                <td>TESTE DE REQUISIÇÃO</td>
-                <td style="background-color:orchid; color:black;">DESENVOLVIMENTO</td>
-                <td>27/12/2023</td>
-                <td>01/02/2024</td>
-                <td>Eduardo Marmentini</td>
-                <td>01:30</td>
-            </tr>
-            <tr>
-                <td class="text-center">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                    </div>
-                </td>
-                <td class="text-center">
-                    <a href="#">0002</a>
-                </td>
-                <td>TESTE DE REQUISIÇÃO</td>
-                <td style="background-color:cadetblue; color:black;">AGUARDANDO</td>
-                <td>05/12/2023</td>
-                <td>26/02/2024</td>
-                <td>Eduardo Marmentini</td>
-                <td>04:30</td>
-            </tr>
+            @if (Model != null && Model.Any())
+            {
+                foreach (RequisicaoModel requisicao in Model)
+                {
+                    <tr>
+                        <th class="text-center" scope="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="@requisicao.id_requisicao" id="flexCheckDefault" />
+                            </div>
+                        </th>
+                        <td>@requisicao.id_requisicao</td>
+                        <td>@requisicao.titulo_requisicao</td>
+                        <td>@requisicao.status</td>
+                        <td>@requisicao.data_cadastro</td>
+                        <td>@requisicao.data_entrega</td>
+                        <td>@requisicao.responsavel</td>
+                        <td>@requisicao.horas_trabalhadas</td>
+                    </tr>
+                }
+            }
         </tbody>
 
     </table>
