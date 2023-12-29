@@ -1,5 +1,5 @@
 ﻿using ControleDeContatos.Filters;
-using ControleDeContatos.Models;
+using ControleDeContatos.Models.Usuario;
 using ControleDeContatos.Repositorio;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

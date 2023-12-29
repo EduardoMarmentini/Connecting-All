@@ -1,4 +1,4 @@
-﻿using ControleDeContatos.Models;
+﻿using ControleDeContatos.Models.Usuario;
 
 namespace ControleDeContatos.Repositorio
 {

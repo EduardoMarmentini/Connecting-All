@@ -1,4 +1,4 @@
-﻿using ControleDeContatos.Models;
+﻿using ControleDeContatos.Models.Usuario;
 using Microsoft.AspNetCore.Http; // Adicione esta diretiva
 using Newtonsoft.Json; // Adicione esta diretiva
 

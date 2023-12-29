@@ -1,5 +1,6 @@
 ﻿using ControleDeContatos.Helper;
-using ControleDeContatos.Models;
+using ControleDeContatos.Models.Login;
+using ControleDeContatos.Models.Usuario;
 using ControleDeContatos.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 

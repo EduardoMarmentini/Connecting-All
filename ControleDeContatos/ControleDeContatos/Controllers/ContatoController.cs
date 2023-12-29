@@ -1,5 +1,5 @@
 ﻿using ControleDeContatos.Filters;
-using ControleDeContatos.Models;
+using ControleDeContatos.Models.Cliente;
 using ControleDeContatos.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

@@ -1,10 +1,10 @@
-﻿using ControleDeContatos.Models;
+﻿using ControleDeContatos.Models.Requisicao;
 
 namespace ControleDeContatos.Repositorio
 {
     public interface IRequisicaoRepositorio
     {
-        public List<RequisicaoModel> BuscarRequisicaoPorUsuario(int id_usuario_logado);
+        public List<RequisicaoViewModel> BuscarRequisicaoPorUsuario(int id_usuario_logado);
 
     }
 }

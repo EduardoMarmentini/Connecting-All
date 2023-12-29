@@ -1,4 +1,4 @@
-﻿@model List<RequisicaoModel>
+﻿@model List<ControleDeContatos.Models.Requisicao.RequisicaoViewModel>
 @{
     ViewData["Title"] = "Requisições do usuário";
 }
@@ -43,7 +43,7 @@
                     </div>
                 </th>
                 <th class="text-center" scope="col">Nº</th>
-                <th class="text-center" scope="col">Titulo</th>
+                <th class="text-center" scope="col">Requisição</th>
                 <th class="text-center" scope="col">Status</th>
                 <th class="text-center" scope="col">Data de cadastro</th>
                 <th class="text-center" scope="col">Data de entrega</th>
@@ -54,21 +54,21 @@
         <tbody>
             @if (Model != null && Model.Any())
             {
-                foreach (RequisicaoModel requisicao in Model)
+                foreach (ControleDeContatos.Models.Requisicao.RequisicaoViewModel requisicaoViewModel in Model)
                 {
                     <tr>
                         <th class="text-center" scope="col">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="@requisicao.id_requisicao" id="flexCheckDefault" />
+                                <input class="form-check-input" type="checkbox" value="@requisicaoViewModel.requisicao.id_requisicao" id="flexCheckDefault" />
                             </div>
                         </th>
-                        <td>@requisicao.id_requisicao</td>
-                        <td>@requisicao.titulo_requisicao</td>
-                        <td>@requisicao.status</td>
-                        <td>@requisicao.data_cadastro</td>
-                        <td>@requisicao.data_entrega</td>
-                        <td>@requisicao.responsavel</td>
-                        <td>@requisicao.horas_trabalhadas</td>
+                        <td>@requisicaoViewModel.requisicao.id_requisicao</td>
+                        <td>@requisicaoViewModel.requisicao.titulo_requisicao</td>
+                        <td style="background-color:@requisicaoViewModel.statusReq.color; color:black;">@requisicaoViewModel.statusReq.descricao</td>
+                        <td>@requisicaoViewModel.requisicao.data_cadastro</td>
+                        <td>@requisicaoViewModel.requisicao.data_entrega</td>
+                        <td>@requisicaoViewModel.requisicao.responsavel</td>
+                        <td>@requisicaoViewModel.requisicao.horas_trabalhadas</td>
                     </tr>
                 }
             }

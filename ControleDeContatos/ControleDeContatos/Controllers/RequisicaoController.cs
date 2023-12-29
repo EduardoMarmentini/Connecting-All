@@ -1,11 +1,14 @@
-﻿using ControleDeContatos.Helper;
-using ControleDeContatos.Models;
+﻿using ControleDeContatos.Filters;
+using ControleDeContatos.Helper;
+using ControleDeContatos.Models.Requisicao;
+using ControleDeContatos.Models.Usuario;
 using ControleDeContatos.Repositorio;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleDeContatos.Controllers
 {
+    [PaginaParaUsuarioLogado]
     public class RequisicaoController : Controller
     {
         private readonly IRequisicaoRepositorio _requisicao;
@@ -22,7 +25,7 @@ namespace ControleDeContatos.Controllers
         {
             UsuarioModel usuario = _sessao.GetSessaoDoUsuario();
 
-            List<RequisicaoModel> requisicoes = _requisicao.BuscarRequisicaoPorUsuario(usuario.Id);
+            List<RequisicaoViewModel> requisicoes = _requisicao.BuscarRequisicaoPorUsuario(usuario.Id);
             return View(requisicoes);
         }
     }

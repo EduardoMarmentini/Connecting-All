@@ -1,5 +1,5 @@
 ﻿using ControleDeContatos.Data;
-using ControleDeContatos.Models;
+using ControleDeContatos.Models.Requisicao;
 
 namespace ControleDeContatos.Repositorio
 {
@@ -12,9 +12,20 @@ namespace ControleDeContatos.Repositorio
             _bancoContext = bancoContext;
         }
 
-        List<RequisicaoModel> IRequisicaoRepositorio.BuscarRequisicaoPorUsuario(int id_usuario_logado)
+        List<RequisicaoViewModel> IRequisicaoRepositorio.BuscarRequisicaoPorUsuario(int id_usuario_logado)
         {
-            return _bancoContext.requisicoes.Where(e => e.id_usuario == id_usuario_logado).ToList();
+            return _bancoContext.requisicoes
+            .Where(e => e.id_usuario == id_usuario_logado)
+            .Join(
+                _bancoContext.status_requisicao,
+                requisicao => requisicao.status,
+                status => status.id_status, 
+                (requisicao, status) => new RequisicaoViewModel
+                {
+                    requisicao = requisicao,
+                    statusReq = status
+                })
+            .ToList();
         }
     }
 }

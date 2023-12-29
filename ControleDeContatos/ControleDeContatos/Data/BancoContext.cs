@@ -1,4 +1,6 @@
-﻿using ControleDeContatos.Models;
+﻿using ControleDeContatos.Models.Cliente;
+using ControleDeContatos.Models.Requisicao;
+using ControleDeContatos.Models.Usuario;
 using Microsoft.EntityFrameworkCore;
 
 namespace ControleDeContatos.Data
@@ -15,5 +17,7 @@ namespace ControleDeContatos.Data
         public DbSet<UsuarioModel> Usuarios { get; set; }
         // Informa a Model que representa a tabela de requisições no banco de dados
         public DbSet<RequisicaoModel> requisicoes { get; set; }
+
+        public DbSet<StatusReqModel> status_requisicao { get; set; }
     }
 }

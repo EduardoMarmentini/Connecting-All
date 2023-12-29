@@ -1,4 +1,4 @@
-﻿@model List<UsuarioModel>
+﻿@model List<ControleDeContatos.Models.Usuario.UsuarioModel>
 @{
     ViewData["Title"] = "Usuários do sistema";
 }
@@ -72,7 +72,7 @@
         <tbody>
             @if (Model != null && Model.Any())
             {
-                foreach (UsuarioModel usuario in Model)
+                foreach (ControleDeContatos.Models.Usuario.UsuarioModel usuario in Model)
                 {
                     <tr>
                         <th scope="row">@usuario.Id</th>

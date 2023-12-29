@@ -1,4 +1,4 @@
-﻿using ControleDeContatos.Models;
+﻿using ControleDeContatos.Models.Usuario;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;

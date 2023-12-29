@@ -1,6 +1,7 @@
 ﻿using ControleDeContatos.Data;
 using ControleDeContatos.Helper;
-using ControleDeContatos.Models;
+using ControleDeContatos.Models.Cliente;
+using ControleDeContatos.Models.Usuario;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ControleDeContatos.Repositorio
