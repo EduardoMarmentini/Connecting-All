@@ -2,9 +2,13 @@
     // Cria função que vincula a tabela que ira receber os metodos da datatable de paginação e busca nas tabelas das view
     function getDataTable(id_table) {
         $(id_table).DataTable({
+            responsive: true,
             "ordering": true,
             "paging": true,
+            "scrollX": true,
+            "scrollCollapse": true,
             "searching": true,
+            resize: true,
             "oLanguage": {
                 "sEmptyTable": "Nenhum registro encontrado na tabela",
                 "sInfo": "Mostrar _START_ até _END_ de _TOTAL_ registros",
@@ -35,7 +39,6 @@
     getDataTable($("#table-usuarios"))
     getDataTable($("#table-contatos"))
     getDataTable($("#table-requisicoes"))
-
 
     $('#calendario').fullCalendar({
         aspectRatio: 1.5, // Ajuste a proporção conforme necessário para a largura desejada
