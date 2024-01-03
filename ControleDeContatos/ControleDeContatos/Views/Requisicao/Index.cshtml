@@ -33,13 +33,18 @@
 <br />
 
 <div>
-    <div class="card">
-        <div class="mb-2 ps-1 pe-1">
-            <input type="submit" class="btn btn-primary btn-sm" value="Novo" />
+    <div>
+        <div class="mb-2 ps-1 pe-1 pt-1">
+            <a class="btn btn-primary btn-sm d-inline-flex">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+                Novo
+            </a>
         </div>
 
-        <div class=" d-flex flex-row mt-3">
-            <div class="input-group mb-3 ps-1 pe-1">
+        <div class="card d-flex flex-row mt-3">
+            <div class="input-group mb-3 ps-1 pe-1 pt-3">
               <span class="input-group-text" id="basic-addon1">Nº</span>
               <input
                 type="text"
@@ -48,7 +53,7 @@
               />
             </div>
 
-            <div class="input-group mb-3 ps-1 pe-1">
+            <div class="input-group mb-3 ps-1 pe-1 pt-3">
                 <span class="input-group-text" id="basic-addon1">Usuário</span>
                 <input type="text"
                        class="form-control w-25"
@@ -59,7 +64,7 @@
             </div>
 
 
-            <div class="input-group mb-3 ps-1 pe-1">
+            <div class="input-group mb-3 ps-1 pe-1 pt-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Situação</label>
                 </div>
@@ -71,57 +76,30 @@
             </div>
         </div>
 
-        <div class="mb-1 ps-1 pe-1">
-            <input type="submit" class="btn btn-primary btn-sm" value="Buscar"/>
-            <input type="submit" class="btn btn-info btn-sm" value="Minhas Requisições" />
-            <input type="submit" class="btn btn-info btn-sm" value="Filtros" />
+        <div class="mb-1 ps-1 pe-1 pt-3">
+            <a class="btn btn-primary btn-sm d-inline-flex">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+                Buscar
+            </a>
+            <a class="btn btn-info btn-sm d-inline-flex" style="color:#fff;" id="minhasReq-btn">
+                <span class="material-symbols-outlined">
+                    view_list
+                </span>
+                Minhas requisições
+            </a>
+            <a class="btn btn-secondary btn-sm d-inline-flex">
+                <span class="material-symbols-outlined">
+                    filter_alt
+                </span>
+                Filtros
+            </a>
         </div>
     </div>
 
     <br />
-
-    <table class="table table-striped table-hover table-bordered table-resizable table-responsive" width="100%" id="table-requisicoes">
-
-        <thead>
-            <tr>
-                <th class="text-center" scope="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                    </div>
-                </th>
-                <th class="text-center" scope="col">Nº</th>
-                <th class="text-center" scope="col">Requisição</th>
-                <th class="text-center" scope="col">Status</th>
-                <th class="text-center" scope="col">Data de cadastro</th>
-                <th class="text-center" scope="col">Data de entrega</th>
-                <th class="text-center" scope="col">Responsavel</th>
-                <th class="text-center" scope="col">Horas trabalhadas</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model != null && Model.Any())
-            {
-                foreach (ControleDeContatos.Models.Requisicao.RequisicaoViewModel requisicaoViewModel in Model)
-                {
-                    <tr>
-                        <th class="text-center" scope="col">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="@requisicaoViewModel.requisicao.id_requisicao" id="flexCheckDefault" />
-                            </div>
-                        </th>
-                        <td>@requisicaoViewModel.requisicao.id_requisicao</td>
-                        <td>@requisicaoViewModel.requisicao.titulo_requisicao</td>
-                        <td style="background-color:@requisicaoViewModel.statusReq.color; color:black;">@requisicaoViewModel.statusReq.descricao</td>
-                        <td>@requisicaoViewModel.requisicao.data_cadastro</td>
-                        <td>@requisicaoViewModel.requisicao.data_entrega</td>
-                        <td>@requisicaoViewModel.requisicao.responsavel</td>
-                        <td>@requisicaoViewModel.requisicao.horas_trabalhadas</td>
-                    </tr>
-                }
-            }
-        </tbody>
-
-    </table>
+    <div class="table-container"></div>
 </div>
 
 <br />

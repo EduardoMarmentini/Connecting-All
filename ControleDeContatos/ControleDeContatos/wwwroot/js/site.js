@@ -5,8 +5,6 @@
             responsive: true,
             "ordering": true,
             "paging": true,
-            "scrollX": true,
-            "scrollCollapse": true,
             "searching": true,
             resize: true,
             "oLanguage": {
@@ -38,26 +36,11 @@
     // Seta as tabelas que iram receber os metodos de paginação
     getDataTable($("#table-usuarios"))
     getDataTable($("#table-contatos"))
-    getDataTable($("#table-requisicoes"))
 
     $('#calendario').fullCalendar({
         aspectRatio: 1.5, // Ajuste a proporção conforme necessário para a largura desejada
         height: 800, // Ajuste a altura conforme necessário
         events: [
-            {
-                title: "teste",
-                start: "2023-12-23",
-                end: "2023-12-23",
-                color: "ligth blue",
-                textColor: "black"
-            },
-            {
-                title: "aniversario da empresa",
-                start: "2023-12-27",
-                end: "2023-12-23",
-                color: "yellow",
-                textColor: "black"
-            }
         ],
         selectable: true,
         selectHelper: true,
@@ -162,15 +145,70 @@
         }
     });
 
-
-
-
     $('#burger').on('change', function () {
         if ($(this).prop('checked')) {
             $(".sidebar").animate({ left: "0px" }, 300);
         } else {
             $(".sidebar").animate({ left: "-250px" }, 300);
         }
+    });
+
+    // METODOS AJAX PARA BUSCA DE INFORMAÇÕES NO BACK-END DE FORMA ESPECIFICA
+
+
+    // Buscar requisições do usuario logado
+    $("#minhasReq-btn").click(function () {
+        $.ajax({
+            type: "GET",
+            url: "/Requisicao/BuscarRequisicoesUsuarioLogado",
+            dataType: "json",
+            success: function (requisicoes) {
+
+                // Limpe o conteúdo da div antes de adicionar a nova tabela
+                $(".table-container").empty();
+
+                if (requisicoes && requisicoes.length > 0) {
+                    // Crie a tabela dinâmica
+                    let table = $("<table>").addClass("table table-striped table-hover table-requisicoes");
+                    table.attr("id", "table-requisicoes")
+                    let thead = $("<thead>").appendTo(table);
+                    let tbody = $("<tbody>").appendTo(table);
+
+                    // Adicione cabeçalho à tabela
+                    let headerRow = $("<tr>").appendTo(thead);
+                    headerRow.append("<th class='text-center'>Nº</th>");
+                    headerRow.append("<th class='text-center'>Requisição</th>");
+                    headerRow.append("<th class='text-center'>Status</th>");
+                    headerRow.append("<th class='text-center'>Data de Cadastro</th>");
+                    headerRow.append("<th class='text-center'>Data de Entrega</th>");
+                    headerRow.append("<th class='text-center'>Responsável</th>");
+                    headerRow.append("<th class='text-center'>Horas Trabalhadas</th>");
+
+                    // Adicione linhas à tabela
+                    requisicoes.forEach(function (result) {
+                        let newRow = $("<tr>").appendTo(tbody);
+                        newRow.append("<td class='text-center'>" + result.requisicao.id_requisicao + "</td>");
+                        newRow.append("<td class='text-center'>" + result.requisicao.titulo_requisicao + "</td>");
+                        newRow.append("<td style='background-color:" + result.statusReq.color + "; color:black;' class='text-center'>" + result.statusReq.descricao + "</td>");
+                        newRow.append("<td class='text-center'>" + result.requisicao.data_cadastro + "</td>");
+                        newRow.append("<td class='text-center'>" + result.requisicao.data_entrega + "</td>");
+                        newRow.append("<td class='text-center'>" + result.requisicao.responsavel + "</td>");
+                        newRow.append("<td class='text-center'>" + result.requisicao.horas_trabalhadas + "</td>");
+                    });
+
+                    // Adicione a tabela à div
+                    table.appendTo(".table-container");
+
+                    getDataTable("#table-requisicoes");
+                } else {
+                    // Exiba uma mensagem indicando que não há requisições
+                    $(".table-container").html("<p>Nenhuma requisição encontrada.</p>");
+                }
+            },
+            error: function () {
+                
+            }
+        });
     });
 
 });
