@@ -163,10 +163,10 @@
             url: "/Requisicao/BuscarRequisicoesUsuarioLogado",
             dataType: "json",
             success: function (requisicoes) {
-
                 // Limpe o conteúdo da div antes de adicionar a nova tabela
                 $(".table-container").empty();
 
+                $(".table-container").addClass("mb-3 ps-3 pe-3 pt-3 ")
                 if (requisicoes && requisicoes.length > 0) {
                     // Crie a tabela dinâmica
                     let table = $("<table>").addClass("table table-striped table-hover table-requisicoes");
@@ -176,9 +176,11 @@
 
                     // Adicione cabeçalho à tabela
                     let headerRow = $("<tr>").appendTo(thead);
+                    headerRow.append("<th class='text-center'>#</th>");
                     headerRow.append("<th class='text-center'>Nº</th>");
                     headerRow.append("<th class='text-center'>Requisição</th>");
                     headerRow.append("<th class='text-center'>Status</th>");
+                    headerRow.append("<th class='text-center'>Cliente</th>");
                     headerRow.append("<th class='text-center'>Data de Cadastro</th>");
                     headerRow.append("<th class='text-center'>Data de Entrega</th>");
                     headerRow.append("<th class='text-center'>Responsável</th>");
@@ -187,13 +189,15 @@
                     // Adicione linhas à tabela
                     requisicoes.forEach(function (result) {
                         let newRow = $("<tr>").appendTo(tbody);
-                        newRow.append("<td class='text-center'>" + result.requisicao.id_requisicao + "</td>");
-                        newRow.append("<td class='text-center'>" + result.requisicao.titulo_requisicao + "</td>");
-                        newRow.append("<td style='background-color:" + result.statusReq.color + "; color:black;' class='text-center'>" + result.statusReq.descricao + "</td>");
-                        newRow.append("<td class='text-center'>" + result.requisicao.data_cadastro + "</td>");
-                        newRow.append("<td class='text-center'>" + result.requisicao.data_entrega + "</td>");
-                        newRow.append("<td class='text-center'>" + result.requisicao.responsavel + "</td>");
-                        newRow.append("<td class='text-center'>" + result.requisicao.horas_trabalhadas + "</td>");
+                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
+                        newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
+                        newRow.append("<td class='text-center'>" + result.titulo_requisicao + "</td>");
+                        newRow.append("<td style='background-color:" + result.color + "; color:black;' class='text-center'>" + result.descricao + "</td>");
+                        newRow.append("<td class='text-center'>" + result.cliente + "</td>");
+                        newRow.append("<td class='text-center'>" + result.data_cadastro + "</td>");
+                        newRow.append("<td class='text-center'>" + result.data_entrega + "</td>");
+                        newRow.append("<td class='text-center'>" + result.responsavel + "</td>");
+                        newRow.append("<td class='text-center'>" + result.horas_trabalhadas + "</td>");
                     });
 
                     // Adicione a tabela à div
@@ -205,9 +209,7 @@
                     $(".table-container").html("<p>Nenhuma requisição encontrada.</p>");
                 }
             },
-            error: function () {
-                
-            }
+     
         });
     });
 

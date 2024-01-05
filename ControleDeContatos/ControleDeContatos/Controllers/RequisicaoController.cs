@@ -33,9 +33,24 @@
                     UsuarioModel usuario = _sessao.GetSessaoDoUsuario();
                     List<RequisicaoViewModel> requisicoes = _requisicao.BuscarRequisicaoPorUsuario(usuario.Id);
 
-                    // Retorne os dados diretamente como JSON
-                    return Json(requisicoes);
-                }
+                    var requisicoesFormatadas = requisicoes.Select(r => new
+                    {
+                        id_requisicao = Convert.ToInt32(r.requisicao.id_requisicao),
+                        id_usuario = Convert.ToInt32(r.requisicao.id_usuario),
+                        responsavel = Convert.ToString(r.requisicao.responsavel),
+                        titulo_requisicao = Convert.ToString(r.requisicao.titulo_requisicao),
+                        status = Convert.ToString(r.requisicao.status),
+                        cliente = Convert.ToString(r.cliente.Nome),
+                        data_cadastro = r.requisicao.data_cadastro.ToString("dd/MM/yyyy"), 
+                        data_entrega = r.requisicao.data_entrega.ToString("dd/MM/yyyy"), 
+                        horas_trabalhadas = r.requisicao.horas_trabalhadas.ToString("HH:mm:ss"),
+                        descricao = Convert.ToString(r.statusReq.descricao),
+                        color = Convert.ToString(r.statusReq.color)
+                    });
+
+                    // Retorne os dados formatados diretamente como JSON
+                    return Json(requisicoesFormatadas);
+            }
                 catch (Exception error)
                 {
                     TempData["MensgemErro"] = $"Erro ao consultar suas requisições, detalhes do erro({error.Message})";

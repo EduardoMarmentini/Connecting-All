@@ -14,18 +14,30 @@ namespace ControleDeContatos.Repositorio
 
         List<RequisicaoViewModel> IRequisicaoRepositorio.BuscarRequisicaoPorUsuario(int id_usuario_logado)
         {
-            return _bancoContext.requisicoes
-            .Where(e => e.id_usuario == id_usuario_logado)
-            .Join(
-                _bancoContext.status_requisicao,
-                requisicao => requisicao.status,
-                status => status.id_status, 
-                (requisicao, status) => new RequisicaoViewModel
-                {
-                    requisicao = requisicao,
-                    statusReq = status
-                })
-            .ToList();
+        return _bancoContext.requisicoes
+                .Where(e => e.id_usuario == id_usuario_logado)
+                .Join(
+                    _bancoContext.status_requisicao,
+                    requisicao => requisicao.status,
+                    status => status.id_status,
+                    (requisicao, status) => new RequisicaoViewModel
+                    {
+                        requisicao = requisicao,
+                        statusReq = status
+                    }) 
+                .Join(
+                    _bancoContext.Contatos,
+                    requisicao => requisicao.requisicao.id_cliente, // Aqui eu acesso o objeto RequisicaoViewModel e acesso o atributo requisicao que é uma instancia da model RequisicaoModel
+                    cliente => cliente.Id,
+                    (requisicao, cliente) => new RequisicaoViewModel
+                    {
+                        requisicao = requisicao.requisicao,
+                        statusReq = requisicao.statusReq,
+                        cliente = cliente
+                    })
+                .ToList();
         }
+
+
     }
 }
