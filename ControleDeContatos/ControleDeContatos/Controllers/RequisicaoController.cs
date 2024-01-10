@@ -43,9 +43,11 @@
                         cliente = Convert.ToString(r.cliente.Nome),
                         data_cadastro = r.requisicao.data_cadastro.ToString("dd/MM/yyyy"), 
                         data_entrega = r.requisicao.data_entrega.ToString("dd/MM/yyyy"), 
+                        prioridade = Convert.ToString(r.prioridade.descricao),
+                        color_prioridade = Convert.ToString(r.prioridade.color),
                         horas_trabalhadas = r.requisicao.horas_trabalhadas.ToString("HH:mm:ss"),
                         descricao = Convert.ToString(r.statusReq.descricao),
-                        color = Convert.ToString(r.statusReq.color)
+                        color_status = Convert.ToString(r.statusReq.color)
                     });
 
                     // Retorne os dados formatados diretamente como JSON

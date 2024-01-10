@@ -35,6 +35,17 @@ namespace ControleDeContatos.Repositorio
                         statusReq = requisicao.statusReq,
                         cliente = cliente
                     })
+                .Join(
+                    _bancoContext.prioridade,
+                    requisicao => requisicao.requisicao.id_prioridade, // Aqui eu acesso o objeto RequisicaoViewModel e acesso o atributo requisicao que é uma instancia da model RequisicaoModel
+                    prioridade => prioridade.id_prioridade,
+                    (requisicao, prioridade) => new RequisicaoViewModel
+                    {
+                        requisicao = requisicao.requisicao,
+                        statusReq = requisicao.statusReq,
+                        cliente = requisicao.cliente,
+                        prioridade = prioridade
+                    })
                 .ToList();
         }
 

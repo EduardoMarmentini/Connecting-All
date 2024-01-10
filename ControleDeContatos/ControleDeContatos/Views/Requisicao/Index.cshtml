@@ -35,7 +35,7 @@
 <div>
     <div>
         <div class="mb-2 ps-1 pe-1 pt-1">
-            <a class="btn btn-primary btn-sm d-inline-flex">
+            <a id="btn-cria-req" class="btn btn-primary btn-sm d-inline-flex">
                 <span class="material-symbols-outlined">
                     add
                 </span>
@@ -45,29 +45,18 @@
 
         <div class="card d-flex flex-row mt-3">
             <div class="input-group mb-3 ps-1 pe-1 pt-3">
-              <span class="input-group-text" id="basic-addon1">Nº</span>
-              <input
-                type="text"
-                class="form-control w-25"
-                aria-describedby="basic-addon1"
-              />
+                <span class="input-group-text" id="basic-addon1">Nº</span>
+                <input type="text" class="form-control w-25" />
             </div>
 
             <div class="input-group mb-3 ps-1 pe-1 pt-3">
                 <span class="input-group-text" id="basic-addon1">Usuário</span>
-                <input type="text"
-                       class="form-control w-25"
-                       aria-describedby="basic-addon1" />
-                <input type="text"
-                       class="form-control w-25"
-                       aria-describedby="basic-addon1" />
+                <input type="text" class="form-control w-25" />
+                <input type="text" class="form-control w-25" />
             </div>
 
-
             <div class="input-group mb-3 ps-1 pe-1 pt-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Situação</label>
-                </div>
+                <label class="input-group-text">Situação</label>
                 <select class="custom-select" id="inputGroupSelect01">
                     <option value="">Selecione</option>
                     <option value="">Aberto</option>
@@ -75,6 +64,7 @@
                 </select>
             </div>
         </div>
+
 
         <div class="mb-1 ps-1 pe-1 pt-3">
             <a class="btn btn-primary btn-sm d-inline-flex">
@@ -107,26 +97,64 @@
 <br />
 
 <!--Modal que para criar uma nova requisicao-->
-<div class="modal" tabindex="-1">
-    <div class="modal-dialog">
+<div id="modalCriarReq" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">Criar requisição</h5>
                 <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Modal body text goes here.</p>
+                <div class="d-flex w-responsive flex-row flex-wrap w-100">
+                    <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
+                        <span class="pt-1 pe-1">Título:</span>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
+                        <span class="pt-1 pe-1">Responsável:</span>
+                        <input type="text" class="form-control pe-2" style="width:60px;">
+                        <input type="text" class="form-control w-50">
+                    </div>
+
+                    <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
+                        <span class="pt-1 pe-1">Cliente:</span>
+                        <input type="text" class="form-control pe-2" style="width:60px;">
+                        <input type="text" class="form-control w-50">
+                    </div>
+
+                    <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
+                        <span class="pt-1 pe-1">Prioridade:</span>
+                        <input type="text" class="form-control pe-2" style="width:60px;">
+                        <input type="text" class="form-control w-50">
+                    </div>
+
+                    <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
+                        <span class="pt-1 pe-1">Status:</span>
+                        <input type="text" class="form-control pe-2" style="width:60px;">
+                        <input type="text" class="form-control w-50">
+                    </div>
+
+                    <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
+                        <span class="pt-1 pe-1">Usuário:</span>
+                        <input type="text" class="form-control pe-2" style="width:60px;">
+                        <input type="text" class="form-control w-50">
+                    </div>
+                </div>
+                <div class="input-group mb-2 ps-1 pe-1 pt-2">
+                    <textarea class="form-control" id="floatingTextarea2" style="height: 300px"></textarea>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Salvar</button>
             </div>
         </div>
     </div>
 </div>
 
 <!--Modal que para encaminhar uma requisição-->
-<div class="modal" tabindex="-1">
+<div id="modalEncaminihar" class="modal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -145,7 +173,7 @@
 </div>
 
 <!--Modal dos filtros-->
-<div class="modal" tabindex="-1">
+<div id="modalFiltros" class="modal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

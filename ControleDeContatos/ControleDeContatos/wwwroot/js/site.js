@@ -155,6 +155,9 @@
 
     // METODOS AJAX PARA BUSCA DE INFORMAÇÕES NO BACK-END DE FORMA ESPECIFICA
 
+    $("#btn-cria-req").click(() => {
+        $("#modalCriarReq").modal("toggle")
+    })
 
     // Buscar requisições do usuario logado
     $("#minhasReq-btn").click(function () {
@@ -183,6 +186,7 @@
                     headerRow.append("<th class='text-center'>Cliente</th>");
                     headerRow.append("<th class='text-center'>Data de Cadastro</th>");
                     headerRow.append("<th class='text-center'>Data de Entrega</th>");
+                    headerRow.append("<th class='text-center'>Prioridade</th>");
                     headerRow.append("<th class='text-center'>Responsável</th>");
                     headerRow.append("<th class='text-center'>Horas Trabalhadas</th>");
 
@@ -192,10 +196,11 @@
                         newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
                         newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
                         newRow.append("<td class='text-center'>" + result.titulo_requisicao + "</td>");
-                        newRow.append("<td style='background-color:" + result.color + "; color:black;' class='text-center'>" + result.descricao + "</td>");
+                        newRow.append("<td style='background-color:" + result.color_status + "; color:black;' class='text-center'>" + result.descricao + "</td>");
                         newRow.append("<td class='text-center'>" + result.cliente + "</td>");
                         newRow.append("<td class='text-center'>" + result.data_cadastro + "</td>");
                         newRow.append("<td class='text-center'>" + result.data_entrega + "</td>");
+                        newRow.append("<td style='background-color:" + result.color_prioridade + "; color:black;' class='text-center'>" + result.prioridade + "</td>");
                         newRow.append("<td class='text-center'>" + result.responsavel + "</td>");
                         newRow.append("<td class='text-center'>" + result.horas_trabalhadas + "</td>");
                     });

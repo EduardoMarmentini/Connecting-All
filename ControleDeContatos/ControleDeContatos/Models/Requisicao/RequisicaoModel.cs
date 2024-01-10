@@ -24,5 +24,7 @@ namespace ControleDeContatos.Models.Requisicao
         public DateTime horas_trabalhadas { get; set; }
 
         public required int id_cliente { get; set; }
+
+        public required int id_prioridade { get; set; }
     }
 }

@@ -10,5 +10,7 @@ namespace ControleDeContatos.Models.Requisicao
         public StatusReqModel statusReq { get; set; }
     
         public ContatoModel cliente { get; set; }
+
+        public PrioridadeModel prioridade { get; set; }
     }
 }
