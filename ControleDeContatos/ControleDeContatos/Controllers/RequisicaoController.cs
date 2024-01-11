@@ -25,7 +25,8 @@
             {
                 return View();
             }
-
+            
+            // Metodo que busca as requisições pertencentes ao usuario logado
             public IActionResult BuscarRequisicoesUsuarioLogado()
             {
                 try
@@ -59,5 +60,20 @@
                     return RedirectToAction("Index");
                 }
             }
+            // Metodo que busca pelos filtros passados, como a situação, o usuario responsavel e o numero da demanda
+            public IActionResult BuscarComFiltros()
+            {
+                return View();
+            }
+            
+            // ------------------------------------------- Metodos do modal de Creiar Requisicao -----------------------------------------------------------
+            public IActionResult BuscarSugestao(string txtSugestao, string tipo_sugestao)
+           {
+                List<RequisicaoViewModel> result = _requisicao.BuscarSugestao(txtSugestao, tipo_sugestao);
+
+                return Json(result);
+            }   
+            // ---------------------------------------------------------------------------------------------------------------------------------------------
+
         }
     }

@@ -153,12 +153,31 @@
         }
     });
 
-    // METODOS AJAX PARA BUSCA DE INFORMAÇÕES NO BACK-END DE FORMA ESPECIFICA
 
     $("#btn-cria-req").click(() => {
         $("#modalCriarReq").modal("toggle")
     })
 
+    // METODOS AJAX PARA BUSCA DE INFORMAÇÕES NO BACK-END DE FORMA ESPECIFICA
+
+    // Bucar sugetoes de responsavel baseado no input
+    $("#txtResponsavel").on("input", function () {
+        var textoDigitado = $(this).val();
+
+        $.ajax({
+            type: "GET",
+            url: "/Requisicao/BuscarSugestao",
+            dataType: "json",
+            data: {
+                txtSugestao: textoDigitado,
+                tipo_sugestao : "responsavel"
+            },
+            sucess: function (result) {
+                console.log(result)
+            }
+        })
+
+    });
     // Buscar requisições do usuario logado
     $("#minhasReq-btn").click(function () {
         $.ajax({

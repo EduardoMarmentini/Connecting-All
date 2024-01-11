@@ -49,6 +49,20 @@ namespace ControleDeContatos.Repositorio
                 .ToList();
         }
 
+        public List<RequisicaoViewModel> BuscarSugestao(string txtSugestao, string tipo_sugestao)
+{
+            if (tipo_sugestao == "responsavel") 
+            {
+                var sugestoesResponsavel = _bancoContext.Usuarios
+                    .Where(u => u.Nome.Contains(txtSugestao))
+                    .Select(u => new RequisicaoViewModel
+                    {
+                         
+                    })
+                    .ToList();
 
+                return sugestoesResponsavel;
+            }
+        }
     }
 }
