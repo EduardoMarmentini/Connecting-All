@@ -37,46 +37,6 @@
     getDataTable($("#table-usuarios"))
     getDataTable($("#table-contatos"))
 
-    $('#calendario').fullCalendar({
-        aspectRatio: 1.5, // Ajuste a proporção conforme necessário para a largura desejada
-        height: 800, // Ajuste a altura conforme necessário
-        events: [
-        ],
-        selectable: true,
-        selectHelper: true,
-        select: function ()
-        {
-            $("#CreateEvent").modal("toggle");
-        },
-        dayRender: function (date, cell)
-        {
-            let today = $.fullCalendar.moment();
-            if (date.get("date") == today.get("date")) {
-                cell.css("background", "ligth yellow");
-            }
-            else {
-                cell.css("background", "white");
-            }
-        },
-        header: {
-            left   : "month, agendaWeek, agendaDay",
-            center : "title",
-            right  : "prev, today, next"
-        },
-        buttonText: {
-            today : "Hoje",
-            month : "Mês",
-            week  : "Semana",
-            day   : "Dia"
-        },
-        ignoreTimezone: false,
-        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-        dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
-        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
-        axisFormat: 'H:mm',
-    });
-
     $('#datepicker-start').datepicker({
         uiLibrary: 'bootstrap5'
     });
