@@ -1,4 +1,5 @@
 ﻿using ControleDeContatos.Models.Requisicao;
+using ControleDeContatos.Models.Usuario;
 
 namespace ControleDeContatos.Repositorio
 {
@@ -6,7 +7,7 @@ namespace ControleDeContatos.Repositorio
     {
         public List<RequisicaoViewModel> BuscarRequisicaoPorUsuario(int id_usuario_logado);
 
-        public List<RequisicaoViewModel> BuscarSugestao(string txtSugestao, string tipo_sujestao);
+        public List<UsuarioModel> BuscaResponsavelPorNome(string txtSugestao);
 
     }
 }

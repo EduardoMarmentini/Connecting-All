@@ -67,7 +67,7 @@ namespace ControleDeContatos.Controllers
                 {
                     // Utilizando a variavel que contem o objeto de repositorio do banco
                     _contatoRepositorio.Adicionar(contato, picture_upload);
-                    TempData["MensagemSucesso"] = "Contato cadastrado com sucesso!";
+                    TempData["MensagemSucesso"] = "Cliente cadastrado com sucesso!";
                     return RedirectToAction("Index");
                 }
 
@@ -76,7 +76,7 @@ namespace ControleDeContatos.Controllers
             // Caso aponte erro exibe a mensagem
             catch (Exception error)
             {
-                TempData["MensgemErro"] = $"Erro ao cadastrar o contato, detalhe do erro: {error.Message}" ;
+                TempData["MensgemErro"] = $"Erro ao cadastrar o cliente, detalhe do erro: {error.Message}" ;
                 return RedirectToAction("Index");
             }
         }
@@ -91,14 +91,14 @@ namespace ControleDeContatos.Controllers
                 {
                     // Utilizando a variavel que contem o objeto de repositorio do banco
                     _contatoRepositorio.Alterar(contato, picture_upload);
-                    TempData["MensagemSucesso"] = "Contato editado com sucesso!";
+                    TempData["MensagemSucesso"] = "Cliente editado com sucesso!";
                     return RedirectToAction("Index");
                 }
                 // Por conta do metodo não possuir o mesmo nome da view forçamos ele a redirecionar para a que desejamos
                 return View("Editar", contato);
             } 
             catch (Exception error) {
-                TempData["MensgemErro"] = $"Erro ao editar  contato, detalhe do erro: {error.Message}";
+                TempData["MensgemErro"] = $"Erro ao editar cliente, detalhe do erro: {error.Message}";
                 return RedirectToAction("Index");
             }
         }
@@ -110,12 +110,12 @@ namespace ControleDeContatos.Controllers
             try { 
             
                 _contatoRepositorio.Excluir(contato);
-                TempData["MensagemSucesso"] = "Contato apagado com sucesso!";
+                TempData["MensagemSucesso"] = "Cliente apagado com sucesso!";
                 return RedirectToAction("Index");
             } 
             catch (Exception error)
             {
-                TempData["MensgemErro"] = $"Erro ao tentar apagr o contato, detalhe do erro: {error.Message}";
+                TempData["MensgemErro"] = $"Erro ao tentar apagr o cliente, detalhe do erro: {error.Message}";
                 return RedirectToAction("Index");
             }
 

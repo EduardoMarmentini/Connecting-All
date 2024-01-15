@@ -34,7 +34,7 @@
                     UsuarioModel usuario = _sessao.GetSessaoDoUsuario();
                     List<RequisicaoViewModel> requisicoes = _requisicao.BuscarRequisicaoPorUsuario(usuario.Id);
 
-                    var requisicoesFormatadas = requisicoes.Select(r => new
+                    var dataFormat = requisicoes.Select(r => new
                     {
                         id_requisicao = Convert.ToInt32(r.requisicao.id_requisicao),
                         id_usuario = Convert.ToInt32(r.requisicao.id_usuario),
@@ -52,7 +52,7 @@
                     });
 
                     // Retorne os dados formatados diretamente como JSON
-                    return Json(requisicoesFormatadas);
+                    return Json(dataFormat);
             }
                 catch (Exception error)
                 {
@@ -67,11 +67,14 @@
             }
             
             // ------------------------------------------- Metodos do modal de Creiar Requisicao -----------------------------------------------------------
-            public IActionResult BuscarSugestao(string txtSugestao, string tipo_sugestao)
+            public IActionResult BuscaResponsavelPorNome(string txtSugestao)
            {
-                List<RequisicaoViewModel> result = _requisicao.BuscarSugestao(txtSugestao, tipo_sugestao);
+                
+                List<UsuarioModel> result = _requisicao.BuscaResponsavelPorNome(txtSugestao);
 
-                return Json(result);
+                var dataFormat = result.Select(r => new { id_responsavel = r.Id, nome = r.Nome});
+
+                return Json(dataFormat);
             }   
             // ---------------------------------------------------------------------------------------------------------------------------------------------
 

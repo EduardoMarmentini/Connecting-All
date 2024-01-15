@@ -40,6 +40,30 @@
         editable: true,
         dayMaxEvents: true, // allow "more" link when too many events
         events: [
+            {
+                title: 'All Day Event',
+                start: '2024-01-01'
+            },
+            {
+                title: 'Long Event',
+                start: '2024-01-07',
+                end: '2024-01-10'
+            },
+            {
+                groupId: 999,
+                title: 'Repeating Event',
+                start: '2024-01-09T16:00:00'
+            },
+            {
+                groupId: 999,
+                title: 'Repeating Event',
+                start: '2024-01-16T16:00:00'
+            },
+            {
+                title: 'Conference',
+                start: '2024-01-11',
+                end: '2024-01-13'
+            },
         ]
     });
 

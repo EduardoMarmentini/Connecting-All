@@ -123,21 +123,36 @@
     // Bucar sugetoes de responsavel baseado no input
     $("#txtResponsavel").on("input", function () {
         var textoDigitado = $(this).val();
+        if (textoDigitado != " ") {
+            $.ajax({
+                type: "GET",
+                url: "/Requisicao/BuscaResponsavelPorNome",
+                dataType: "json",
+                data: {
+                    txtSugestao: textoDigitado,
+                },
+                success: function (result) {
+                    // Criação do Autocomplete e inserção dos valores
+                    createAutocomplete(result);
 
-        $.ajax({
-            type: "GET",
-            url: "/Requisicao/BuscarSugestao",
-            dataType: "json",
-            data: {
-                txtSugestao: textoDigitado,
-                tipo_sugestao : "responsavel"
-            },
-            sucess: function (result) {
-                console.log(result)
-            }
-        })
-
+                }
+            })
+        }
     });
+
+    // Função para criar e atualizar o Autocomplete
+    function createAutocomplete(suggestions) {
+        $("#txtResponsavel").autocomplete({
+            source: suggestions.map(function (item) {
+                return { label: item.Nome, value: item.Id };
+            }),
+            select: function (event, ui) {
+                // Ação a ser realizada quando o usuário selecionar uma sugestão
+                console.log("Selecionado: " + ui.item.value);
+            }
+        });
+    }
+
     // Buscar requisições do usuario logado
     $("#minhasReq-btn").click(function () {
         $.ajax({

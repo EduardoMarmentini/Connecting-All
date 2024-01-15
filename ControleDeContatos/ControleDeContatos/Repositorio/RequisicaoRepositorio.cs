@@ -1,5 +1,6 @@
 ﻿using ControleDeContatos.Data;
 using ControleDeContatos.Models.Requisicao;
+using ControleDeContatos.Models.Usuario;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ControleDeContatos.Repositorio
@@ -50,9 +51,9 @@ namespace ControleDeContatos.Repositorio
                 .ToList();
         }
 
-        public List<RequisicaoViewModel> BuscarSugestao(string txtSugestao, string tipo_sugestao)
+        public List<UsuarioModel> BuscaResponsavelPorNome(string txtSugestao)
         {
-            return new List<RequisicaoViewModel>();
+           return _bancoContext.Usuarios.Where(u => u.Nome.Contains(txtSugestao)).ToList();
         }
     }
 }

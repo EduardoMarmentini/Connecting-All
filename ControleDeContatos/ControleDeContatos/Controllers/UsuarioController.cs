@@ -34,7 +34,6 @@ namespace ControleDeContatos.Controllers
         [PaginaSomenteAdmin]
         public IActionResult EditarUsuario(int id)
         {
-
             //Chama o metodo que busca os dados por id e retorna para view
             UsuarioModel usuario = _usuarioRepositorio.ListarPorId(id);
 
@@ -43,7 +42,6 @@ namespace ControleDeContatos.Controllers
         [AllowAnonymous]
         public IActionResult EditarConta(int id)
         {
-
             //Chama o metodo que busca os dados por id e retorna para view
             UsuarioModel usuario = _usuarioRepositorio.ListarPorId(id);
             EditarContaModel viewModel = new EditarContaModel
@@ -80,6 +78,11 @@ namespace ControleDeContatos.Controllers
             UsuarioModel usuario = _usuarioRepositorio.ListarPorId(id);
 
             return View(usuario);
+        }
+
+        public IActionResult BuscarCompromissosUsuarioLogado()
+        {
+            return View();
         }
 
         // Metodos POST de inserção e manipulação 
@@ -129,7 +132,7 @@ namespace ControleDeContatos.Controllers
                     TempData["MensagemSucesso"] = "Usuário editado com sucesso!";
                 }
                 // Por conta do metodo não possuir o mesmo nome da view forçamos ele a redirecionar para a que desejamos
-                return View("EditarUsuario", usuario);
+                return RedirectToAction("Index");
             }
             catch (Exception error)
             {
