@@ -14,19 +14,34 @@
 <div>
     <div id='calendar'></div>
 
-    <div class="modal" tabindex="-1" role="dialog" id="CreateEvent">
-        <div class="modal-dialog" role="document">
+    <br />
+    <div class="d-flex">
+        <div class="d-flex">
+            <div style="background-color:#8687A6;border-radius: 50%; width:15px; height:15px; margin: auto;"></div>
+            <span class="ml-2 ps-1 pe-2">Demandas</span>
+        </div>
+        <div class="d-flex">
+            <div style="background-color:#3788D8;border-radius: 50%; width:15px; height:15px; margin: auto;"></div>
+            <span class="ml-2 ps-1 pe-2">Reunião</span>
+        </div>
+        <div class="d-flex">
+            <div style="background-color:#FFF200;border-radius: 50%; width:15px; height:15px; margin: auto;"></div>
+            <span class="ml-2 ps-1 pe-2">Eventos</span>
+        </div>
+    </div>
+
+
+    <div id="modalCreateEvent" class="modal" tabindex="-1">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Adicionar evento para essa data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="boxInputs">
                         <div class="form-outline" data-mdb-input-init>
-                            <input type="text" id="typeText" class="form-control"/>
+                            <input type="text" id="typeText" class="form-control" />
                             <label class="form-label" for="typeText">Título do evento</label>
                         </div>
                         <div class="form-group col-md-6">
@@ -47,8 +62,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                    <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
                 </div>
             </div>
         </div>

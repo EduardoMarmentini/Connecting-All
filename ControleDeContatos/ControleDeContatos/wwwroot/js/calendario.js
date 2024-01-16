@@ -21,16 +21,7 @@
         selectable: true,
         selectMirror: true,
         select: function (arg) {
-            var title = prompt('Event Title:');
-            if (title) {
-                calendar.addEvent({
-                    title: title,
-                    start: arg.start,
-                    end: arg.end,
-                    allDay: arg.allDay
-                })
-            }
-            calendar.unselect()
+            $("#modalCreateEvent").modal("toggle")
         },
         eventClick: function (arg) {
             if (confirm('Are you sure you want to delete this event?')) {
@@ -39,32 +30,33 @@
         },
         editable: true,
         dayMaxEvents: true, // allow "more" link when too many events
-        events: [
-            {
-                title: 'All Day Event',
-                start: '2024-01-01'
-            },
-            {
-                title: 'Long Event',
-                start: '2024-01-07',
-                end: '2024-01-10'
-            },
-            {
-                groupId: 999,
-                title: 'Repeating Event',
-                start: '2024-01-09T16:00:00'
-            },
-            {
-                groupId: 999,
-                title: 'Repeating Event',
-                start: '2024-01-16T16:00:00'
-            },
-            {
-                title: 'Conference',
-                start: '2024-01-11',
-                end: '2024-01-13'
-            },
-        ]
+        events: function (info, successCallback, failureCallback)
+        {
+            $.ajax({
+                url: '/Usuario/BuscarCompromissosUsuarioLogado', // Substitua pelo URL real
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    var events = [];
+                    // Processar os eventos recebidos
+                    $.each(response, function (index, eventData) {
+                        events.push({
+                            title: eventData.title,
+                            start: eventData.data_entrega,
+                            color: "#8687A6"
+                            // Adicione outras propriedades do evento conforme necessário
+                        });
+                    });
+
+                    // Chamar o callback de sucesso com os eventos processados
+                    successCallback(events);
+                },
+                error: function (error) {
+                    // Chamar o callback de falha em caso de erro na requisição
+                    failureCallback(error);
+                }
+            });
+        }
     });
 
     calendar.render();

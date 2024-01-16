@@ -11,13 +11,13 @@
         [PaginaParaUsuarioLogado]
         public class RequisicaoController : Controller
         {
-            private readonly IRequisicaoRepositorio _requisicao;
+            private readonly IRequisicaoRepositorio _requisicaoRepositorio;
             private readonly ISessao _sessao;
 
             public RequisicaoController(IRequisicaoRepositorio requisicao, ISessao sessao) 
-            { 
-        
-                _requisicao = requisicao;
+            {
+
+            _requisicaoRepositorio = requisicao;
                 _sessao = sessao;
             }
 
@@ -32,7 +32,7 @@
                 try
                 {
                     UsuarioModel usuario = _sessao.GetSessaoDoUsuario();
-                    List<RequisicaoViewModel> requisicoes = _requisicao.BuscarRequisicaoPorUsuario(usuario.Id);
+                    List<RequisicaoViewModel> requisicoes = _requisicaoRepositorio.BuscarRequisicaoPorUsuario(usuario.Id);
 
                     var dataFormat = requisicoes.Select(r => new
                     {
@@ -70,7 +70,7 @@
             public IActionResult BuscaResponsavelPorNome(string txtSugestao)
            {
                 
-                List<UsuarioModel> result = _requisicao.BuscaResponsavelPorNome(txtSugestao);
+                List<UsuarioModel> result = _requisicaoRepositorio.BuscaResponsavelPorNome(txtSugestao);
 
                 var dataFormat = result.Select(r => new { id_responsavel = r.Id, nome = r.Nome});
 

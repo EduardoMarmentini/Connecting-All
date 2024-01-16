@@ -1,4 +1,6 @@
 ﻿using ControleDeContatos.Filters;
+using ControleDeContatos.Helper;
+using ControleDeContatos.Models.Requisicao;
 using ControleDeContatos.Models.Usuario;
 using ControleDeContatos.Repositorio;
 using Microsoft.AspNetCore.Authorization;
@@ -12,11 +14,16 @@ namespace ControleDeContatos.Controllers
 
         // Criando a varivel que ira receber as propriedades do repositorio de usuarios
         private readonly IUsuarioRepositorio _usuarioRepositorio;
+        private readonly IRequisicaoRepositorio _requisicaoRepositorio;
+        private readonly ISessao _sessao;
+
 
         // Criando o construtor para injetar as dependencias do repositorio que contem os metodos de manipulãção do banco de dados
-        public UsuarioController(IUsuarioRepositorio usuarioRepositorio)
+        public UsuarioController(IUsuarioRepositorio usuarioRepositorio, IRequisicaoRepositorio requisicaoRepositorio, ISessao sessao)
         {
             _usuarioRepositorio = usuarioRepositorio;
+            _requisicaoRepositorio = requisicaoRepositorio;
+            _sessao = sessao;
         }
 
         // Metodos que não possuem uma especificação de qual se tipo por padrão são metodos GET sendo assim apenas para busca de informações
@@ -82,7 +89,17 @@ namespace ControleDeContatos.Controllers
 
         public IActionResult BuscarCompromissosUsuarioLogado()
         {
-            return View();
+            UsuarioModel usuario = _sessao.GetSessaoDoUsuario();
+            List<RequisicaoViewModel> compromissos = _requisicaoRepositorio.BuscarRequisicaoPorUsuario(usuario.Id);
+
+            var dataFormat = compromissos.Select(c => new 
+                { 
+                    title = $"Nº:{c.requisicao.id_requisicao} {c.requisicao.titulo_requisicao}",
+                    data_entrega = c.requisicao.data_entrega.ToString("yyyy-MM-dd"),
+                }
+            );
+
+            return Json(dataFormat);
         }
 
         // Metodos POST de inserção e manipulação 
