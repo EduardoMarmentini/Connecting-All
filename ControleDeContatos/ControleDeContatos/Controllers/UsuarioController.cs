@@ -202,7 +202,6 @@ namespace ControleDeContatos.Controllers
             // Tratativa de erro ao tentar apagar o contato
             try
             {
-
                 _usuarioRepositorio.Excluir(usuario);
                 TempData["MensagemSucesso"] = "Usuário apagado com sucesso!";
                 return RedirectToAction("Index");

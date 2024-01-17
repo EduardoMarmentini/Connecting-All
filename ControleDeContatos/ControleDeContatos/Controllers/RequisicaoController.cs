@@ -5,6 +5,7 @@
     using ControleDeContatos.Repositorio;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
     namespace ControleDeContatos.Controllers
     {
@@ -38,7 +39,7 @@
                     {
                         id_requisicao = Convert.ToInt32(r.requisicao.id_requisicao),
                         id_usuario = Convert.ToInt32(r.requisicao.id_usuario),
-                        responsavel = Convert.ToString(r.requisicao.responsavel),
+                        responsavel = Convert.ToString(r.usuario.Nome),
                         titulo_requisicao = Convert.ToString(r.requisicao.titulo_requisicao),
                         status = Convert.ToString(r.requisicao.status),
                         cliente = Convert.ToString(r.cliente.Nome),
@@ -68,15 +69,37 @@
             
             // ------------------------------------------- Metodos do modal de Creiar Requisicao -----------------------------------------------------------
             public IActionResult BuscaResponsavelPorNome(string txtSugestao)
-           {
+            {
                 
                 List<UsuarioModel> result = _requisicaoRepositorio.BuscaResponsavelPorNome(txtSugestao);
 
                 var dataFormat = result.Select(r => new { id_responsavel = r.Id, nome = r.Nome});
 
                 return Json(dataFormat);
-            }   
+            }
             // ---------------------------------------------------------------------------------------------------------------------------------------------
 
+
+            // --------------------------------------------------------------------- METODOS POST ----------------------------------------------------------
+            [HttpPost]
+            public IActionResult CriarReq(RequisicaoModel requisicao)
+            {
+                try 
+                {
+                    if (ModelState.IsValid)
+                    {
+                        _requisicaoRepositorio.CriarRequisicao( requisicao);
+                        TempData["MensagemSucesso"] = $"Requisição criada com sucesso!";
+                        return RedirectToAction("Index");
+                    }
+                    TempData["MensgemErro"] = $"Erro ao cadastrar uma nova requisição, verifique os campos e tente novamente!";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception error)
+                {
+                    TempData["MensgemErro"] = $"Erro ao consultar suas requisições, detalhes do erro({error.Message})";
+                    return RedirectToAction("Index");
+                }
+            }
         }
     }
