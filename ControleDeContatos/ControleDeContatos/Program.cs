@@ -1,6 +1,9 @@
 using ControleDeContatos.Data;
 using ControleDeContatos.Helper;
-using ControleDeContatos.Repositorio;
+using ControleDeContatos.Repositorio.Clientes;
+using ControleDeContatos.Repositorio.Photo;
+using ControleDeContatos.Repositorio.Requisicao;
+using ControleDeContatos.Repositorio.Usuario;
 using Microsoft.EntityFrameworkCore;
 using System;
 

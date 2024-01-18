@@ -120,6 +120,7 @@
 
     // METODOS AJAX PARA BUSCA DE INFORMAÇÕES NO BACK-END DE FORMA ESPECIFICA
 
+
     // Bucar sugetoes de responsavel baseado no input
     $("#txtResponsavel").on("input", function () {
         var textoDigitado = $(this).val();
@@ -209,6 +210,72 @@
                 }
             },
      
+        });
+    });
+
+    // Buscar requisições com os filros passados
+    $("#btnBuscarRequisicoes").click(function () {
+        $.ajax({
+            type: "GET",
+            url: "/Requisicao/BuscarComFiltros",
+            dataType: "json",
+            data: {
+                id_requisicao: $("#txtCodRequisicao").val(),
+                titulo_requisicao: $("#txtTitulo").val(),
+                id_usuario: $("#txtCodUsu").val(),
+                id_cliente: $("#txtCodCliente").val(),
+                id_estado_req: $("#slcEstadoReq").val()
+            },
+            success: function (requisicoes) {
+                // Limpe o conteúdo da div antes de adicionar a nova tabela
+                $(".table-container").empty();
+
+                $(".table-container").addClass("mb-3 ps-3 pe-3 pt-3 ")
+                if (requisicoes && requisicoes.length > 0) {
+                    // Crie a tabela dinâmica
+                    let table = $("<table>").addClass("table table-striped table-hover table-requisicoes");
+                    table.attr("id", "table-requisicoes")
+                    let thead = $("<thead>").appendTo(table);
+                    let tbody = $("<tbody>").appendTo(table);
+
+                    // Adicione cabeçalho à tabela
+                    let headerRow = $("<tr>").appendTo(thead);
+                    headerRow.append("<th class='text-center'>#</th>");
+                    headerRow.append("<th class='text-center'>Nº</th>");
+                    headerRow.append("<th class='text-center'>Requisição</th>");
+                    headerRow.append("<th class='text-center'>Status</th>");
+                    headerRow.append("<th class='text-center'>Cliente</th>");
+                    headerRow.append("<th class='text-center'>Data de Cadastro</th>");
+                    headerRow.append("<th class='text-center'>Data de Entrega</th>");
+                    headerRow.append("<th class='text-center'>Prioridade</th>");
+                    headerRow.append("<th class='text-center'>Responsável</th>");
+                    headerRow.append("<th class='text-center'>Horas Trabalhadas</th>");
+
+                    // Adicione linhas à tabela
+                    requisicoes.forEach(function (result) {
+                        let newRow = $("<tr>").appendTo(tbody);
+                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
+                        newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
+                        newRow.append("<td class='text-center'>" + result.titulo_requisicao + "</td>");
+                        newRow.append("<td style='background-color:" + result.color_status + "; color:black;' class='text-center'>" + result.descricao + "</td>");
+                        newRow.append("<td class='text-center'>" + result.cliente + "</td>");
+                        newRow.append("<td class='text-center'>" + result.data_cadastro + "</td>");
+                        newRow.append("<td class='text-center'>" + result.data_entrega + "</td>");
+                        newRow.append("<td style='background-color:" + result.color_prioridade + "; color:black;' class='text-center'>" + result.prioridade + "</td>");
+                        newRow.append("<td class='text-center'>" + result.responsavel + "</td>");
+                        newRow.append("<td class='text-center'>" + result.horas_trabalhadas + "</td>");
+                    });
+
+                    // Adicione a tabela à div
+                    table.appendTo(".table-container");
+
+                    getDataTable("#table-requisicoes");
+                } else {
+                    // Exiba uma mensagem indicando que não há requisições
+                    $(".table-container").html("<p>Nenhuma requisição encontrada.</p>");
+                }
+            },
+
         });
     });
 
