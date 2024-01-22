@@ -113,10 +113,15 @@
         }
     });
 
-
+    // EXIBE OS MODAIS DA ROTINA DE REQUISICOES
     $("#btn-cria-req").click(() => {
         $("#modalCriarReq").modal("toggle")
     })
+
+    $(document).on("click", "#btn-encaminhar-req", function () {
+        $("#modalEncaminiharReq").modal("toggle")
+    })
+    // -----------------------------------------------------------------------------------
 
     // METODOS AJAX PARA BUSCA DE INFORMAÇÕES NO BACK-END DE FORMA ESPECIFICA
 
@@ -188,7 +193,7 @@
                     // Adicione linhas à tabela
                     requisicoes.forEach(function (result) {
                         let newRow = $("<tr>").appendTo(tbody);
-                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
+                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm' id='btn-encaminhar-req'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
                         newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
                         newRow.append("<td class='text-center'>" + result.titulo_requisicao + "</td>");
                         newRow.append("<td style='background-color:" + result.color_status + "; color:black;' class='text-center'>" + result.descricao + "</td>");
@@ -220,11 +225,11 @@
             url: "/Requisicao/BuscarComFiltros",
             dataType: "json",
             data: {
-                id_requisicao: $("#txtCodRequisicao").val(),
-                titulo_requisicao: $("#txtTitulo").val(),
-                id_usuario: $("#txtCodUsu").val(),
-                id_cliente: $("#txtCodCliente").val(),
-                id_estado_req: $("#slcEstadoReq").val()
+                id_requisicao: $("#txtCodRequisicao").val() === "" || $("#txtCodRequisicao").val() === null ? 0 : $("#txtCodRequisicao").val(),
+                titulo_requisicao: $("#txtTitulo").val() === "" || $("#txtTitulo").val() === null ? null : $("#txtTitulo").val(),
+                id_usuario: $("#txtCodUsu").val() === "" || $("#txtCodUsu").val() === null ? 0 : $("#txtCodUsu").val(),
+                id_cliente: $("#txtCodCliente").val() === "" || $("#txtCodCliente").val() === null ? 0 : $("#txtCodCliente").val(),
+                id_estado_req: $("#slcEstadoReq").val() === 0 || $("#slcEstadoReq").val() === null ? 0 : $("#slcEstadoReq").val()
             },
             success: function (requisicoes) {
                 // Limpe o conteúdo da div antes de adicionar a nova tabela
@@ -254,7 +259,7 @@
                     // Adicione linhas à tabela
                     requisicoes.forEach(function (result) {
                         let newRow = $("<tr>").appendTo(tbody);
-                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
+                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm' id='btn-encaminhar-req'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
                         newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
                         newRow.append("<td class='text-center'>" + result.titulo_requisicao + "</td>");
                         newRow.append("<td style='background-color:" + result.color_status + "; color:black;' class='text-center'>" + result.descricao + "</td>");

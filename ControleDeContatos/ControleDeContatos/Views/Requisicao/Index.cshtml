@@ -74,7 +74,7 @@
             <div class="mb-2 ps-1 pe-1 pt-2">
                 <label for="slcEstadoReq" class="form-label">Estado</label>
                 <select class="form-select" id="slcEstadoReq">
-                    <option selected>Selecione</option>
+                    <option value="0" selected>Selecione</option>
                     <option value="1">Aberto</option>
                     <option value="2">Encerrado</option>
                 </select>
@@ -179,19 +179,45 @@
 </div>
 
 <!--Modal que para encaminhar uma requisição-->
-<div id="modalEncaminihar" class="modal" tabindex="-1">
-    <div class="modal-dialog">
+<div id="modalEncaminiharReq" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">Encaminhar requisição</h5>
                 <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                <form asp-controller="Requisicao" asp-action="EncaminharReq" method="post">
+                    <div class="modal-body">
+                        <div class="d-flex w-responsive flex-row flex-wrap w-100 justify-content-center">
+
+                            <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
+                                <span class="pt-1 pe-1">Status:</span>
+                                <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodStatus" asp-for="requisicao.status">
+                                <input type="text" class="form-control w-50" id="txtStatus">
+                            </div>
+
+                            <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
+                                <span class="pt-1 pe-1">Usuário:</span>
+                                <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodUsu" asp-for="requisicao.id_usuario">
+                                <input type="text" class="form-control w-50" id="txtUsuario">
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                Ocorrência
+                            </div>
+                            <div class="input-group mb-2 ps-1 pe-1 pt-2">
+                                <textarea class="form-control" id="floatingTextarea2" style="height: 300px"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Cancelar</button>
+                        <input type="submit" class="btn btn-primary" value="Encaminhar">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

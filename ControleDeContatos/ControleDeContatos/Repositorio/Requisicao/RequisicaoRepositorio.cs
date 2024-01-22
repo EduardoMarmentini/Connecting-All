@@ -97,7 +97,7 @@ namespace ControleDeContatos.Repositorio.Requisicao
 
             if (!string.IsNullOrEmpty(titulo_requisicao))
             {
-                query = query.Where(e => e.titulo_requisicao == titulo_requisicao).ToList();
+                query = query.Where(e => e.titulo_requisicao.Contains(titulo_requisicao)).ToList();
             }
 
             var result = query
