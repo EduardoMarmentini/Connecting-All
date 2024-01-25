@@ -4,9 +4,9 @@
 }
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-<br />
 @if (TempData["MensagemSucesso"] != null)
 {
+    <br />
     <div class="alert alert-success mb-0 alert-dismissible fade show d-flex" id="alertExample" role="alert" data-mdb-color="secondary">
         <span class="material-symbols-outlined" style="padding-right:5px;">
             check_circle
@@ -18,12 +18,13 @@
 
 @if (TempData["MensgemErro"] != null)
 {
+    <br />
     <div class="alert alert-danger mb-0 alert-dismissible fade show d-flex" id="alertExample" role="alert" data-mdb-color="secondary">
+        <button type="button" class="btn-close" id="close-alert" aria-label="Close"></button>
         <span class="material-symbols-outlined" style="padding-right:5px;">
             error
         </span>
         @TempData["MensgemErro"]
-        <button type="button" class="btn-close" id="close-alert" data-mdb-dismiss="alert" aria-label="Close"></button>
     </div>
 
 }
@@ -191,17 +192,17 @@
                     <div class="modal-body">
                         <div class="d-flex w-responsive flex-row flex-wrap w-100 justify-content-center">
                             
-                            <input type="hidden" id="hdnCodReq" asp-for="ocorrencia.id_requisicao" />
+                            <input type="hidden" id="hdnCodReq" asp-for="requisicao_ocorrencia.id_requisicao" />
 
                             <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                                 <span class="pt-1 pe-1">Status:</span>
-                                <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodStatus" asp-for="ocorrencia.id_status">
+                                <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodStatus" asp-for="requisicao_ocorrencia.id_requisicao">
                                 <input type="text" class="form-control w-50" id="txtStatus">
                             </div>
 
                             <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                                 <span class="pt-1 pe-1">Usuário:</span>
-                                <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodUsu" asp-for="ocorrencia.id_usuario">
+                                <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodUsu" asp-for="requisicao_ocorrencia.id_usuario">
                                 <input type="text" class="form-control w-50" id="txtUsuario">
                             </div>
 
@@ -211,7 +212,7 @@
                                 Ocorrência
                             </div>
                             <div class="input-group mb-2 ps-1 pe-1 pt-2">
-                                <textarea class="form-control" id="floatingTextarea2" style="height: 300px" asp-for="ocorrencia.detalhe_ocorrencia"></textarea>
+                                <textarea class="form-control" id="floatingTextarea2" style="height: 300px" asp-for="requisicao_ocorrencia.detalhe_ocorrencia"></textarea>
                             </div>
                         </div>
                     </div>

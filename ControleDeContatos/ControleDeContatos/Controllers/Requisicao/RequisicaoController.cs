@@ -3,8 +3,9 @@ using ControleDeContatos.Helper;
 using ControleDeContatos.Models.Requisicao;
 using ControleDeContatos.Models.Usuario;
 using ControleDeContatos.Repositorio.Requisicao;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ControleDeContatos.Controllers.Requisicao
 {
@@ -130,25 +131,24 @@ namespace ControleDeContatos.Controllers.Requisicao
             }
         }
         [HttpPost]
-        public IActionResult EncaminharReq(OcorrenciaReqModel requisicao)
+        public IActionResult EncaminharReq(RequisicaoOcorrenciaModel registro)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _requisicaoRepositorio.EncaminharRequisicao(requisicao);
+                    _requisicaoRepositorio.EncaminharRequisicao(registro);
                     TempData["MensagemSucesso"] = $"Requisição encaminhada com sucesso!";
                     return RedirectToAction("Index");
                 }
-                TempData["MensgemErro"] = $"Erro ao encaminhar sua requisição, verifique os campos e tente novamente!";
+                TempData["MensgemErro"] = $"Erro ao encaminhar uma nova requisição, verifique os campos e tente novamente!";
                 return RedirectToAction("Index");
             }
             catch (Exception error)
             {
-                TempData["MensgemErro"] = $"Erro ao encaminhar sua requisição, detalhes do erro({error.Message})";
+                TempData["MensgemErro"] = $"Erro ao encaminhar a requisições, detalhes do erro({error.Message})";
                 return RedirectToAction("Index");
             }
         }
-        
     }
 }
