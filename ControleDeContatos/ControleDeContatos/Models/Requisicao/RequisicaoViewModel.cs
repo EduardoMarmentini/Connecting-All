@@ -16,6 +16,7 @@ namespace ControleDeContatos.Models.Requisicao
 
         public PrioridadeModel prioridade { get; set; }
 
-        public RequisicaoOcorrenciaModel requisicao_ocorrencia { get; set; }
+        public OcorrenciaReqModel ocorrencia { get; set; }
+
     }
 }

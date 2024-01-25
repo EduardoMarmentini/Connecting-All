@@ -187,7 +187,7 @@ namespace ControleDeContatos.Repositorio.Requisicao
             return requisicao;
         }
 
-        public RequisicaoOcorrenciaModel EncaminharRequisicao(RequisicaoOcorrenciaModel registro)
+        public OcorrenciaReqModel EncaminharRequisicao(OcorrenciaReqModel registro)
         {
             // Dentro desse metodo criamos um registro de encaminhamento da demanda onde contem uma ocorrencia sobre o motivo do encaminhamento da demanda;
 
@@ -202,7 +202,7 @@ namespace ControleDeContatos.Repositorio.Requisicao
 
             // Atualiza os dados
             _bancoContext.requisicoes.Update(requisicaoDB);
-            
+
             string log = $"Requisicao : ( {registro.id_requisicao} ) | Fila Usuario: ( {registro.id_usuario} ) | Status ( {registro.id_status} )";
 
             registro.data_ocorrencia = DateTime.Now;
@@ -214,7 +214,6 @@ namespace ControleDeContatos.Repositorio.Requisicao
 
             return registro;
         }
-
         // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 }
