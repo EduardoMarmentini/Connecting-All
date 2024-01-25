@@ -115,12 +115,11 @@
 
     // EXIBE OS MODAIS DA ROTINA DE REQUISICOES
     $("#btn-cria-req").click(() => {
-        $("#modalCriarReq").modal("toggle");
+        $("#modalCriarReq").modal("toggle")
     })
 
     $(document).on("click", "#btn-encaminhar-req", function () {
-        $("#modalEncaminiharReq").modal("toggle");
-        $("#hdnCodReq").val($("#btn-encaminhar-req").val());
+        $("#modalEncaminiharReq").modal("toggle")
     })
     // -----------------------------------------------------------------------------------
 
@@ -143,8 +142,8 @@
                     createAutocomplete(result);
 
                 }
-            });
-        };
+            })
+        }
     });
 
     // Função para criar e atualizar o Autocomplete
@@ -194,7 +193,7 @@
                     // Adicione linhas à tabela
                     requisicoes.forEach(function (result) {
                         let newRow = $("<tr>").appendTo(tbody);
-                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm' id='btn-encaminhar-req' value=" + result.id_requisicao + "> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
+                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm' id='btn-encaminhar-req'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
                         newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
                         newRow.append("<td class='text-center'>" + result.titulo_requisicao + "</td>");
                         newRow.append("<td style='background-color:" + result.color_status + "; color:black;' class='text-center'>" + result.descricao + "</td>");
@@ -260,7 +259,7 @@
                     // Adicione linhas à tabela
                     requisicoes.forEach(function (result) {
                         let newRow = $("<tr>").appendTo(tbody);
-                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm' id='btn-encaminhar-req' value=" + result.id_requisicao + "> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
+                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm' id='btn-encaminhar-req'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
                         newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
                         newRow.append("<td class='text-center'>" + result.titulo_requisicao + "</td>");
                         newRow.append("<td style='background-color:" + result.color_status + "; color:black;' class='text-center'>" + result.descricao + "</td>");

@@ -130,25 +130,5 @@ namespace ControleDeContatos.Controllers.Requisicao
                 return RedirectToAction("Index");
             }
         }
-        [HttpPost]
-        public IActionResult EncaminharReq(RequisicaoOcorrenciaModel registro)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    _requisicaoRepositorio.EncaminharRequisicao(registro);
-                    TempData["MensagemSucesso"] = $"Requisição encaminhada com sucesso!";
-                    return RedirectToAction("Index");
-                }
-                TempData["MensgemErro"] = $"Erro ao encaminhar uma nova requisição, verifique os campos e tente novamente!";
-                return RedirectToAction("Index");
-            }
-            catch (Exception error)
-            {
-                TempData["MensgemErro"] = $"Erro ao encaminhar a requisições, detalhes do erro({error.Message})";
-                return RedirectToAction("Index");
-            }
-        }
     }
 }
