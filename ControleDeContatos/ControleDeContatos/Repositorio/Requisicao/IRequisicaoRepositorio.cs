@@ -14,5 +14,7 @@ namespace ControleDeContatos.Repositorio.Requisicao
         // Metodos de alteração de adição/alteração de dados
         public RequisicaoModel CriarRequisicao(RequisicaoModel requisicao);
 
+        public RequisicaoOcorrenciaModel EncaminharRequisicao(RequisicaoOcorrenciaModel registro);
+
     }
 }

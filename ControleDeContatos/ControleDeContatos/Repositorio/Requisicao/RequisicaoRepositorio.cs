@@ -187,5 +187,34 @@ namespace ControleDeContatos.Repositorio.Requisicao
             return requisicao;
         }
 
+        public RequisicaoOcorrenciaModel EncaminharRequisicao(RequisicaoOcorrenciaModel registro)
+        {
+            // Dentro desse metodo criamos um registro de encaminhamento da demanda onde contem uma ocorrencia sobre o motivo do encaminhamento da demanda;
+
+            // Primeiro mandamos a demanda para a fila que desejamos com o status que ela se encontra.
+            RequisicaoModel requisicaoDB = _bancoContext.requisicoes.FirstOrDefault(req => req.id_requisicao == registro.id_requisicao);
+
+            if (requisicaoDB == null) throw new Exception("Houve um erro no encaminhamento da demanda");
+
+            // Atualiza o usuario e o status da requisicao
+            requisicaoDB.id_usuario = registro.id_usuario;
+            requisicaoDB.status = registro.id_status;
+
+            // Atualiza os dados
+            _bancoContext.requisicoes.Update(requisicaoDB);
+            
+            string log = $"Requisicao : ( {registro.id_requisicao} ) | Fila Usuario: ( {registro.id_usuario} ) | Status ( {registro.id_status} )";
+
+            registro.data_ocorrencia = DateTime.Now;
+            registro.log_ocorrencia = log;
+
+            _bancoContext.requisicao_ocorrencia.Add(registro);
+
+            _bancoContext.SaveChanges();
+
+            return registro;
+        }
+
+        // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 }
