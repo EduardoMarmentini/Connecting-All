@@ -135,6 +135,7 @@ namespace ControleDeContatos.Controllers.Requisicao
         {
             try
             {
+
                 if (ModelState.IsValid)
                 {
                     _requisicaoRepositorio.EncaminharRequisicao(registro);
@@ -150,5 +151,6 @@ namespace ControleDeContatos.Controllers.Requisicao
                 return RedirectToAction("Index");
             }
         }
+
     }
 }

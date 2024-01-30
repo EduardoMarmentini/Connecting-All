@@ -119,7 +119,7 @@
     })
 
     $(document).on("click", "#btn-encaminhar-req", function () {
-        $("#modalEncaminiharReq").modal("toggle");
+        $("#modalEncaminharReq").modal("toggle");
         $("#hdnCodReq").val($("#btn-encaminhar-req").val());
     })
     // -----------------------------------------------------------------------------------
