@@ -130,6 +130,7 @@ namespace ControleDeContatos.Controllers.Requisicao
                 return RedirectToAction("Index");
             }
         }
+
         [HttpPost]
         public IActionResult EncaminharReq(RequisicaoOcorrenciaModel registro)
         {

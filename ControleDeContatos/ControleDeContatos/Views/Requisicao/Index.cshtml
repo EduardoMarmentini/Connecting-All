@@ -190,17 +190,17 @@
                 <div class="modal-body">
                     <div class="d-flex w-responsive flex-row flex-wrap w-100">
 
-                        <input type="hidden" id="hdnCodReq" asp-for="requisicao_ocorrencia.id_requisicao"/>
+                        <input type="hidden" id="hdnCodReq" name="id_requisicao" asp-for="requisicao_ocorrencia.id_requisicao"/>
 
                         <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                             <span class="pt-1 pe-1">Status:</span>
-                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodStatus" asp-for="requisicao_ocorrencia.id_status">
+                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodStatus" name="id_status" asp-for="requisicao_ocorrencia.id_status">
                             <input type="text" class="form-control w-50" id="txtStatus">
                         </div>
 
                         <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                             <span class="pt-1 pe-1">Usuário:</span>
-                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodUsu" asp-for="requisicao_ocorrencia.id_usuario">
+                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodUsu" name="id_usuario" asp-for="requisicao_ocorrencia.id_usuario">
                             <input type="text" class="form-control w-50" id="txtUsuario">
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                             Ocorrência
                         </div>
                         <div class="input-group mb-2 ps-1 pe-1 pt-2">
-                            <textarea class="form-control" id="floatingTextarea2" style="height: 300px" asp-for="requisicao_ocorrencia.detalhe_ocorrencia"></textarea>
+                            <textarea class="form-control" id="floatingTextarea2" style="height: 300px" name="detalhe_ocorrencia" asp-for="requisicao_ocorrencia.detalhe_ocorrencia"></textarea>
                         </div>
                     </div>
                 </div>
