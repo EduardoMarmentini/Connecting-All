@@ -1,7 +1,7 @@
 ﻿using ControleDeContatos.Data;
 using ControleDeContatos.Models.Requisicao;
 using ControleDeContatos.Models.Usuario;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
 
 namespace ControleDeContatos.Repositorio.Requisicao
 {
@@ -29,17 +29,17 @@ namespace ControleDeContatos.Repositorio.Requisicao
                         })
                     .Join(
                         _bancoContext.Usuarios,
-                        requisicao => requisicao.requisicao.id_usuario,
+                        requisicao => requisicao.requisicao.id_usuario, 
                         usuario => usuario.Id,
                         (requisicao, usuario) => new RequisicaoViewModel
                         {
-                            requisicao = requisicao.requisicao,
+                            requisicao = requisicao.requisicao, // Aqui eu acesso o objeto RequisicaoViewModel e acesso o atributo requisicao que é uma instancia da model RequisicaoModel
                             statusReq = requisicao.statusReq,
                             usuario = usuario
                         })
                     .Join(
                         _bancoContext.Contatos,
-                        requisicao => requisicao.requisicao.id_cliente, // Aqui eu acesso o objeto RequisicaoViewModel e acesso o atributo requisicao que é uma instancia da model RequisicaoModel
+                        requisicao => requisicao.requisicao.id_cliente, 
                         cliente => cliente.Id,
                         (requisicao, cliente) => new RequisicaoViewModel
                         {
@@ -50,7 +50,7 @@ namespace ControleDeContatos.Repositorio.Requisicao
                         })
                     .Join(
                         _bancoContext.prioridade,
-                        requisicao => requisicao.requisicao.id_prioridade, // Aqui eu acesso o objeto RequisicaoViewModel e acesso o atributo requisicao que é uma instancia da model RequisicaoModel
+                        requisicao => requisicao.requisicao.id_prioridade, 
                         prioridade => prioridade.id_prioridade,
                         (requisicao, prioridade) => new RequisicaoViewModel
                         {
@@ -65,36 +65,42 @@ namespace ControleDeContatos.Repositorio.Requisicao
 
         public List<RequisicaoViewModel> BuscarRequisicaoPorFiltros(int id_requisicao, string titulo_requisicao, int id_usuario, int id_cliente, int id_estado_req)
         {
-
+            // Criar uma lista para salvar a query da consulta
             List<RequisicaoModel> query = _bancoContext.requisicoes.ToList();
 
+            // Caso informado busca pelo numero da requisicao
             if (id_requisicao != 0)
             {
                 query = query.Where(e => e.id_requisicao == id_requisicao).ToList();
             }
-
+            // Caso informado busca pela fila do usuario 
             if (id_usuario != 0)
             {
                 query = query.Where(e => e.id_usuario == id_usuario).ToList();
             }
 
+            // Caso informado busca pelo cliente que solicitou a requisicao
             if (id_cliente != 0)
             {
                 query = query.Where(e => e.id_cliente == id_cliente).ToList();
             }
 
+            // Caso for selecionado o estado da requisição
             if (id_estado_req != 0)
-            {
+            {   
+                // Busca todas as requisicoes que estao em aberto 
                 if (id_estado_req == 1)
                 {
                     query = query.Where(e => e.status != 12).ToList();
                 }
+                // Busca todas as requisicoes fechadas / concluidas
                 else
                 {
                     query = query.Where(e => e.status == 12).ToList();
                 }
             }
 
+            // Caso informado busca pelo titulo da requisicao
             if (!string.IsNullOrEmpty(titulo_requisicao))
             {
                 query = query.Where(e => e.titulo_requisicao.Contains(titulo_requisicao)).ToList();
@@ -156,10 +162,12 @@ namespace ControleDeContatos.Repositorio.Requisicao
 
 
         // ----------------------------------------------- Metodos de alteração de adição/alteração de dados ---------------------------------------------------------------------------------
-        public RequisicaoModel CriarRequisicao(RequisicaoModel requisicao)
+        public RequisicaoModel CriarRequisicao(CriarReqModel requisicao)
         {
+
             requisicao.data_cadastro = DateTime.Now;
 
+            // De acordo com o grau de prioridade posto pelo usuario ele seta a data de entrega da demanda
             switch (requisicao.id_prioridade)
             {
                 // Baixa prioridade
@@ -180,11 +188,46 @@ namespace ControleDeContatos.Repositorio.Requisicao
                     break;
             }
 
-            _bancoContext.requisicoes.Add(requisicao);
+            // Criar a varivale que guarda os valores da requisicao
+            RequisicaoModel new_requisicao = new RequisicaoModel
+            {
+                id_usuario = requisicao.id_usuario,
+                id_responsavel = requisicao.id_responsavel,
+                id_cliente = requisicao.id_cliente,
+                id_prioridade = requisicao.id_prioridade,
+                titulo_requisicao = requisicao.titulo_requisicao,
+                status = requisicao.status,
+                data_cadastro = requisicao.data_cadastro, 
+                data_entrega = requisicao.data_entrega,
+                data_conclusao = requisicao.data_entrega,
+                horas_trabalhadas = requisicao.horas_trabalhadas
+            };
+
+            // Salva a requisição no banco de dados
+            _bancoContext.requisicoes.Add(new_requisicao);
 
             _bancoContext.SaveChanges();
 
-            return requisicao;
+            // Busca a ultima requisicao criada que seria a que foi gerada acima e salva se  id 
+            requisicao.id_requisicao = _bancoContext.requisicoes.OrderByDescending(r => r.id_requisicao).Select(r => r.id_requisicao).FirstOrDefault();
+
+            // Cria a variavel que guarda os valores da ocorrencia 
+            RequisicaoOcorrenciaModel new_ocorrencia = new RequisicaoOcorrenciaModel
+            {
+                id_requisicao = requisicao.id_requisicao,
+                detalhe_ocorrencia = requisicao.detalhe_ocorrencia,
+                id_usuario = requisicao.id_usuario,
+                id_status = requisicao.status,
+                data_ocorrencia = requisicao.data_cadastro,
+                log_ocorrencia = $"Criada requisição : ( {new_requisicao.id_requisicao} ) | Fila Usuario: ( {requisicao.id_usuario} ) | Status ( {requisicao.status} )"
+            };
+
+            // Salva ele no banco de dados
+            _bancoContext.requisicao_ocorrencia.Add(new_ocorrencia);
+
+            _bancoContext.SaveChanges();
+
+            return new_requisicao;
         }
 
         public RequisicaoOcorrenciaModel EncaminharRequisicao(RequisicaoOcorrenciaModel registro)

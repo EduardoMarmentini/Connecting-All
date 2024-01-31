@@ -111,7 +111,7 @@ namespace ControleDeContatos.Controllers.Requisicao
 
         // --------------------------------------------------------------------- METODOS POST ----------------------------------------------------------
         [HttpPost]
-        public IActionResult CriarReq(RequisicaoModel requisicao)
+        public IActionResult CriarReq(CriarReqModel requisicao)
         {
             try
             {
@@ -126,7 +126,7 @@ namespace ControleDeContatos.Controllers.Requisicao
             }
             catch (Exception error)
             {
-                TempData["MensgemErro"] = $"Erro ao consultar suas requisições, detalhes do erro({error.Message})";
+                TempData["MensgemErro"] = $"Erro ao cadastrar suas requisições, detalhes do erro({error.Message})";
                 return RedirectToAction("Index");
             }
         }

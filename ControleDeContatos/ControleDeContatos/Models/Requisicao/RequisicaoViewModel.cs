@@ -7,6 +7,7 @@ namespace ControleDeContatos.Models.Requisicao
     {
 
         public RequisicaoModel requisicao { get; set; }
+        public CriarReqModel criar_req { get; set; }
         public StatusReqModel statusReq { get; set; }
         public ContatoModel cliente { get; set; }
         public UsuarioModel usuario { get; set; }

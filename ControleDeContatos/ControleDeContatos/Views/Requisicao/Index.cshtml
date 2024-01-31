@@ -127,45 +127,45 @@
 
                         <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                             <span class="pt-1 pe-1">Responsável:</span>
-                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodRes" asp-for="requisicao.id_responsavel">
+                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodRes" name="id_responsavel" asp-for="criar_req.id_responsavel">
                             <input type="text" class="form-control w-50" id="txtResponsavel">
 
                         </div>
 
                         <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                             <span class="pt-1 pe-1">Cliente:</span>
-                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodCliente" asp-for="requisicao.id_cliente">
+                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodCliente" name="id_cliente" asp-for="criar_req.id_cliente">
                             <input type="text" class="form-control w-50" id="txtCliente">
                         </div>
 
                         <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                             <span class="pt-1 pe-1">Prioridade:</span>
-                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodPrio" asp-for="requisicao.id_prioridade">
+                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodPrio" name="id_prioridade" asp-for="criar_req.id_prioridade">
                             <input type="text" class="form-control w-50" id="txtPrioridade">
                         </div>
 
                         <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                             <span class="pt-1 pe-1">Status:</span>
-                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodStatus" asp-for="requisicao.status">
+                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodStatus" name="status" asp-for="criar_req.status">
                             <input type="text" class="form-control w-50" id="txtStatus">
                         </div>
 
                         <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                             <span class="pt-1 pe-1">Usuário:</span>
-                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodUsu" asp-for="requisicao.id_usuario">
+                            <input type="text" class="form-control pe-2" style="width:60px;" id="txtCodUsu" name="id_usuario" asp-for="criar_req.id_usuario">
                             <input type="text" class="form-control w-50" id="txtUsuario">
                         </div>
                     </div>
                     <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                         <span class="pt-1 pe-1">Título:</span>
-                        <input type="text" class="form-control" id="txtTitulo" asp-for="requisicao.titulo_requisicao">
+                        <input type="text" class="form-control" id="txtTitulo" name="titulo_requisicao" asp-for="criar_req.titulo_requisicao">
                     </div>
                     <div class="card">
                         <div class="card-header">
                             Ocorrência
                         </div>
                         <div class="input-group mb-2 ps-1 pe-1 pt-2">
-                            <textarea class="form-control" id="floatingTextarea2" style="height: 300px"></textarea>
+                            <textarea class="form-control" id="floatingTextarea2" style="height: 300px" name="detalhe_ocorrencia" asp-for="criar_req.detalhe_ocorrencia"></textarea>
                         </div>
                     </div>
                 </div>

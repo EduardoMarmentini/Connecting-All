@@ -12,7 +12,7 @@ namespace ControleDeContatos.Repositorio.Requisicao
         public List<UsuarioModel> BuscaResponsavelPorNome(string txtSugestao);
 
         // Metodos de alteração de adição/alteração de dados
-        public RequisicaoModel CriarRequisicao(RequisicaoModel requisicao);
+        public RequisicaoModel CriarRequisicao(CriarReqModel requisicao);
 
         public RequisicaoOcorrenciaModel EncaminharRequisicao(RequisicaoOcorrenciaModel registro);
 
