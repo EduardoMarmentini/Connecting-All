@@ -160,6 +160,12 @@ namespace ControleDeContatos.Repositorio.Requisicao
             return _bancoContext.Usuarios.Where(u => u.Nome.Contains(txtSugestao)).ToList();
         }
 
+        public List<RequisicaoOcorrenciaModel> BuscarOcorrenciasPorReq(int id_requisicao)
+        {
+            return _bancoContext.requisicao_ocorrencia
+                .Where(r => r.id_requisicao == id_requisicao)
+                .ToList();
+        }
 
         // ----------------------------------------------- Metodos de alteração de adição/alteração de dados ---------------------------------------------------------------------------------
         public RequisicaoModel CriarRequisicao(CriarReqModel requisicao)

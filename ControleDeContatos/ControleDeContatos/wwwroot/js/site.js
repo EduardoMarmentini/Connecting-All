@@ -43,7 +43,7 @@
     $('#datepicker-end').datepicker({
         uiLibrary: 'bootstrap5'
     });
-    
+
     const inputFile = $("#picture_upload");
     const pictureImage = $(".exibe_foto");
     inputFile.change(function (e) {
@@ -84,7 +84,7 @@
         if ($('.txtPassword').attr('type') == "password") {
             $(".show-password").text("visibility_off")
             $(".txtPassword").prop("type", "text")
-            
+
         }
         else {
             $(".txtPassword").prop("type", "password")
@@ -120,7 +120,22 @@
 
     $(document).on("click", "#btn-encaminhar-req", function () {
         $("#modalEncaminharReq").modal("toggle");
-        $("#hdnCodReq").val($("#btn-encaminhar-req").val());
+        $("#hdnCodReq").val($("#btn-encaminhar-req").val()); // Seta o id da requisicao em um input hidden para ser trabalhado no metodo de encaminhar o status da demanda
+        $("#title-encaminhaReq").text("Nº: " + $("#btn-encaminhar-req").val() + " - " + $("#title-req").text()) // Seta o titulo do modal de encaminhamento com o id da demanda e seu titulo
+
+        // Busca todas as ocorrencias registradas na demanda selecionada
+        $.ajax({
+            type: "GET",
+            url: "/Requisicao/BuscarOcorrenciasPorReq",
+            dataType: "json",
+            data: {
+                id_requisicao: $("#btn-encaminhar-req").val()
+            },
+            success: function (result) {
+                console.log(result)
+
+            }
+        })
     })
     // -----------------------------------------------------------------------------------
 
@@ -196,7 +211,7 @@
                         let newRow = $("<tr>").appendTo(tbody);
                         newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm' id='btn-encaminhar-req' value=" + result.id_requisicao + "> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
                         newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
-                        newRow.append("<td class='text-center'>" + result.titulo_requisicao + "</td>");
+                        newRow.append("<td class='text-center' id='title-req'>" + result.titulo_requisicao + "</td>");
                         newRow.append("<td style='background-color:" + result.color_status + "; color:black;' class='text-center'>" + result.descricao + "</td>");
                         newRow.append("<td class='text-center'>" + result.cliente + "</td>");
                         newRow.append("<td class='text-center'>" + result.data_cadastro + "</td>");
@@ -215,7 +230,7 @@
                     $(".table-container").html("<p>Nenhuma requisição encontrada.</p>");
                 }
             },
-     
+
         });
     });
 
@@ -262,7 +277,7 @@
                         let newRow = $("<tr>").appendTo(tbody);
                         newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm' id='btn-encaminhar-req' value=" + result.id_requisicao + "> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
                         newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
-                        newRow.append("<td class='text-center'>" + result.titulo_requisicao + "</td>");
+                        newRow.append("<td class='text-center' id='title-req'>" + result.titulo_requisicao + "</td>");
                         newRow.append("<td style='background-color:" + result.color_status + "; color:black;' class='text-center'>" + result.descricao + "</td>");
                         newRow.append("<td class='text-center'>" + result.cliente + "</td>");
                         newRow.append("<td class='text-center'>" + result.data_cadastro + "</td>");

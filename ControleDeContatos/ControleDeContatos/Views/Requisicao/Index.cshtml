@@ -1,6 +1,6 @@
 ﻿@model ControleDeContatos.Models.Requisicao.RequisicaoViewModel
 @{
-    ViewData["Title"] = "Requisições do usuário";
+    ViewData["Title"] = "Requisições";
 }
 
 @if (TempData["MensagemSucesso"] != null)
@@ -17,7 +17,7 @@
 
 @if (TempData["MensgemErro"] != null)
 {
-    <br />  
+    <br />
     <div class="alert alert-danger mb-0 alert-dismissible fade show d-flex" id="alertExample" role="alert" data-mdb-color="secondary">
         <span class="material-symbols-outlined" style="padding-right:5px;">
             error
@@ -183,14 +183,14 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Encaminhar requisição</h5>
+                <h5 class="modal-title" id="title-encaminhaReq"></h5>
                 <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <form asp-controller="Requisicao" asp-action="EncaminharReq" method="post">
                 <div class="modal-body">
                     <div class="d-flex w-responsive flex-row flex-wrap w-100">
 
-                        <input type="hidden" id="hdnCodReq" name="id_requisicao" asp-for="requisicao_ocorrencia.id_requisicao"/>
+                        <input type="hidden" id="hdnCodReq" name="id_requisicao" asp-for="requisicao_ocorrencia.id_requisicao" />
 
                         <div class=" d-flex mb-2 ps-1 pe-1 pt-2">
                             <span class="pt-1 pe-1">Status:</span>
@@ -212,6 +212,8 @@
                         <div class="input-group mb-2 ps-1 pe-1 pt-2">
                             <textarea class="form-control" id="floatingTextarea2" style="height: 300px" name="detalhe_ocorrencia" asp-for="requisicao_ocorrencia.detalhe_ocorrencia"></textarea>
                         </div>
+                    </div>
+                    <div class="card" id="show-ocorrencias">
                     </div>
                 </div>
                 <div class="modal-footer">

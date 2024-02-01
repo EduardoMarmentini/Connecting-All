@@ -106,6 +106,15 @@ namespace ControleDeContatos.Controllers.Requisicao
 
             return Json(dataFormat);
         }
+
+        public IActionResult BuscarOcorrenciasPorReq(int id_requisicao)
+        {
+            List<RequisicaoOcorrenciaModel> result = _requisicaoRepositorio.BuscarOcorrenciasPorReq(id_requisicao);
+
+            var dataFormat = result;
+
+            return Json(dataFormat);
+        }
         // ---------------------------------------------------------------------------------------------------------------------------------------------
 
 
