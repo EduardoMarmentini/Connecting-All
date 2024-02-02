@@ -14,7 +14,7 @@ namespace ControleDeContatos.Repositorio.Requisicao
             _bancoContext = bancoContext;
         }
 
-        List<RequisicaoViewModel> IRequisicaoRepositorio.BuscarRequisicaoPorUsuario(int id_usuario_logado)
+        public List<RequisicaoViewModel> BuscarRequisicaoPorUsuario(int id_usuario_logado)
         {
             return _bancoContext.requisicoes
                     .Where(e => e.id_usuario == id_usuario_logado)
@@ -160,11 +160,30 @@ namespace ControleDeContatos.Repositorio.Requisicao
             return _bancoContext.Usuarios.Where(u => u.Nome.Contains(txtSugestao)).ToList();
         }
 
-        public List<RequisicaoOcorrenciaModel> BuscarOcorrenciasPorReq(int id_requisicao)
+        public List<RequisicaoViewModel> BuscarOcorrenciasPorReq(int id_requisicao)
         {
             return _bancoContext.requisicao_ocorrencia
-                .Where(r => r.id_requisicao == id_requisicao)
-                .ToList();
+                    .Where(ocorrencia => ocorrencia.id_requisicao == id_requisicao)
+                    .Join(
+                        _bancoContext.status_requisicao,
+                        ocorrencia => ocorrencia.id_status,
+                        status => status.id_status,
+                        (ocorrencia, status) => new RequisicaoViewModel
+                        {
+                            requisicao_ocorrencia = ocorrencia,
+                            statusReq = status
+                        })
+                    .Join(
+                        _bancoContext.Usuarios,
+                        ocorrencia => ocorrencia.requisicao_ocorrencia.id_usuario,
+                        usuario => usuario.Id,
+                        (ocorrencia, usuario) => new RequisicaoViewModel
+                        {
+                            requisicao_ocorrencia = ocorrencia.requisicao_ocorrencia,
+                            statusReq = ocorrencia.statusReq,
+                            usuario = usuario
+                        })
+                    .ToList();
         }
 
         // ----------------------------------------------- Metodos de alteração de adição/alteração de dados ---------------------------------------------------------------------------------

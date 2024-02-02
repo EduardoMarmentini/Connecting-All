@@ -188,7 +188,7 @@
             </div>
             <form asp-controller="Requisicao" asp-action="EncaminharReq" method="post">
                 <div class="modal-body">
-                    <div class="d-flex w-responsive flex-row flex-wrap w-100">
+                    <div class="d-flex w-responsive flex-row flex-wrap w-100 justify-content-center">
 
                         <input type="hidden" id="hdnCodReq" name="id_requisicao" asp-for="requisicao_ocorrencia.id_requisicao" />
 
@@ -205,7 +205,7 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card me-2 ms-2 mb-2">
                         <div class="card-header">
                             Ocorrência
                         </div>
@@ -213,7 +213,27 @@
                             <textarea class="form-control" id="floatingTextarea2" style="height: 300px" name="detalhe_ocorrencia" asp-for="requisicao_ocorrencia.detalhe_ocorrencia"></textarea>
                         </div>
                     </div>
+                    <br />
                     <div class="card" id="show-ocorrencias">
+                        <div class="card-header">
+                            Encaminhamentos
+                        </div>
+                        <div class="card me-1 ms-1 mb-1 mt-1">
+                            <div class="card-header d-flex justify-content-between">
+                                <p>De: Teste </p>
+                                <p>Para: Teste 2 </p>
+                                <p class="d-inline-flex">
+                                    Status: <span style="background-color:#A349A4;">AGUARDANDO</span> <span class="material-symbols-outlined "> arrow_right_alt </span> <span style="background-color:#00A2E8;">DESENVOLVIMENTO</span>
+                                </p>
+                                <p>Data: 01/01/2024</p>
+                                <p>Hora: 10:30:29</p>
+                                <p>Responsavel: Teste 3</p>
+                                <p>Cliente: Teste 4</p>
+                            </div>
+                            <div class="card-body">
+                                blablabalbabalbalablalbalbalb
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -118,25 +118,27 @@
         $("#modalCriarReq").modal("toggle");
     })
 
-    $(document).on("click", "#btn-encaminhar-req", function () {
-        $("#modalEncaminharReq").modal("toggle");
-        $("#hdnCodReq").val($("#btn-encaminhar-req").val()); // Seta o id da requisicao em um input hidden para ser trabalhado no metodo de encaminhar o status da demanda
-        $("#title-encaminhaReq").text("Nº: " + $("#btn-encaminhar-req").val() + " - " + $("#title-req").text()) // Seta o titulo do modal de encaminhamento com o id da demanda e seu titulo
+    $(document).on("click", ".btn-encaminhar-req", function () {
+        $("#modalEncaminharReq").modal("toggle"); // Chama o modal
 
+        $(".modal-body input, .modal-body textarea").val("") // Seta todos os campos como vazio
+        
+        $("#hdnCodReq").val($(this).data("id-requisicao")); // Seta o id da requisicao em um input hidden para ser trabalhado no metodo de encaminhar o status da demanda
+
+        $("#title-encaminhaReq").text("Atendimento Nº " + $(this).data("id-requisicao") + " - " + $(this).closest("tr").find("#title-req").text()) // Seta o titulo do modal de encaminhamento com o id da demanda e seu titulo
         // Busca todas as ocorrencias registradas na demanda selecionada
         $.ajax({
             type: "GET",
             url: "/Requisicao/BuscarOcorrenciasPorReq",
             dataType: "json",
             data: {
-                id_requisicao: $("#btn-encaminhar-req").val()
+                id_requisicao: $(this).data("id-requisicao")
             },
             success: function (result) {
                 console.log(result)
-
             }
         })
-    })
+    });
     // -----------------------------------------------------------------------------------
 
     // METODOS AJAX PARA BUSCA DE INFORMAÇÕES NO BACK-END DE FORMA ESPECIFICA
@@ -209,7 +211,7 @@
                     // Adicione linhas à tabela
                     requisicoes.forEach(function (result) {
                         let newRow = $("<tr>").appendTo(tbody);
-                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm' id='btn-encaminhar-req' value=" + result.id_requisicao + "> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
+                        newRow.append("<td class='text-center'><button class='btn btn-primary btn-sm btn-encaminhar-req' data-id-requisicao='" + result.id_requisicao + "'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
                         newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
                         newRow.append("<td class='text-center' id='title-req'>" + result.titulo_requisicao + "</td>");
                         newRow.append("<td style='background-color:" + result.color_status + "; color:black;' class='text-center'>" + result.descricao + "</td>");
@@ -275,7 +277,7 @@
                     // Adicione linhas à tabela
                     requisicoes.forEach(function (result) {
                         let newRow = $("<tr>").appendTo(tbody);
-                        newRow.append("<td class='text-center'> <button class='btn btn-primary btn-sm' id='btn-encaminhar-req' value=" + result.id_requisicao + "> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
+                        newRow.append("<td class='text-center'><button class='btn btn-primary btn-sm btn-encaminhar-req' data-id-requisicao='" + result.id_requisicao + "'> <span class='material-symbols-outlined'>prompt_suggestion</span> Encaminhar </button></td>");
                         newRow.append("<td class='text-center'>" + result.id_requisicao + "</td>");
                         newRow.append("<td class='text-center' id='title-req'>" + result.titulo_requisicao + "</td>");
                         newRow.append("<td style='background-color:" + result.color_status + "; color:black;' class='text-center'>" + result.descricao + "</td>");

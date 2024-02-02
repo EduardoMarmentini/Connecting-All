@@ -109,9 +109,15 @@ namespace ControleDeContatos.Controllers.Requisicao
 
         public IActionResult BuscarOcorrenciasPorReq(int id_requisicao)
         {
-            List<RequisicaoOcorrenciaModel> result = _requisicaoRepositorio.BuscarOcorrenciasPorReq(id_requisicao);
+            List<RequisicaoViewModel> result = _requisicaoRepositorio.BuscarOcorrenciasPorReq(id_requisicao);
 
-            var dataFormat = result;
+            var dataFormat = result.Select(r => new {
+                fila_usuario = Convert.ToString(r.usuario.Nome),
+                status = Convert.ToString(r.statusReq.descricao),
+                color = Convert.ToString(r.statusReq.color),
+                data_encaminhamento = r.requisicao_ocorrencia.data_ocorrencia.ToString("dd/MM/yyyy"),
+                ocorrencia  = Convert.ToString(r.requisicao_ocorrencia.detalhe_ocorrencia)
+            });
 
             return Json(dataFormat);
         }
