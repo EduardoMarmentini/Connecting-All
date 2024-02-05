@@ -154,12 +154,6 @@ namespace ControleDeContatos.Repositorio.Requisicao
             return result;
         }
 
-
-        public List<UsuarioModel> BuscaResponsavelPorNome(string txtSugestao)
-        {
-            return _bancoContext.Usuarios.Where(u => u.Nome.Contains(txtSugestao)).ToList();
-        }
-
         public List<RequisicaoViewModel> BuscarOcorrenciasPorReq(int id_requisicao)
         {
             return _bancoContext.requisicao_ocorrencia
@@ -183,8 +177,37 @@ namespace ControleDeContatos.Repositorio.Requisicao
                             statusReq = ocorrencia.statusReq,
                             usuario = usuario
                         })
+                    .Join(
+                        _bancoContext.requisicoes,
+                        ocorrencia => ocorrencia.requisicao_ocorrencia.id_requisicao,
+                        requisicao => requisicao.id_requisicao,
+                        (ocorrencia, requisicao) => new RequisicaoViewModel
+                        {
+                            requisicao_ocorrencia = ocorrencia.requisicao_ocorrencia,
+                            statusReq = ocorrencia.statusReq,
+                            usuario = ocorrencia.usuario,
+                            requisicao = requisicao
+                        })
+                    .Join(
+                        _bancoContext.Contatos,
+                        requisicao => requisicao.requisicao.id_cliente,
+                        cliente => cliente.Id,
+                        (ocorrencia, cliente) => new RequisicaoViewModel
+                        {
+                            requisicao_ocorrencia = ocorrencia.requisicao_ocorrencia,
+                            statusReq = ocorrencia.statusReq,
+                            usuario = ocorrencia.usuario,
+                            requisicao = ocorrencia.requisicao,
+                            cliente = cliente
+                        })
                     .ToList();
         }
+
+        public List<UsuarioModel> BuscaResponsavelPorNome(string txtSugestao)
+        {
+            return _bancoContext.Usuarios.Where(u => u.Nome.Contains(txtSugestao)).ToList();
+        }
+
 
         // ----------------------------------------------- Metodos de alteração de adição/alteração de dados ---------------------------------------------------------------------------------
         public RequisicaoModel CriarRequisicao(CriarReqModel requisicao)

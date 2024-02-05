@@ -123,6 +123,8 @@
 
         $(".modal-body input, .modal-body textarea").val("") // Seta todos os campos como vazio
         
+        $("#container-ocorrencias").empty(); // Limpar o conteúdo do container-ocorrencias
+        
         $("#hdnCodReq").val($(this).data("id-requisicao")); // Seta o id da requisicao em um input hidden para ser trabalhado no metodo de encaminhar o status da demanda
 
         $("#title-encaminhaReq").text("Atendimento Nº " + $(this).data("id-requisicao") + " - " + $(this).closest("tr").find("#title-req").text()) // Seta o titulo do modal de encaminhamento com o id da demanda e seu titulo
@@ -136,6 +138,33 @@
             },
             success: function (result) {
                 console.log(result)
+                if (result && result.length > 0) {
+                    result.forEach(function (ocorrencia) {
+                        const newComponent =`
+                            <div class="card me-1 ms-1 mb-1 mt-1">
+                                <div class="card-header">
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <p>Para: ${ocorrencia.fila_usuario} </p>
+                                        <p>
+                                            Status: <span class="p-2" style="background-color: ${ocorrencia.color}; border-radius: 8px;"> ${ocorrencia.status}</span>
+                                        </p>
+                                        <p>Data: ${ocorrencia.data_encaminhamento}</p>
+                                        <p>Hora: ${ocorrencia.hora_encaminhamento}</p>
+                                        <p>Responsavel: ${ocorrencia.responsavel}</p>
+                                        <p>Cliente: ${ocorrencia.cliente}</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    ${ocorrencia.ocorrencia}
+                                </div>
+                            </div>
+                        `;
+                        $("#container-ocorrencias").append(newComponent);
+                    });
+                }
+                else {
+                    $("#container-ocorrencias").html("<p>Nenhum encaminhamento registrado para está demanda.</p>")
+                }
             }
         })
     });

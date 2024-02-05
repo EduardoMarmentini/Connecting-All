@@ -11,6 +11,6 @@ namespace ControleDeContatos.Models.Requisicao
         public required int id_usuario { get; set; }
         public required int id_status { get; set; }
         public DateTime data_ocorrencia { get; set; }
-        public string log_ocorrencia { get; set; }
+        public string? log_ocorrencia { get; set; }
     }
 }

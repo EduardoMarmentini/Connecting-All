@@ -116,6 +116,9 @@ namespace ControleDeContatos.Controllers.Requisicao
                 status = Convert.ToString(r.statusReq.descricao),
                 color = Convert.ToString(r.statusReq.color),
                 data_encaminhamento = r.requisicao_ocorrencia.data_ocorrencia.ToString("dd/MM/yyyy"),
+                hora_encaminhamento = r.requisicao_ocorrencia.data_ocorrencia.ToString("HH:mm:ss"),
+                responsavel = Convert.ToString(r.usuario.Nome),
+                cliente = Convert.ToString(r.cliente.Nome),
                 ocorrencia  = Convert.ToString(r.requisicao_ocorrencia.detalhe_ocorrencia)
             });
 
