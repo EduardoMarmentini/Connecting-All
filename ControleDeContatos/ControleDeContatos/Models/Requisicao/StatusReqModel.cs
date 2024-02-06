@@ -6,9 +6,8 @@ namespace ControleDeContatos.Models.Requisicao
     {
         [Key]
         public int id_status { get; set; }
-
         public required string descricao { get; set; }
-
         public required string color { get; set; }
+        public required string contabiliza_horas {  get; set; } 
     }
 }

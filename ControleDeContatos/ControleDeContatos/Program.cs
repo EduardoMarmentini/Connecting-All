@@ -34,6 +34,8 @@ namespace ControleDeContatos
             builder.Services.AddScoped<IPhotoRepositorio, PhotoRepositorio>();
             builder.Services.AddScoped<ISessao, Sessao>();
             builder.Services.AddScoped<IEnviaEmail, EnviaEmail>();
+            builder.Services.AddScoped<ICalculaHoraTrabalhada, CalculaHoraTrabalhada>();
+            builder.Services.AddScoped<IValidator, Validator>();
 
             // Seta a criação dos Cookies de sessão do usuario
             builder.Services.AddSession(o =>

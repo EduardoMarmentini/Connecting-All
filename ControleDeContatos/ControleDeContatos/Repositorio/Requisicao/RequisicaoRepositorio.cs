@@ -1,4 +1,5 @@
 ﻿using ControleDeContatos.Data;
+using ControleDeContatos.Helper;
 using ControleDeContatos.Models.Requisicao;
 using ControleDeContatos.Models.Usuario;
 
@@ -8,10 +9,13 @@ namespace ControleDeContatos.Repositorio.Requisicao
     public class RequisicaoRepositorio : IRequisicaoRepositorio
     {
         private readonly BancoContext _bancoContext;
+        private readonly ICalculaHoraTrabalhada _calculaHoras;
 
-        public RequisicaoRepositorio(BancoContext bancoContext)
+        public RequisicaoRepositorio(BancoContext bancoContext, ICalculaHoraTrabalhada calculaHora)
         {
             _bancoContext = bancoContext;
+            _calculaHoras = calculaHora;
+            
         }
 
         public List<RequisicaoViewModel> BuscarRequisicaoPorUsuario(int id_usuario_logado)
@@ -282,23 +286,36 @@ namespace ControleDeContatos.Repositorio.Requisicao
         {
             // Dentro desse metodo criamos um registro de encaminhamento da demanda onde contem uma ocorrencia sobre o motivo do encaminhamento da demanda;
 
-            // Primeiro mandamos a demanda para a fila que desejamos com o status que ela se encontra.
+            // Primeiro consultamos a requisicao no banco para saber se a mesma existe
             RequisicaoModel requisicaoDB = _bancoContext.requisicoes.FirstOrDefault(req => req.id_requisicao == registro.id_requisicao);
 
+            // Caso não exista ele retorna para a tela com uma mensagem de erro
             if (requisicaoDB == null) throw new Exception("Houve um erro no encaminhamento da demanda");
+
+            // Calcula as horas gastas na demanda desde sua ultima ocorrencia com status de contabilizacao
+            TimeSpan horasDedicadas = _calculaHoras.CalculaHoraTrabalhada(registro.id_requisicao);
 
             // Atualiza o usuario e o status da requisicao
             requisicaoDB.id_usuario = registro.id_usuario;
             requisicaoDB.status = registro.id_status;
+            
+            // Caso o valor retornado pelo calculo seja maior que zero ele realiza a soma dentro das horas trabalhadas na demanda
+            if(horasDedicadas != TimeSpan.Zero)
+            {
+                requisicaoDB.horas_trabalhadas = requisicaoDB.horas_trabalhadas.Add(horasDedicadas);    
+            }
 
-            // Atualiza os dados
+            // Atualiza os da requisicao, mandando a mesma para a fila desejada e com o status que queremos passar
             _bancoContext.requisicoes.Update(requisicaoDB);
             
+            // Seguimos para o registro de log do encaminhamento 
             string log = $"Requisicao : ( {registro.id_requisicao} ) | Fila Usuario: ( {registro.id_usuario} ) | Status ( {registro.id_status} )";
 
+            // A data que ocorreu o encaminhamento 
             registro.data_ocorrencia = DateTime.Now;
             registro.log_ocorrencia = log;
 
+            // E salvamos coms os dados que precisamos dentro das ocorrencias
             _bancoContext.requisicao_ocorrencia.Add(registro);
 
             _bancoContext.SaveChanges();
