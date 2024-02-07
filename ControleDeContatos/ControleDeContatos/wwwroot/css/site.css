@@ -364,3 +364,8 @@ body {
 .grey-dark {
     background-color: #424242 !important;
 }
+
+.container-ocorrencias {
+    height: 300px; /* Defina a altura desejada para a div */
+    overflow-y: auto; /* Adiciona um scroll vertical quando necessário */
+}
