@@ -2,11 +2,9 @@
     // Cria função que vincula a tabela que ira receber os metodos da datatable de paginação e busca nas tabelas das view
     function getDataTable(id_table) {
         $(id_table).DataTable({
-            responsive: true,
-            "ordering": true,
             "paging": true,
+            "scrollX": true,
             "searching": true,
-            resize: true,
             "oLanguage": {
                 "sEmptyTable": "Nenhum registro encontrado na tabela",
                 "sInfo": "Mostrar _START_ até _END_ de _TOTAL_ registros",
@@ -115,6 +113,7 @@
 
     // EXIBE OS MODAIS DA ROTINA DE REQUISICOES
     $("#btn-cria-req").click(() => {
+        $(".modal-body input, .modal-body textarea").val("") // Seta todos os campos como vazio
         $("#modalCriarReq").modal("toggle");
     })
 
@@ -186,23 +185,16 @@
                 },
                 success: function (result) {
                     // Criação do Autocomplete e inserção dos valores
-                    createAutocomplete(result);
-
+                    createAutocomplete($("#txtResponsavel"), result);
                 }
             });
         };
     });
 
     // Função para criar e atualizar o Autocomplete
-    function createAutocomplete(suggestions) {
+    function createAutocomplete( input, data) {
         $("#txtResponsavel").autocomplete({
-            source: suggestions.map(function (item) {
-                return { label: item.Nome, value: item.Id };
-            }),
-            select: function (event, ui) {
-                // Ação a ser realizada quando o usuário selecionar uma sugestão
-                console.log("Selecionado: " + ui.item.value);
-            }
+            source: data
         });
     }
 
