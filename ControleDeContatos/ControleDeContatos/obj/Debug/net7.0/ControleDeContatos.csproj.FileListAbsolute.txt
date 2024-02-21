@@ -144,7 +144,6 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\Cont
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\scopedcss\bundle\ControleDeContatos.styles.css
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\scopedcss\projectbundle\ControleDeContatos.bundle.scp.css
-C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\ControleDeContatos.csproj.CopyComplete
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\ControleDeContatos.dll
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\refint\ControleDeContatos.dll
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\ControleDeContatos.pdb
@@ -152,3 +151,4 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\Cont
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\ref\ControleDeContatos.dll
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\scopedcss\Views\Shared\_LayoutDeslogado.cshtml.rz.scp.css
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\Controle.6EBC8F93.Up2Date
