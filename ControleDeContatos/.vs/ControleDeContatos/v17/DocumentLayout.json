@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{648083A9-6143-4348-ACCE-511583E9C66D}|ControleDeContatos\\ControleDeContatos.csproj|c:\\users\\eduar\\onedrive\\documentos\\github\\connecting-all\\controledecontatos\\controledecontatos\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{648083A9-6143-4348-ACCE-511583E9C66D}|ControleDeContatos\\ControleDeContatos.csproj|solutionrelative:controledecontatos\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{648083A9-6143-4348-ACCE-511583E9C66D}|ControleDeContatos\\ControleDeContatos.csproj|c:\\users\\eduar\\onedrive\\documentos\\github\\connecting-all\\controledecontatos\\controledecontatos\\views\\chat\\chat_privado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648083A9-6143-4348-ACCE-511583E9C66D}|ControleDeContatos\\ControleDeContatos.csproj|solutionrelative:controledecontatos\\views\\chat\\chat_privado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{648083A9-6143-4348-ACCE-511583E9C66D}|ControleDeContatos\\ControleDeContatos.csproj|c:\\users\\eduar\\onedrive\\documentos\\github\\connecting-all\\controledecontatos\\controledecontatos\\views\\requisicao\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648083A9-6143-4348-ACCE-511583E9C66D}|ControleDeContatos\\ControleDeContatos.csproj|solutionrelative:controledecontatos\\views\\requisicao\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{648083A9-6143-4348-ACCE-511583E9C66D}|ControleDeContatos\\ControleDeContatos.csproj|c:\\users\\eduar\\onedrive\\documentos\\github\\connecting-all\\controledecontatos\\controledecontatos\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{648083A9-6143-4348-ACCE-511583E9C66D}|ControleDeContatos\\ControleDeContatos.csproj|solutionrelative:controledecontatos\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{648083A9-6143-4348-ACCE-511583E9C66D}|ControleDeContatos\\ControleDeContatos.csproj|c:\\users\\eduar\\onedrive\\documentos\\github\\connecting-all\\controledecontatos\\controledecontatos\\views\\chat\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{648083A9-6143-4348-ACCE-511583E9C66D}|ControleDeContatos\\ControleDeContatos.csproj|solutionrelative:controledecontatos\\views\\chat\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,50 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "ControleDeContatos\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "ControleDeContatos\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-21T23:00:07.742Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "site.js",
-              "DocumentMoniker": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\wwwroot\\js\\site.js",
-              "RelativeDocumentMoniker": "ControleDeContatos\\wwwroot\\js\\site.js",
-              "ToolTip": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\wwwroot\\js\\site.js",
-              "RelativeToolTip": "ControleDeContatos\\wwwroot\\js\\site.js",
-              "ViewState": "AQIAAKcAAAAAAAAAAAAAwMIAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-02-07T18:16:59.159Z",
+              "Title": "Chat_Privado.cshtml",
+              "DocumentMoniker": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\Views\\Chat\\Chat_Privado.cshtml",
+              "RelativeDocumentMoniker": "ControleDeContatos\\Views\\Chat\\Chat_Privado.cshtml",
+              "ToolTip": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\Views\\Chat\\Chat_Privado.cshtml",
+              "RelativeToolTip": "ControleDeContatos\\Views\\Chat\\Chat_Privado.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-08T17:31:43.105Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\Views\\Requisicao\\Index.cshtml",
-              "RelativeDocumentMoniker": "ControleDeContatos\\Views\\Requisicao\\Index.cshtml",
-              "ToolTip": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\Views\\Requisicao\\Index.cshtml",
-              "RelativeToolTip": "ControleDeContatos\\Views\\Requisicao\\Index.cshtml",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAAALIAAAAGAAAA",
+              "DocumentMoniker": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\Views\\Chat\\Index.cshtml",
+              "RelativeDocumentMoniker": "ControleDeContatos\\Views\\Chat\\Index.cshtml",
+              "ToolTip": "C:\\Users\\eduar\\OneDrive\\Documentos\\GitHub\\Connecting-All\\ControleDeContatos\\ControleDeContatos\\Views\\Chat\\Index.cshtml",
+              "RelativeToolTip": "ControleDeContatos\\Views\\Chat\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-12T18:37:28.317Z",
+              "WhenOpened": "2024-03-08T17:31:10.21Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }

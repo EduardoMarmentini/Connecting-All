@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/eduar/OneDrive/Documentos/GitHub/Connecting-All/ControleDeContatos/ControleDeContatos/Views/Chat/Chat_Privado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxDaGF0X1ByaXZhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eduar/OneDrive/Documentos/GitHub/Connecting-All/ControleDeContatos/ControleDeContatos/Views/Chat/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/eduar/OneDrive/Documentos/GitHub/Connecting-All/ControleDeContatos/ControleDeContatos/Views/Contato/Apagar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGF0b1xBcGFnYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

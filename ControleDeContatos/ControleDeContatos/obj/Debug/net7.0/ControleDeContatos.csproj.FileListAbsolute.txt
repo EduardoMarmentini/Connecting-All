@@ -152,3 +152,7 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\Cont
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\scopedcss\Views\Shared\_LayoutDeslogado.cshtml.rz.scp.css
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\obj\Debug\net7.0\Controle.6EBC8F93.Up2Date
+C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\bin\Debug\net7.0\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\bin\Debug\net7.0\Microsoft.Owin.dll
+C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\bin\Debug\net7.0\Microsoft.Owin.Security.dll
+C:\Users\eduar\OneDrive\Documentos\GitHub\Connecting-All\ControleDeContatos\ControleDeContatos\bin\Debug\net7.0\Owin.dll

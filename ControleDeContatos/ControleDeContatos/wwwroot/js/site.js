@@ -105,9 +105,11 @@
 
     $('#burger').on('change', function () {
         if ($(this).prop('checked')) {
-            $(".sidebar").animate({ left: "0px" }, 300);
-        } else {
             $(".sidebar").animate({ left: "-250px" }, 300);
+            console.log("marcado")
+        } else {
+            $(".sidebar").animate({ left: "0px" }, 300);
+            console.log("desmarcado")
         }
     });
 
